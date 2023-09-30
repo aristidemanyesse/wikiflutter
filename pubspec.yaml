@@ -43,6 +43,13 @@ dependencies:
   adaptive_theme: ^3.4.0
   google_fonts: ^6.1.0
   sliding_switch: ^1.1.0
+  fl_chart: ^0.63.0
+  convex_bottom_bar: ^3.2.0
+  icons_plus: ^4.0.0
+  palette_generator: ^0.3.3+3
+  drop_shadow_image: ^0.9.1
+  delayed_display: ^2.0.0
+  simple_shadow: ^0.3.1
 
 dev_dependencies:
   flutter_test:
