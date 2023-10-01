@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:icons_plus/icons_plus.dart';
 import 'package:wikibet/components/league_page_sections/facts_section.dart';
 import 'package:wikibet/components/league_page_sections/general_section.dart';
 import 'package:wikibet/components/league_page_sections/historiques_section.dart';
@@ -35,7 +34,7 @@ class _LeaguePageState extends State<LeaguePage> {
               title: Container(
                 child: Row(
                   children: [
-                    MyLogo(
+                    const MyLogo(
                       path: "assets/images/logo.png",
                       height: 40,
                       width: 40,
@@ -47,7 +46,7 @@ class _LeaguePageState extends State<LeaguePage> {
                         child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           "Union Sportive de Saint Galloise",
                           style: AppTextStyle.titleMedium,
                           textAlign: TextAlign.center,
@@ -55,7 +54,7 @@ class _LeaguePageState extends State<LeaguePage> {
                         SizedBox(
                           height: AppConstante.DISTANCE / 4,
                         ),
-                        Text(
+                        const Text(
                           "2020 - 2021",
                           style: AppTextStyle.body,
                           textAlign: TextAlign.center,
@@ -75,13 +74,13 @@ class _LeaguePageState extends State<LeaguePage> {
                 ],
               ),
             ),
-            SliverFillRemaining(
+            const SliverFillRemaining(
               child: TabBarView(
                 children: [
-                  const GeneralSection(),
-                  const HistoriquesSection(),
-                  const FactsSection(),
-                  const OtherStatsSection(),
+                  GeneralSection(),
+                  HistoriquesSection(),
+                  FactsSection(),
+                  OtherStatsSection(),
                 ],
               ),
             ),

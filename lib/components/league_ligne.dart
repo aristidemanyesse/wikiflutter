@@ -15,7 +15,7 @@ class LeagueLigne extends StatelessWidget {
       margin: EdgeInsets.only(bottom: AppConstante.DISTANCE / 4),
       child: GestureDetector(
         onTap: () {
-          Get.to(LeaguePage());
+          Get.to(const LeaguePage());
         },
         child: Card(
           child: Container(

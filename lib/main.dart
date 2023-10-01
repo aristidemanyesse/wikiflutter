@@ -2,7 +2,7 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:wikibet/pages/ossatureApp.dart';
+import 'package:wikibet/pages/ossature_app.dart';
 
 void main() {
   runApp(const MyApp());

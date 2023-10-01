@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
 import 'package:wikibet/components/logo_markers.dart';
-import 'package:wikibet/pages/league_page.dart';
 import 'package:wikibet/tools/tools.dart';
 
 class PronosticLigne extends StatelessWidget {

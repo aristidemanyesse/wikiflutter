@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:sliding_switch/sliding_switch.dart';
 import 'package:wikibet/components/logo_markers.dart';
-import 'package:wikibet/components/pronostic_ligne.dart';
 import 'package:wikibet/tools/tools.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -40,7 +39,7 @@ class SettingsPage extends StatelessWidget {
                           SizedBox(
                             width: AppConstante.DISTANCE / 2,
                           ),
-                          Expanded(
+                          const Expanded(
                             child: Text(
                               "Text(String data, {Key? key, TextStyle? TextAlign? textAlign, Terecool? softWrap, TextOverflow? )",
                               style: AppTextStyle.body,
@@ -52,12 +51,12 @@ class SettingsPage extends StatelessWidget {
                       Container(
                         child: ElevatedButton(
                             onPressed: () {},
-                            child: Text("Se connecter par mail")),
+                            child: const Text("Se connecter par mail")),
                       ),
                       SizedBox(
                         height: AppConstante.DISTANCE / 2,
                       ),
-                      Text(
+                      const Text(
                         "ou ",
                         style: AppTextStyle.titleMedium,
                       ),
@@ -104,8 +103,8 @@ class SettingsPage extends StatelessWidget {
                     ]),
               ),
             ),
-            Spacer(),
-            Center(
+            const Spacer(),
+            const Center(
               child: DelayedDisplay(
                 fadingDuration: Duration(seconds: 1),
                 child: MyLogo(
@@ -115,14 +114,14 @@ class SettingsPage extends StatelessWidget {
                 ),
               ),
             ),
-            Spacer(),
+            const Spacer(),
             Container(
               padding: EdgeInsets.all(AppConstante.DISTANCE / 2),
               child: SingleChildScrollView(
                 child: Column(
                   children: [
                     GestureDetector(
-                      child: Text(
+                      child: const Text(
                         "J'ai des suggestions",
                         style: AppTextStyle.titleMedium,
                       ),
@@ -131,7 +130,7 @@ class SettingsPage extends StatelessWidget {
                       height: AppConstante.DISTANCE,
                     ),
                     GestureDetector(
-                      child: Text(
+                      child: const Text(
                         "Nous faire un don",
                         style: AppTextStyle.titleMedium,
                       ),
@@ -140,7 +139,7 @@ class SettingsPage extends StatelessWidget {
                       height: AppConstante.DISTANCE,
                     ),
                     GestureDetector(
-                      child: Text(
+                      child: const Text(
                         "A propos de wikibet",
                         style: AppTextStyle.titleMedium,
                       ),
@@ -149,7 +148,7 @@ class SettingsPage extends StatelessWidget {
                 ),
               ),
             ),
-            Spacer(),
+            const Spacer(),
             Center(
               child: SlidingSwitch(
                 value: false,
@@ -172,8 +171,8 @@ class SettingsPage extends StatelessWidget {
                 inactiveColor: const Color(0xff636f7b),
               ),
             ),
-            Spacer(),
-            Row(
+            const Spacer(),
+            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(

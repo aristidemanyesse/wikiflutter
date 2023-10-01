@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:wikibet/components/logo_markers.dart';
 import 'package:wikibet/components/other_stat_bloc.dart';
 import 'package:wikibet/tools/tools.dart';
 
@@ -14,9 +13,9 @@ class OtherStatsSection extends StatelessWidget {
       padding: EdgeInsets.symmetric(
         horizontal: AppConstante.DISTANCE,
       ),
-      child: Column(
+      child: const Column(
         children: [
-          const Expanded(
+          Expanded(
             child: SingleChildScrollView(
               child: Column(
                 children: [

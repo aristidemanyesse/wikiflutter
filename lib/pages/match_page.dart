@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:icons_plus/icons_plus.dart';
-import 'package:sliding_switch/sliding_switch.dart';
 import 'package:wikibet/components/logo_markers.dart';
 import 'package:wikibet/components/match_page_sections/facts_section.dart';
 import 'package:wikibet/components/match_page_sections/general_section.dart';
@@ -112,7 +110,7 @@ class _MatchPageState extends State<MatchPage> {
                         Row(
                           children: [
                             Container(
-                              child: Column(children: [
+                              child: const Column(children: [
                                 MyLogo(
                                   path: "assets/images/logo.png",
                                   height: 40,
@@ -132,7 +130,7 @@ class _MatchPageState extends State<MatchPage> {
                                       minHeight: AppConstante.DISTANCE / 2,
                                       value: 0.7,
                                     ),
-                                    Row(
+                                    const Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: [
@@ -151,7 +149,7 @@ class _MatchPageState extends State<MatchPage> {
                               ),
                             ),
                             Container(
-                              child: Column(children: [
+                              child: const Column(children: [
                                 MyLogo(
                                   path: "assets/images/logo.png",
                                   height: 40,
@@ -162,7 +160,7 @@ class _MatchPageState extends State<MatchPage> {
                             )
                           ],
                         ),
-                        Text("nklk"),
+                        const Text("nklk"),
                       ],
                     ),
                   )

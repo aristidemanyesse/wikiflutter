@@ -23,7 +23,7 @@ class PronosticsDayPage extends StatelessWidget {
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         "Pronostics du jour ",
                         style: AppTextStyle.titleLarge,
                       ),
@@ -40,7 +40,7 @@ class PronosticsDayPage extends StatelessWidget {
                           SizedBox(
                             width: AppConstante.DISTANCE / 3,
                           ),
-                          Text(
+                          const Text(
                             "22 décembre 2023",
                             style: AppTextStyle.body,
                           ),
@@ -51,7 +51,7 @@ class PronosticsDayPage extends StatelessWidget {
             ),
             Container(
               padding: EdgeInsets.all(AppConstante.DISTANCE / 2),
-              child: SingleChildScrollView(
+              child: const SingleChildScrollView(
                 child: Column(
                   children: [
                     PronosticLigne(),
