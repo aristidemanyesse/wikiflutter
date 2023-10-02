@@ -15,8 +15,6 @@ class OthersGoalsStatsTableCard extends StatelessWidget {
             child: DataTable(
               horizontalMargin: 0,
               columnSpacing: 0,
-              headingRowColor: MaterialStateColor.resolveWith(
-                  (states) => (Colors.blueAccent)),
               columns: [
                 DataColumn(
                     label: SizedBox(

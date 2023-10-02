@@ -11,46 +11,96 @@ class PronosticsDayPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Container(
+          width: double.infinity,
+          child: Row(
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Pronostics du jour",
+                    style: AppTextStyle.titleMedium,
+                  ),
+                  Text(
+                    "10 pronostics",
+                    style: AppTextStyle.body,
+                  )
+                ],
+              ),
+            ],
+          ),
+        ),
+        actions: [
+          IconButton(
+              onPressed: () {},
+              icon: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Opacity(
+                    opacity: 0.2,
+                    child: Icon(
+                      Icons.calendar_month,
+                      size: AppConstante.DISTANCE * 2,
+                    ),
+                  ),
+                  const Text(
+                    "23",
+                    style: AppTextStyle.titleMedium,
+                  )
+                ],
+              ))
+        ],
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [
+            AppConstante.grenn1.withOpacity(0.5),
+            AppConstante.primaryBlue.withOpacity(0.5)
+          ])),
+        ),
+      ),
       body: SafeArea(
         child: Column(
           children: [
-            Card(
-              elevation: 2,
-              child: Container(
-                height: Get.size.height / 5,
-                width: double.infinity,
-                decoration: BoxDecoration(color: AppConstante.background2),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        "Pronostics du jour ",
-                        style: AppTextStyle.titleLarge,
-                      ),
-                      SizedBox(
-                        height: AppConstante.DISTANCE / 2,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.calendar_today,
-                            size: AppConstante.DISTANCE * 2 / 3,
-                          ),
-                          SizedBox(
-                            width: AppConstante.DISTANCE / 3,
-                          ),
-                          const Text(
-                            "22 décembre 2023",
-                            style: AppTextStyle.body,
-                          ),
-                        ],
-                      )
-                    ]),
-              ),
+            Container(
+              height: Get.size.height / 4,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(colors: [
+                AppConstante.grenn1.withOpacity(0.5),
+                AppConstante.primaryBlue.withOpacity(0.5)
+              ])),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Pronostics du jour ",
+                      style: AppTextStyle.titleLarge,
+                    ),
+                    SizedBox(
+                      height: AppConstante.DISTANCE / 2,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.calendar_today,
+                          size: AppConstante.DISTANCE * 2 / 3,
+                        ),
+                        SizedBox(
+                          width: AppConstante.DISTANCE / 3,
+                        ),
+                        const Text(
+                          "22 décembre 2023",
+                          style: AppTextStyle.body,
+                        ),
+                      ],
+                    )
+                  ]),
             ),
             Container(
-              padding: EdgeInsets.all(AppConstante.DISTANCE / 2),
+              padding: EdgeInsets.all(AppConstante.DISTANCE / 4),
               child: const SingleChildScrollView(
                 child: Column(
                   children: [

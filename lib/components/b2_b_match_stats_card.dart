@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wikibet/tools/tools.dart';
 
 class B2BMatchStatsCard extends StatelessWidget {
   const B2BMatchStatsCard({
@@ -16,8 +17,6 @@ class B2BMatchStatsCard extends StatelessWidget {
               columnSpacing: 3,
               horizontalMargin: 15,
               dividerThickness: 0.0,
-              headingRowColor: MaterialStateColor.resolveWith(
-                  (states) => (Colors.blueAccent)),
               columns: [
                 DataColumn(
                   label: Center(
@@ -34,7 +33,7 @@ class B2BMatchStatsCard extends StatelessWidget {
                   child: Center(
                     child: Text(
                       "VS",
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: AppTextStyle.titleMedium,
                     ),
                   ),
                 )),
@@ -96,7 +95,7 @@ class LigneB2B {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(title),
+            Text(title, style: AppTextStyle.bodygras),
           ],
         ),
       ))),

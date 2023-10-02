@@ -4,13 +4,13 @@ class AppConstante {
   static double DISTANCE = 20;
 
   static Color primaryBlue = const Color(0xFF283475);
+  static Color secondaryBlue = const Color(0xFF098FE9);
   static Color background = const Color(0xFF373F49);
   static Color background2 = const Color(0xFFE9EFE9);
   static Color orange = const Color(0xFFDE882B);
   static Color grenn1 = const Color(0xFF0E929A);
   static Color grenn2 = const Color(0xFF73B927);
   static Color grenn3 = const Color(0x0ff67c17);
-  static Color secondaryBlue = const Color(0xFF098FE9);
 }
 
 class AppTextStyle {

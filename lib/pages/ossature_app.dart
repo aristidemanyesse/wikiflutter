@@ -1,9 +1,11 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:wikibet/pages/leagues_page.dart';
 import 'package:wikibet/pages/matchs_page.dart';
 import 'package:wikibet/pages/pronostics_day_page.dart';
 import 'package:wikibet/pages/settings_page.dart';
+import 'package:wikibet/pages/test.dart';
 import 'package:wikibet/tools/tools.dart';
 
 class OssatureApp extends StatefulWidget {
@@ -30,6 +32,7 @@ class _OssatureAppState extends State<OssatureApp> {
               LeaguesPage(),
               PronosticsDayPage(),
               SettingsPage(),
+              TextPage()
             ],
           ),
           bottomNavigationBar: ConvexAppBar(
@@ -40,6 +43,7 @@ class _OssatureAppState extends State<OssatureApp> {
               TabItem(icon: Icons.home, title: 'Home'),
               TabItem(icon: Icons.map, title: 'Discovery'),
               TabItem(icon: Icons.add, title: 'Add'),
+              TabItem(icon: Icons.message, title: 'Message'),
               TabItem(icon: Icons.message, title: 'Message'),
             ],
             onTap: (int i) => print('click index=$i'),

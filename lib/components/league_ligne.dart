@@ -12,14 +12,13 @@ class LeagueLigne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: AppConstante.DISTANCE / 4),
       child: GestureDetector(
         onTap: () {
           Get.to(const LeaguePage());
         },
         child: Card(
           child: Container(
-            padding: EdgeInsets.all(AppConstante.DISTANCE / 3),
+            padding: EdgeInsets.all(AppConstante.DISTANCE / 2),
             child: const Row(children: [
               MyLogo(
                 path: "assets/images/logo.png",

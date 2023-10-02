@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wikibet/components/latest_team_form.dart';
+import 'package:wikibet/tools/tools.dart';
 
 class MatchTeamsrankingCard extends StatelessWidget {
   const MatchTeamsrankingCard({
@@ -17,38 +19,31 @@ class MatchTeamsrankingCard extends StatelessWidget {
               columnSpacing: 17,
               horizontalMargin: 10,
               headingRowHeight: 40,
-              headingRowColor: MaterialStateColor.resolveWith(
-                  (states) => (Theme.of(context).primaryColorDark)),
               columns: const [
-                DataColumn(
-                    label: Text(
-                  "#",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                )),
+                DataColumn(label: Text("#", style: AppTextStyle.titleSmall)),
                 DataColumn(
                     label: Text(
                   "Team",
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: AppTextStyle.titleSmall,
                 )),
                 DataColumn(
-                    label: Text("Forme",
-                        style: TextStyle(fontWeight: FontWeight.bold))),
+                    label: Text("Forme", style: AppTextStyle.titleSmall)),
                 DataColumn(
                     label: Center(
-                        child: Text("Elo",
-                            style: TextStyle(fontWeight: FontWeight.bold)))),
+                        child: Text("Elo", style: AppTextStyle.titleSmall))),
                 DataColumn(
                     label: Center(
-                        child: Text("PPG",
-                            style: TextStyle(fontWeight: FontWeight.bold)))),
+                        child: Text("PPG", style: AppTextStyle.titleSmall))),
                 DataColumn(
                     label: Center(
-                        child: Text("Pts",
-                            style: TextStyle(fontWeight: FontWeight.bold)))),
+                        child: Text("Pts", style: AppTextStyle.titleSmall))),
               ],
               rows: [
                 DataRow(cells: [
-                  const DataCell(Text("1")),
+                  const DataCell(Text(
+                    "1",
+                    style: AppTextStyle.body,
+                  )),
                   DataCell(
                     Image.asset(
                       "assets/images/logo.png",
@@ -56,77 +51,35 @@ class MatchTeamsrankingCard extends StatelessWidget {
                       width: 30,
                     ),
                   ),
-                  DataCell(Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.grey,
-                            borderRadius: BorderRadius.circular(15)),
-                        height: 4,
-                        width: 13,
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.green,
-                            borderRadius: BorderRadius.circular(15)),
-                        height: 4,
-                        width: 13,
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.green,
-                            borderRadius: BorderRadius.circular(15)),
-                        height: 4,
-                        width: 13,
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.green,
-                            borderRadius: BorderRadius.circular(15)),
-                        height: 4,
-                        width: 13,
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.circular(15)),
-                        height: 4,
-                        width: 13,
-                      ),
-                    ],
-                  )),
+                  DataCell(LatestTeamForm()),
                   DataCell(Container(
                     margin: const EdgeInsets.only(right: 10),
-                    padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 5),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 7, vertical: 5),
                     decoration: BoxDecoration(
                         color: Colors.grey[350],
                         borderRadius: BorderRadius.circular(5)),
-                    child: const Text("1234",
-                        style: TextStyle(
-                            fontSize: 12, fontWeight: FontWeight.w500)),
+                    child: const Text(
+                      "1234",
+                      style: AppTextStyle.body,
+                    ),
                   )),
                   DataCell(Container(
                     margin: const EdgeInsets.only(right: 10),
-                    padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 5),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 7, vertical: 5),
                     decoration: BoxDecoration(
                         color: Colors.blueAccent,
                         borderRadius: BorderRadius.circular(5)),
-                    child: const Text("2,54",
-                        style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500)),
+                    child: const Text(
+                      "2,54",
+                      style: AppTextStyle.body,
+                    ),
                   )),
-                  const DataCell(Text("45")),
-                ]),
-                const DataRow(cells: [
-                  DataCell(Text("34")),
-                  DataCell(Text("45")),
-                  DataCell(Text("45")),
-                  DataCell(Text("45")),
-                  DataCell(Text("45")),
-                  DataCell(Text("45")),
+                  const DataCell(Text(
+                    "45",
+                    style: AppTextStyle.body,
+                  )),
                 ]),
               ],
             )),
