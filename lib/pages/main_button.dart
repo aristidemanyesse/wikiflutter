@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:simple_shadow/simple_shadow.dart';
+import 'package:wikibet/pages/ossature_app.dart';
+import 'package:wikibet/tools/tools.dart';
 
 class MainButton extends StatelessWidget {
   const MainButton({
@@ -8,27 +11,31 @@ class MainButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SimpleShadow(
-      opacity: 0.7, // Default: 0.5
-      color: Colors.blue, // Default: Black
-      offset: const Offset(5, 5), // Default: Offset(2, 2)
-      sigma: 10,
-      child: ElevatedButton(
-        onPressed: () {},
-        style: ElevatedButton.styleFrom(
-          // Couleur de base du bouton
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.0),
-            side: const BorderSide(color: Color(0xFF373E49)), // Bordure du bouton
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(30.0),
+      child: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                colors: [AppConstante.primaryBlue, AppConstante.grenn1])),
+        child: ElevatedButton(
+          onPressed: () {
+            Get.to(OssatureApp());
+          },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.transparent,
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30.0),
+              side: const BorderSide(
+                  color: Colors.blueAccent), // Bordure du bouton
+            ),
           ),
-          elevation: 10, // Contrôle de l'ombre du bouton
+          child: const Text(
+            'Nouveau départ',
+            style: AppTextStyle.titleMedium,
+          ),
         ),
-        child: Text(
-          'Mon Bouton 3D',
-          style: Theme.of(context).textTheme.titleSmall,
-        ),
-      ), // Default: 2
+      ),
     );
   }
 }

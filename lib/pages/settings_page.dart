@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:sliding_switch/sliding_switch.dart';
 import 'package:wikibet/components/logo_markers.dart';
+import 'package:wikibet/pages/main_button.dart';
 import 'package:wikibet/tools/tools.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -21,8 +22,8 @@ class SettingsPage extends StatelessWidget {
               padding: EdgeInsets.all(AppConstante.DISTANCE),
               decoration: BoxDecoration(
                   gradient: LinearGradient(colors: [
-                AppConstante.grenn1.withOpacity(0.5),
-                AppConstante.primaryBlue.withOpacity(0.5)
+                AppConstante.primaryBlue.withOpacity(0.7),
+                AppConstante.grenn1.withOpacity(0.7)
               ])),
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -52,29 +53,13 @@ class SettingsPage extends StatelessWidget {
                     SizedBox(
                       height: AppConstante.DISTANCE / 2,
                     ),
-                    ClipRRect(
-                      borderRadius:
-                          BorderRadius.circular(AppConstante.DISTANCE * 3),
-                      child: Container(
-                        height: AppConstante.DISTANCE * 2.5,
-                        child: ElevatedButton(
-                            onPressed: () {},
-                            child: Container(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: AppConstante.DISTANCE * 2,
-                                    vertical: AppConstante.DISTANCE / 1.5),
-                                child: const Text(
-                                  "Se connecter par mail",
-                                  style: AppTextStyle.titleSmall,
-                                ))),
-                      ),
-                    ),
+                    MainButton(),
                     SizedBox(
                       height: AppConstante.DISTANCE / 2,
                     ),
                     Row(
                       children: [
-                        Expanded(
+                        const Expanded(
                           child: Divider(
                             height: 1,
                           ),
@@ -87,7 +72,7 @@ class SettingsPage extends StatelessWidget {
                             style: AppTextStyle.titleMedium,
                           ),
                         ),
-                        Expanded(
+                        const Expanded(
                           child: Divider(
                             height: 1,
                           ),

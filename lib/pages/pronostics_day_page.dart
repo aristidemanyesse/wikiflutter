@@ -12,7 +12,7 @@ class PronosticsDayPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Container(
+        title: const SizedBox(
           width: double.infinity,
           child: Row(
             children: [
@@ -39,15 +39,19 @@ class PronosticsDayPage extends StatelessWidget {
                 alignment: Alignment.center,
                 children: [
                   Opacity(
-                    opacity: 0.2,
+                    opacity: 0.7,
                     child: Icon(
-                      Icons.calendar_month,
-                      size: AppConstante.DISTANCE * 2,
+                      Icons.calendar_today_outlined,
+                      size: AppConstante.DISTANCE * 1.7,
                     ),
                   ),
-                  const Text(
-                    "23",
-                    style: AppTextStyle.titleMedium,
+                  const Positioned(
+                    top: 13,
+                    left: 8.5,
+                    child: Text(
+                      "23",
+                      style: AppTextStyle.titleSmall,
+                    ),
                   )
                 ],
               ))

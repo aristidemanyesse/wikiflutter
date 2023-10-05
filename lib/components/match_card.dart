@@ -14,7 +14,7 @@ class MatchCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.to(const MatchPage());
+        Get.to(MatchPage());
       },
       child: Card(
         child: Container(
@@ -93,7 +93,7 @@ class MatchCard extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: List.generate(12, (index) {
-                    return PredictionTip();
+                    return const PredictionTip();
                   }),
                 ),
               ),

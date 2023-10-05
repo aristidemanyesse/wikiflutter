@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:wikibet/components/logo_markers.dart';
@@ -30,7 +29,7 @@ class AlertConfirm extends StatelessWidget {
                     AppConstante.grenn1.withOpacity(0.5),
                     AppConstante.primaryBlue.withOpacity(0.5),
                   ])),
-                  child: Row(
+                  child: const Row(
                     children: [
                       MyLogo(
                         path: "assets/images/logo.png",
@@ -66,19 +65,19 @@ class AlertConfirm extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Divider(),
+                      const Divider(),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           TextButton(
                               onPressed: () {},
-                              child: Text(
+                              child: const Text(
                                 "OUI",
                                 style: AppTextStyle.titleMedium,
                               )),
                           TextButton(
                               onPressed: () {},
-                              child: Text(
+                              child: const Text(
                                 "NON",
                                 style: AppTextStyle.titleMedium,
                               ))

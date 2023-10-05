@@ -1,16 +1,5 @@
-import 'dart:ui';
-
-import 'package:blur/blur.dart';
-import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
-import 'package:icons_plus/icons_plus.dart';
-import 'package:sliding_switch/sliding_switch.dart';
-import 'package:wikibet/components/background_blur.dart';
-import 'package:wikibet/components/logo_markers.dart';
-import 'package:wikibet/pages/alert_confirm.dart';
-import 'package:wikibet/pages/please_wait.dart';
-import 'package:wikibet/tools/tools.dart';
+import 'dart:math';
 
 class TextPage extends StatefulWidget {
   const TextPage({super.key});
@@ -21,83 +10,91 @@ class TextPage extends StatefulWidget {
 
 class _TextPageState extends State<TextPage> {
   @override
-  void initState() {
-    super.initState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: CustomScrollView(
+          slivers: <Widget>[
+            SliverPersistentHeader(
+              pinned: true,
+              delegate: _SliverAppBarDelegate(),
+            ),
+            const SliverFillRemaining(
+              child: Column(
+                children: <Widget>[
+                  Text('Text'),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
+  double scrollAnimationValue(double shrinkOffset) {
+    double maxScrollAllowed = maxExtent - minExtent;
+    return ((maxScrollAllowed - shrinkOffset) / maxScrollAllowed)
+        .clamp(0, 1)
+        .toDouble();
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          BackgroundBlur(),
-          Column(
-            children: [
-              Center(
-                child: Container(
-                  margin: EdgeInsets.all(AppConstante.DISTANCE * 2),
-                  child: ClipRRect(
-                    borderRadius:
-                        BorderRadius.circular(AppConstante.DISTANCE * 2),
-                    child: Container(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Container(
-                            height: Get.size.height / 4,
-                            width: double.infinity,
-                            padding: EdgeInsets.symmetric(
-                                horizontal: AppConstante.DISTANCE / 2),
-                            child: Stack(
-                              alignment: AlignmentDirectional.center,
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                      gradient: LinearGradient(colors: [
-                                    AppConstante.grenn1.withOpacity(0.5),
-                                    AppConstante.primaryBlue.withOpacity(0.5),
-                                  ])),
-                                ),
-                                MyLogo(
-                                  path: "assets/images/logo.png",
-                                  height: 200,
-                                  width: 200,
-                                ).frosted(),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.white.withOpacity(0.5),
-                                  ),
-                                  width: Get.size.width,
-                                ),
-                                Text(
-                                  "Veuillez patienter...",
-                                  style: AppTextStyle.titleMedium,
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.15),
-                            ),
-                            width: Get.size.width,
-                            child: Container(
-                              padding: EdgeInsets.all(AppConstante.DISTANCE),
-                              child: Center(
-                                child: LinearProgressIndicator(),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+  Widget build(
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
+    final double visibleMainHeight = max(maxExtent - shrinkOffset, minExtent);
+    final double animationVal = scrollAnimationValue(shrinkOffset);
+    return SizedBox(
+      height: visibleMainHeight,
+      width: MediaQuery.of(context).size.width,
+      child: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          Container(color: Colors.blue),
+          Opacity(
+              opacity: animationVal,
+              child: Image.network(
+                "https://picsum.photos/500/500",
+                fit: BoxFit.cover,
+              )),
+          Positioned(
+            bottom: 0.0,
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                children: <Widget>[
+                  Expanded(
+                    flex: (animationVal * 100).toInt(),
+                    child: Container(),
                   ),
-                ),
-              )
-            ],
-          ),
+                  const Text("Lorem Ipsum Dolar Sit"),
+                  Expanded(
+                    flex: 100,
+                    child: Container(),
+                  )
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );
+  }
+
+  @override
+  double get maxExtent => 300.0;
+
+  @override
+  double get minExtent => 56.0;
+
+  @override
+  bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
+    return true;
   }
 }

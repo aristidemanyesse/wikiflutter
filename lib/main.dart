@@ -1,9 +1,8 @@
-import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:wikibet/pages/ossature_app.dart';
+import 'package:wikibet/pages/spashscreen_page.dart';
 import 'package:wikibet/tools/tools.dart';
 
 void main() {
@@ -18,11 +17,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Adaptive Theme Demo',
-      theme: ThemeData(primarySwatch: Colors.indigo),
+      theme: ThemeData(
+          primarySwatch: Colors.indigo,
+          scaffoldBackgroundColor: AppConstante.background2),
       darkTheme: ThemeData.dark(useMaterial3: true).copyWith(
           primaryColor: AppConstante.grenn2,
           scaffoldBackgroundColor: AppConstante.background),
-      home: const OssatureApp(),
+      home: SplashScreenPage(),
+      // home: const OssatureApp(),
     );
   }
 }

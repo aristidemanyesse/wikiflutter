@@ -51,7 +51,7 @@ class MatchTeamsrankingCard extends StatelessWidget {
                       width: 30,
                     ),
                   ),
-                  DataCell(LatestTeamForm()),
+                  const DataCell(LatestTeamForm()),
                   DataCell(Container(
                     margin: const EdgeInsets.only(right: 10),
                     padding:

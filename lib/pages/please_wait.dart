@@ -29,7 +29,7 @@ class PleaseWait extends StatelessWidget {
                     AppConstante.grenn1.withOpacity(0.5),
                     AppConstante.primaryBlue.withOpacity(0.5),
                   ])),
-                  child: Row(
+                  child: const Row(
                     children: [
                       MyLogo(
                         path: "assets/images/logo.png",
@@ -54,7 +54,7 @@ class PleaseWait extends StatelessWidget {
                   width: Get.size.width,
                   child: Container(
                     padding: EdgeInsets.all(AppConstante.DISTANCE),
-                    child: Center(
+                    child: const Center(
                       child: LinearProgressIndicator(),
                     ),
                   ),

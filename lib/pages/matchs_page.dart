@@ -1,4 +1,3 @@
-import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:wikibet/components/background_blur.dart';
 import 'package:wikibet/components/logo_markers.dart';
@@ -40,19 +39,27 @@ class _MatchsPageState extends State<MatchsPage> {
                 alignment: Alignment.center,
                 children: [
                   Opacity(
-                    opacity: 0.2,
+                    opacity: 0.7,
                     child: Icon(
-                      Icons.calendar_month,
-                      size: AppConstante.DISTANCE * 2,
+                      Icons.calendar_today_outlined,
+                      size: AppConstante.DISTANCE * 1.5,
                     ),
                   ),
-                  const Text(
-                    "23",
-                    style: AppTextStyle.titleMedium,
+                  const Positioned(
+                    top: 12,
+                    left: 8.5,
+                    child: Text(
+                      "23",
+                      style: AppTextStyle.bodygras,
+                    ),
                   )
                 ],
               )),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.search,
+              )),
         ],
         title:
             const Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
@@ -73,7 +80,7 @@ class _MatchsPageState extends State<MatchsPage> {
       ),
       body: Stack(
         children: [
-          BackgroundBlur(),
+          const BackgroundBlur(),
           Container(
             height: double.infinity,
             width: double.infinity,

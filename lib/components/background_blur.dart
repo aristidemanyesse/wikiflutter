@@ -14,7 +14,7 @@ class BackgroundBlur extends StatelessWidget {
         children: [
           Opacity(
             opacity: 0.5,
-            child: Container(
+            child: SizedBox(
               height: Get.size.height,
               width: Get.size.width,
               child: Image.asset(
@@ -29,7 +29,7 @@ class BackgroundBlur extends StatelessWidget {
             ),
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 70, sigmaY: 70),
-              child: Container(
+              child: SizedBox(
                 height: Get.size.height,
                 width: Get.size.width,
               ),

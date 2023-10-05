@@ -20,7 +20,7 @@ class LeaguesPage extends StatelessWidget {
             AppConstante.primaryBlue.withOpacity(0.5)
           ])),
         ),
-        title: Container(
+        title: const SizedBox(
           width: double.infinity,
           child: Column(
             children: [
@@ -38,7 +38,7 @@ class LeaguesPage extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          BackgroundBlur(),
+          const BackgroundBlur(),
           SafeArea(
             child: Container(
               padding: EdgeInsets.all(AppConstante.DISTANCE / 4),

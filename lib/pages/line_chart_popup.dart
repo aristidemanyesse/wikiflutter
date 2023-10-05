@@ -1,14 +1,17 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
+import 'package:wikibet/components/logo_markers.dart';
+import 'package:wikibet/tools/tools.dart';
 
-class TextPage extends StatefulWidget {
-  const TextPage({super.key});
+class LineChartPopup extends StatefulWidget {
+  const LineChartPopup({super.key});
 
   @override
-  State<TextPage> createState() => _TextPageState();
+  State<LineChartPopup> createState() => _LineChartPopupState();
 }
 
-class _TextPageState extends State<TextPage> {
+class _LineChartPopupState extends State<LineChartPopup> {
   List<Color> gradientColors = [
     Colors.cyan,
     Colors.blue,
@@ -18,22 +21,103 @@ class _TextPageState extends State<TextPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Container(
-          child: AspectRatio(
-            aspectRatio: 1.70,
-            child: Padding(
-              padding: const EdgeInsets.only(
-                right: 18,
-                left: 12,
-                top: 24,
-                bottom: 12,
+    return Center(
+      child: Container(
+        width: double.infinity,
+        padding: EdgeInsets.all(AppConstante.DISTANCE / 3),
+        margin: EdgeInsets.symmetric(horizontal: AppConstante.DISTANCE / 4),
+        child: Card(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(
+                height: AppConstante.DISTANCE / 2,
               ),
-              child: LineChart(
-                mainData(),
+              Container(
+                padding:
+                    EdgeInsets.symmetric(horizontal: AppConstante.DISTANCE / 2),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        "Statistiques des corners sur les 10 derniers matchs",
+                        style: AppTextStyle.titleMedium,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
+              SizedBox(
+                height: AppConstante.DISTANCE / 3,
+              ),
+              Container(
+                margin:
+                    EdgeInsets.symmetric(horizontal: AppConstante.DISTANCE / 2),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Expanded(
+                      child: Row(
+                        children: [
+                          const MyLogo(
+                            path: "assets/images/logo.png",
+                            height: 30,
+                            width: 30,
+                          ),
+                          SizedBox(
+                            width: AppConstante.DISTANCE / 2,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                                color: Colors.green,
+                                borderRadius: BorderRadius.circular(15)),
+                            height: 4,
+                            width: 50,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      child: Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                color: Colors.green,
+                                borderRadius: BorderRadius.circular(15)),
+                            height: 4,
+                            width: 50,
+                          ),
+                          SizedBox(
+                            width: AppConstante.DISTANCE / 2,
+                          ),
+                          const MyLogo(
+                            path: "assets/images/logo.png",
+                            height: 30,
+                            width: 30,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                child: AspectRatio(
+                  aspectRatio: 1.70,
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      right: 18,
+                      top: 10,
+                    ),
+                    child: LineChart(
+                      mainData(),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
