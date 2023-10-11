@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:sliding_switch/sliding_switch.dart';
 import 'package:wikibet/components/logo_markers.dart';
-import 'package:wikibet/pages/main_button.dart';
+import 'package:wikibet/components/main_button.dart';
 import 'package:wikibet/tools/tools.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -26,102 +26,103 @@ class SettingsPage extends StatelessWidget {
                 AppConstante.grenn1.withOpacity(0.7)
               ])),
               child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(100),
-                          child: Container(
-                            height: AppConstante.DISTANCE * 4,
-                            width: AppConstante.DISTANCE * 4,
-                            color: AppConstante.background,
-                          ),
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(100),
+                        child: Container(
+                          height: AppConstante.DISTANCE * 4,
+                          width: AppConstante.DISTANCE * 4,
+                          color: AppConstante.background,
                         ),
-                        SizedBox(
-                          width: AppConstante.DISTANCE / 2,
+                      ),
+                      SizedBox(
+                        width: AppConstante.DISTANCE,
+                      ),
+                      Expanded(
+                        child: Text(
+                          "Crée ton compte, connectes-toi et profite de toute la puissance de WIKIBET.\nRejoins la communauté !",
+                          style: AppTextStyle.titleSmall.copyWith(height: 1.5),
+                          textAlign: TextAlign.left,
                         ),
-                        const Expanded(
-                          child: Text(
-                            "Text(String data, {Key? ke? textAlign, Terecool? softWrap, TextOverflow? )",
-                            style: AppTextStyle.titleSmall,
-                            textAlign: TextAlign.left,
-                          ),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: AppConstante.DISTANCE / 2,
-                    ),
-                    MainButton(),
-                    SizedBox(
-                      height: AppConstante.DISTANCE / 2,
-                    ),
-                    Row(
-                      children: [
-                        const Expanded(
-                          child: Divider(
-                            height: 1,
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.symmetric(
-                              horizontal: AppConstante.DISTANCE),
-                          child: const Text(
-                            "ou ",
-                            style: AppTextStyle.titleMedium,
-                          ),
-                        ),
-                        const Expanded(
-                          child: Divider(
-                            height: 1,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: AppConstante.DISTANCE / 2,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        GestureDetector(
-                            onTap: () {},
-                            child: Center(
-                                child: Icon(
-                              Icons.facebook,
-                              size: AppConstante.DISTANCE * 2,
-                            ))),
-                        GestureDetector(
-                            onTap: () {},
-                            child: Center(
-                                child: Icon(
-                              Icons.facebook,
-                              size: AppConstante.DISTANCE * 2,
-                            ))),
-                        GestureDetector(
-                            onTap: () {},
-                            child: Center(
-                                child: Icon(
-                              Icons.facebook,
-                              size: AppConstante.DISTANCE * 2,
-                            ))),
-                        GestureDetector(
-                          onTap: () {},
-                          child: Center(
-                              child: Icon(
-                            Icons.facebook,
-                            size: AppConstante.DISTANCE * 2,
-                          )),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: AppConstante.DISTANCE / 2,
-                    ),
-                  ]),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: AppConstante.DISTANCE,
+                  ),
+                  const MainButton(title: "Je me connectes maintenant !"),
+                ],
+              ),
             ),
-            const Spacer(),
+            SizedBox(
+              height: AppConstante.DISTANCE / 2,
+            ),
+            Row(
+              children: [
+                const Expanded(
+                  child: Divider(
+                    height: 1,
+                  ),
+                ),
+                Container(
+                  margin:
+                      EdgeInsets.symmetric(horizontal: AppConstante.DISTANCE),
+                  child: Text(
+                    "ou  ",
+                    style:
+                        AppTextStyle.titleMedium.copyWith(color: Colors.grey),
+                  ),
+                ),
+                const Expanded(
+                  child: Divider(
+                    height: 1,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: AppConstante.DISTANCE / 2,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                GestureDetector(
+                    onTap: () {},
+                    child: Center(
+                        child: Icon(
+                      Icons.facebook,
+                      size: AppConstante.DISTANCE * 2.5,
+                    ))),
+                GestureDetector(
+                    onTap: () {},
+                    child: Center(
+                        child: Icon(
+                      Icons.facebook,
+                      size: AppConstante.DISTANCE * 2.5,
+                    ))),
+                GestureDetector(
+                    onTap: () {},
+                    child: Center(
+                        child: Icon(
+                      Icons.facebook,
+                      size: AppConstante.DISTANCE * 2.5,
+                    ))),
+                GestureDetector(
+                  onTap: () {},
+                  child: Center(
+                      child: Icon(
+                    Icons.facebook,
+                    size: AppConstante.DISTANCE * 2.5,
+                  )),
+                ),
+              ],
+            ),
+            const Spacer(
+              flex: 2,
+            ),
             const Center(
               child: DelayedDisplay(
                 fadingDuration: Duration(seconds: 1),
@@ -158,7 +159,7 @@ class SettingsPage extends StatelessWidget {
                     ),
                     GestureDetector(
                       child: const Text(
-                        "A propos de wikibet",
+                        "A propos de WIKIBET",
                         style: AppTextStyle.titleMedium,
                       ),
                     ),
@@ -185,7 +186,7 @@ class SettingsPage extends StatelessWidget {
                 textOff: "Clair",
                 textOn: "Sombre",
                 contentSize: 17,
-                colorOn: const Color(0xffdc6c73),
+                colorOn: AppConstante.grenn1,
                 colorOff: const Color(0xff6682c0),
                 background: const Color(0xffe4e5eb),
                 buttonColor: const Color(0xfff7f5f7),
@@ -197,13 +198,13 @@ class SettingsPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "copyright wikibet 2023",
+                  "copyright © WIKIBET 2023",
                   style: AppTextStyle.body,
                 )
               ],
             ),
             SizedBox(
-              height: AppConstante.DISTANCE,
+              height: AppConstante.DISTANCE / 2,
             )
           ],
         ),

@@ -14,7 +14,7 @@ class OtherStatsSection extends StatelessWidget {
         vertical: AppConstante.DISTANCE / 2,
         horizontal: AppConstante.DISTANCE / 3,
       ),
-      child: Column(
+      child: const Column(
         children: [
           OtherStatBloc(),
           OtherStatBloc(),

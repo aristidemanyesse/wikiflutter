@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wikibet/tools/tools.dart';
 
 class PredictionTip extends StatelessWidget {
   const PredictionTip({
@@ -8,7 +9,7 @@ class PredictionTip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(right: 10),
+      margin: EdgeInsets.only(right: AppConstante.DISTANCE / 5),
       child: Card(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 7),

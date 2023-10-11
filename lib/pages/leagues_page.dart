@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:wikibet/components/background_blur.dart';
 import 'package:wikibet/components/league_ligne.dart';
 import 'package:wikibet/tools/tools.dart';
 
@@ -36,34 +35,31 @@ class LeaguesPage extends StatelessWidget {
           ),
         ),
       ),
-      body: Stack(
-        children: [
-          const BackgroundBlur(),
-          SafeArea(
-            child: Container(
-              padding: EdgeInsets.all(AppConstante.DISTANCE / 4),
-              child: const SingleChildScrollView(
-                child: Column(
-                  children: [
-                    LeagueLigne(),
-                    LeagueLigne(),
-                    LeagueLigne(),
-                    LeagueLigne(),
-                    LeagueLigne(),
-                    LeagueLigne(),
-                    LeagueLigne(),
-                    LeagueLigne(),
-                    LeagueLigne(),
-                    LeagueLigne(),
-                    LeagueLigne(),
-                    LeagueLigne(),
-                    LeagueLigne(),
-                  ],
-                ),
-              ),
+      body: SafeArea(
+        child: Container(
+          padding: EdgeInsets.symmetric(
+              horizontal: AppConstante.DISTANCE / 4,
+              vertical: AppConstante.DISTANCE / 2),
+          child: const SingleChildScrollView(
+            child: Column(
+              children: [
+                LeagueLigne(),
+                LeagueLigne(),
+                LeagueLigne(),
+                LeagueLigne(),
+                LeagueLigne(),
+                LeagueLigne(),
+                LeagueLigne(),
+                LeagueLigne(),
+                LeagueLigne(),
+                LeagueLigne(),
+                LeagueLigne(),
+                LeagueLigne(),
+                LeagueLigne(),
+              ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }

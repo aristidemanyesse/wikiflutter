@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:wikibet/components/logo_markers.dart';
+import 'package:wikibet/modals/prono_popup.dart';
 import 'package:wikibet/tools/tools.dart';
 
 class PronosticLigne extends StatelessWidget {
@@ -9,8 +11,10 @@ class PronosticLigne extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {},
+    return InkWell(
+      onTap: () {
+        Get.dialog(const PronoPopup());
+      },
       child: Card(
         child: Container(
           padding: EdgeInsets.all(AppConstante.DISTANCE / 2),

@@ -1,6 +1,5 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
 import 'package:wikibet/components/logo_markers.dart';
 import 'package:wikibet/tools/tools.dart';
 
@@ -36,7 +35,7 @@ class _LineChartPopupState extends State<LineChartPopup> {
               Container(
                 padding:
                     EdgeInsets.symmetric(horizontal: AppConstante.DISTANCE / 2),
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Expanded(

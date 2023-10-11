@@ -19,10 +19,6 @@ class HistoriquesSection extends StatelessWidget {
             SizedBox(
               height: AppConstante.DISTANCE * 1.5,
             ),
-            const HistoriquesMatchs(),
-            SizedBox(
-              height: AppConstante.DISTANCE,
-            ),
           ],
         ),
       ),

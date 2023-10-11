@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:wikibet/components/logo_markers.dart';
 import 'package:wikibet/components/match_page_sections/facts_section.dart';
 import 'package:wikibet/components/match_page_sections/general_section.dart';
@@ -43,7 +44,6 @@ class MatchPage extends StatelessWidget {
                   pinned: true,
                   automaticallyImplyLeading: false,
                   primary: false,
-                  excludeHeaderSemantics: true,
                   scrolledUnderElevation: 3.0,
                   toolbarHeight: 50,
                   titleSpacing: 0,
@@ -110,7 +110,7 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   double get maxExtent => Get.size.height * 0.2;
 
   @override
-  double get minExtent => 90.0;
+  double get minExtent => 95.0;
 
   @override
   bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
@@ -136,7 +136,6 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
       height: visibleMainHeight,
       width: MediaQuery.of(context).size.width,
       child: Stack(
-        fit: StackFit.expand,
         children: <Widget>[
           Container(
             color: Theme.of(context).primaryColor,
@@ -156,63 +155,109 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Expanded(
-                            child: Opacity(
-                          opacity: animationVal,
-                          child: const Text(
-                            "Manchester United",
-                            style: AppTextStyle.body,
-                            textAlign: TextAlign.center,
-                          ),
-                        )),
-                        MyLogo(
-                          path: "assets/images/logo.png",
-                          height: 35 + 5 * animationVal,
-                          width: 35 + 5 * animationVal,
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        const Row(
-                          children: [
-                            Text("0 : 0", style: AppTextStyle.titleMedium)
-                          ],
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        MyLogo(
-                          path: "assets/images/logo.png",
-                          height: 35 + 5 * animationVal,
-                          width: 35 + 5 * animationVal,
+                          flex: ((1 - animationVal) * 700).toInt(),
+                          child: Container(),
                         ),
                         Expanded(
-                            child: Opacity(
-                          opacity: animationVal,
-                          child: const Text(
-                            "Union Sportive de Saint Galloise",
-                            style: AppTextStyle.body,
-                            textAlign: TextAlign.center,
+                            flex: 300,
+                            child: Column(
+                              children: [
+                                MyLogo(
+                                  path: "assets/images/logo.png",
+                                  height: 50 + 5 * animationVal,
+                                  width: 50 + 5 * animationVal,
+                                ),
+                                animationVal > 0.55
+                                    ? Opacity(
+                                        opacity: animationVal / 2,
+                                        child: Text(
+                                          "Union Sportive de  Sportive de ",
+                                          style: AppTextStyle.bodygras
+                                              .copyWith(color: Colors.white),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      )
+                                    : Container(),
+                              ],
+                            )),
+                        Expanded(
+                          flex: 400,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text("0 : 0",
+                                  style: AppTextStyle.titleLarge
+                                      .copyWith(color: Colors.white)),
+                              animationVal > 0.55
+                                  ? Column(
+                                      children: [
+                                        SizedBox(
+                                          height: AppConstante.DISTANCE / 3,
+                                        ),
+                                        const Text(
+                                          "12 Decembre 2023",
+                                          style: AppTextStyle.body,
+                                        ),
+                                        const Text(
+                                          "12:09",
+                                          style: AppTextStyle.body,
+                                        ),
+                                      ],
+                                    )
+                                  : Container(),
+                            ],
                           ),
-                        )),
+                        ),
+                        Expanded(
+                            flex: 300,
+                            child: Column(
+                              children: [
+                                MyLogo(
+                                  path: "assets/images/logo.png",
+                                  height: 50 + 5 * animationVal,
+                                  width: 50 + 5 * animationVal,
+                                ),
+                                animationVal > 0.55
+                                    ? Opacity(
+                                        opacity: animationVal / 2,
+                                        child: Text(
+                                          "Union Sportive de  Sportive de ",
+                                          style: AppTextStyle.bodygras
+                                              .copyWith(color: Colors.white),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      )
+                                    : Container(),
+                              ],
+                            )),
+                        Expanded(
+                          flex: ((1 - animationVal) * 700).toInt(),
+                          child: Container(),
+                        ),
                       ],
                     ),
-                    const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "12 Decembre 2023 13:45",
-                          style: AppTextStyle.bodysmall,
-                        ),
-                      ],
-                    )
                   ],
                 ),
               ),
             ),
           ),
+          Positioned(
+            top: AppConstante.DISTANCE * 2 / 3,
+            left: AppConstante.DISTANCE / 2,
+            child: SafeArea(
+              child: Row(
+                children: [
+                  InkWell(
+                      onTap: () {
+                        Get.back();
+                      },
+                      child: Container(child: const Icon(LineIcons.arrowLeft))),
+                ],
+              ),
+            ),
+          )
           // Positioned(
           //   bottom: 0.0,
           //   child: SizedBox(

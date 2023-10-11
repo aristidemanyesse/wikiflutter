@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wikibet/components/background_blur.dart';
+import 'package:get/route_manager.dart';
+import 'package:wikibet/components/calendar.dart';
 import 'package:wikibet/components/logo_markers.dart';
 import 'package:wikibet/components/match_card.dart';
 import 'package:wikibet/tools/tools.dart';
@@ -33,28 +34,7 @@ class _MatchsPageState extends State<MatchsPage> {
           ),
         ),
         actions: [
-          IconButton(
-              onPressed: () {},
-              icon: Stack(
-                alignment: Alignment.center,
-                children: [
-                  Opacity(
-                    opacity: 0.7,
-                    child: Icon(
-                      Icons.calendar_today_outlined,
-                      size: AppConstante.DISTANCE * 1.5,
-                    ),
-                  ),
-                  const Positioned(
-                    top: 12,
-                    left: 8.5,
-                    child: Text(
-                      "23",
-                      style: AppTextStyle.bodygras,
-                    ),
-                  )
-                ],
-              )),
+          const CalendarButton(),
           IconButton(
               onPressed: () {},
               icon: const Icon(
@@ -78,21 +58,51 @@ class _MatchsPageState extends State<MatchsPage> {
           )
         ]),
       ),
-      body: Stack(
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        padding: EdgeInsets.symmetric(
+            horizontal: AppConstante.DISTANCE / 4,
+            vertical: AppConstante.DISTANCE / 3),
+        child: SingleChildScrollView(
+          child: Column(
+            children: List.generate(10, (index) => const MatchCard()),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CalendarButton extends StatelessWidget {
+  const CalendarButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        Get.dialog(const Calendar());
+      },
+      icon: Stack(
+        alignment: Alignment.center,
         children: [
-          const BackgroundBlur(),
-          Container(
-            height: double.infinity,
-            width: double.infinity,
-            padding: EdgeInsets.symmetric(
-                horizontal: AppConstante.DISTANCE / 4,
-                vertical: AppConstante.DISTANCE / 3),
-            child: SingleChildScrollView(
-              child: Column(
-                children: List.generate(10, (index) => const MatchCard()),
-              ),
+          Opacity(
+            opacity: 0.7,
+            child: Icon(
+              Icons.calendar_today_outlined,
+              size: AppConstante.DISTANCE * 1.5,
             ),
           ),
+          const Positioned(
+            top: 12,
+            left: 8.5,
+            child: Text(
+              "23",
+              style: AppTextStyle.bodygras,
+            ),
+          )
         ],
       ),
     );

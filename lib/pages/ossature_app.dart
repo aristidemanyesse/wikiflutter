@@ -1,11 +1,11 @@
-import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:wikibet/pages/leagues_page.dart';
 import 'package:wikibet/pages/matchs_page.dart';
 import 'package:wikibet/pages/pronostics_day_page.dart';
 import 'package:wikibet/pages/settings_page.dart';
-import 'package:wikibet/pages/test.dart';
 import 'package:wikibet/tools/tools.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
 class OssatureApp extends StatefulWidget {
   const OssatureApp({super.key});
@@ -14,10 +14,15 @@ class OssatureApp extends StatefulWidget {
   State<OssatureApp> createState() => _OssatureAppState();
 }
 
-class _OssatureAppState extends State<OssatureApp> {
+class _OssatureAppState extends State<OssatureApp>
+    with TickerProviderStateMixin {
+  int _selectedIndex = 0;
+  late TabController? _tabController;
+
   @override
   void initState() {
     super.initState();
+    _tabController = TabController(length: 4, vsync: this);
   }
 
   @override
@@ -25,30 +30,87 @@ class _OssatureAppState extends State<OssatureApp> {
     return Hero(
       tag: "home",
       child: DefaultTabController(
-        length: 5,
+        length: 4,
         child: Scaffold(
-            body: const TabBarView(
-              children: [
-                MatchsPage(),
-                LeaguesPage(),
-                PronosticsDayPage(),
-                SettingsPage(),
-                TextPage()
+          body: TabBarView(
+            physics: const NeverScrollableScrollPhysics(),
+            controller: _tabController,
+            children: const [
+              MatchsPage(),
+              LeaguesPage(),
+              PronosticsDayPage(),
+              SettingsPage()
+            ],
+          ),
+          bottomNavigationBar: Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).scaffoldBackgroundColor,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: const Offset(
+                      0, 3), // changement de la position de l'ombre
+                ),
               ],
             ),
-            bottomNavigationBar: ConvexAppBar(
-              backgroundColor: AppConstante.primaryBlue,
-              activeColor: AppConstante.background2,
-              top: -AppConstante.DISTANCE,
-              items: const [
-                TabItem(icon: Icons.home, title: 'Home'),
-                TabItem(icon: Icons.map, title: 'Discovery'),
-                TabItem(icon: Icons.add, title: 'Add'),
-                TabItem(icon: Icons.message, title: 'Message'),
-                TabItem(icon: Icons.message, title: 'Message'),
-              ],
-              onTap: (int i) => print('click index=$i'),
-            )),
+            padding: EdgeInsets.only(
+                top: AppConstante.DISTANCE / 3,
+                right: AppConstante.DISTANCE,
+                left: AppConstante.DISTANCE),
+            child: SafeArea(
+              child: Container(
+                padding: EdgeInsets.only(bottom: AppConstante.DISTANCE / 4),
+                child: GNav(
+                  tabBackgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                  haptic: true,
+                  gap: AppConstante.DISTANCE /
+                      2, // the tab button gap between icon and text
+                  tabBorderRadius: 40,
+                  tabActiveBorder: Border.all(
+                      color: Theme.of(context).scaffoldBackgroundColor,
+                      width: 2),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: 10, vertical: AppConstante.DISTANCE / 3),
+                  tabBackgroundGradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        AppConstante.grenn1,
+                        AppConstante.primaryBlue,
+                      ]),
+                  activeColor: Colors.white,
+                  tabs: const [
+                    GButton(
+                      icon: LineIcons.users,
+                      text: 'Matchs',
+                    ),
+                    GButton(
+                      icon: LineIcons.fontAwesomeFlag,
+                      text: 'Leagues',
+                    ),
+                    GButton(
+                      icon: LineIcons.alternateTicket,
+                      text: 'Pronos',
+                    ),
+                    GButton(
+                      icon: LineIcons.torah,
+                      text: 'Plus',
+                    )
+                  ],
+                  selectedIndex: _selectedIndex,
+                  onTabChange: (index) {
+                    setState(() {
+                      _tabController!.animateTo(index);
+                      _selectedIndex = index;
+                    });
+                  },
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

@@ -1,3 +1,4 @@
+import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:wikibet/components/pronostic_ligne.dart';
@@ -75,33 +76,56 @@ class PronosticsDayPage extends StatelessWidget {
                 AppConstante.grenn1.withOpacity(0.5),
                 AppConstante.primaryBlue.withOpacity(0.5)
               ])),
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      "Pronostics du jour ",
-                      style: AppTextStyle.titleLarge,
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Center(
+                    child: BorderedText(
+                      strokeWidth: 1.5,
+                      strokeColor: Colors.white.withOpacity(0.2),
+                      child: Text(
+                        'WIN',
+                        style: Theme.of(context)
+                            .textTheme
+                            .displayLarge
+                            ?.copyWith(
+                                decoration: TextDecoration.none,
+                                decorationColor: Colors.transparent,
+                                color: Colors.transparent,
+                                fontSize: 200,
+                                fontWeight: FontWeight.bold),
+                      ),
                     ),
-                    SizedBox(
-                      height: AppConstante.DISTANCE / 2,
-                    ),
-                    Row(
+                  ),
+                  Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.calendar_today,
-                          size: AppConstante.DISTANCE * 2 / 3,
+                        const Text(
+                          "Pronostics du jour ",
+                          style: AppTextStyle.titleLarge,
                         ),
                         SizedBox(
-                          width: AppConstante.DISTANCE / 3,
+                          height: AppConstante.DISTANCE / 2,
                         ),
-                        const Text(
-                          "22 décembre 2023",
-                          style: AppTextStyle.body,
-                        ),
-                      ],
-                    )
-                  ]),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.calendar_today,
+                              size: AppConstante.DISTANCE * 2 / 3,
+                            ),
+                            SizedBox(
+                              width: AppConstante.DISTANCE / 3,
+                            ),
+                            const Text(
+                              "22 décembre 2023",
+                              style: AppTextStyle.body,
+                            ),
+                          ],
+                        )
+                      ]),
+                ],
+              ),
             ),
             Container(
               padding: EdgeInsets.all(AppConstante.DISTANCE / 4),
