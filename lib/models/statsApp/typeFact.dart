@@ -9,7 +9,7 @@ class TypeFact with _$TypeFact {
   const factory TypeFact({
     @Default("") String id,
     @Default("") String createdAt,
-    @Default("") String updatedAt,
+    @Default("") String updateAt,
     @Default(false) bool deleted,
     @Default("") String name,
     @Default("") String description,

@@ -10,7 +10,7 @@ class ExtraInfosMatch with _$ExtraInfosMatch {
   const factory ExtraInfosMatch({
     @Default("") String id,
     @Default("") String createdAt,
-    @Default("") String updatedAt,
+    @Default("") String updateAt,
     @Default(false) bool deleted,
     Match? match,
     @Default(0.0) double homeShots,

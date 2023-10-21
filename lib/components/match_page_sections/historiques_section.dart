@@ -10,14 +10,14 @@ class HistoriquesSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(AppConstante.DISTANCE / 2),
-      margin: EdgeInsets.symmetric(vertical: AppConstante.DISTANCE / 2),
+      padding: EdgeInsets.all(AppConstante.PADDING / 2),
+      margin: EdgeInsets.symmetric(vertical: AppConstante.PADDING / 2),
       child: SingleChildScrollView(
         child: Column(
           children: [
             const HistoriquesMatchs(),
             SizedBox(
-              height: AppConstante.DISTANCE * 1.5,
+              height: AppConstante.PADDING * 1.5,
             ),
           ],
         ),

@@ -22,7 +22,7 @@ Edition _$EditionFromJson(Map<String, dynamic> json) {
 mixin _$Edition {
   String get id => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
+  String get updateAt => throw _privateConstructorUsedError;
   bool get deleted => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
@@ -39,7 +39,7 @@ abstract class $EditionCopyWith<$Res> {
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       String name});
 }
@@ -59,7 +59,7 @@ class _$EditionCopyWithImpl<$Res, $Val extends Edition>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? name = null,
   }) {
@@ -72,9 +72,9 @@ class _$EditionCopyWithImpl<$Res, $Val extends Edition>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -98,7 +98,7 @@ abstract class _$$EditionImplCopyWith<$Res> implements $EditionCopyWith<$Res> {
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       String name});
 }
@@ -116,7 +116,7 @@ class __$$EditionImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? name = null,
   }) {
@@ -129,9 +129,9 @@ class __$$EditionImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -151,7 +151,7 @@ class _$EditionImpl with DiagnosticableTreeMixin implements _Edition {
   const _$EditionImpl(
       {this.id = "",
       this.createdAt = "",
-      this.updatedAt = "",
+      this.updateAt = "",
       this.deleted = false,
       this.name = ""});
 
@@ -166,7 +166,7 @@ class _$EditionImpl with DiagnosticableTreeMixin implements _Edition {
   final String createdAt;
   @override
   @JsonKey()
-  final String updatedAt;
+  final String updateAt;
   @override
   @JsonKey()
   final bool deleted;
@@ -176,7 +176,7 @@ class _$EditionImpl with DiagnosticableTreeMixin implements _Edition {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Edition(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, deleted: $deleted, name: $name)';
+    return 'Edition(id: $id, createdAt: $createdAt, updateAt: $updateAt, deleted: $deleted, name: $name)';
   }
 
   @override
@@ -186,7 +186,7 @@ class _$EditionImpl with DiagnosticableTreeMixin implements _Edition {
       ..add(DiagnosticsProperty('type', 'Edition'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('updatedAt', updatedAt))
+      ..add(DiagnosticsProperty('updateAt', updateAt))
       ..add(DiagnosticsProperty('deleted', deleted))
       ..add(DiagnosticsProperty('name', name));
   }
@@ -199,8 +199,8 @@ class _$EditionImpl with DiagnosticableTreeMixin implements _Edition {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
+            (identical(other.updateAt, updateAt) ||
+                other.updateAt == updateAt) &&
             (identical(other.deleted, deleted) || other.deleted == deleted) &&
             (identical(other.name, name) || other.name == name));
   }
@@ -208,7 +208,7 @@ class _$EditionImpl with DiagnosticableTreeMixin implements _Edition {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, createdAt, updatedAt, deleted, name);
+      Object.hash(runtimeType, id, createdAt, updateAt, deleted, name);
 
   @JsonKey(ignore: true)
   @override
@@ -228,7 +228,7 @@ abstract class _Edition implements Edition {
   const factory _Edition(
       {final String id,
       final String createdAt,
-      final String updatedAt,
+      final String updateAt,
       final bool deleted,
       final String name}) = _$EditionImpl;
 
@@ -239,7 +239,7 @@ abstract class _Edition implements Edition {
   @override
   String get createdAt;
   @override
-  String get updatedAt;
+  String get updateAt;
   @override
   bool get deleted;
   @override

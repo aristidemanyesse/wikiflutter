@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wikibet/components/ligne_match.dart';
 import 'package:wikibet/components/logo_markers.dart';
+import 'package:wikibet/controllers/MatchController.dart';
+import 'package:wikibet/core/apiservice.dart';
+import 'package:wikibet/models/teamApp/editionTeam.dart';
 import 'package:wikibet/tools/tools.dart';
 
 class HistoriquesMatchs extends StatefulWidget {
@@ -16,6 +19,8 @@ class _HistoriquesMatchsState extends State<HistoriquesMatchs> {
 
   int _selectedTabIndex = 0;
   final PageController _pageController = PageController(initialPage: 0);
+
+  MatchController controller = Get.find();
 
   void _onTabSelected(int index) {
     setState(() {
@@ -36,6 +41,8 @@ class _HistoriquesMatchsState extends State<HistoriquesMatchs> {
 
   @override
   Widget build(BuildContext context) {
+    EditionTeam home = controller.matchSelected.value.home!;
+    EditionTeam away = controller.matchSelected.value.away!;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -50,8 +57,8 @@ class _HistoriquesMatchsState extends State<HistoriquesMatchs> {
                   : ElevatedButton.styleFrom(
                       backgroundColor:
                           Theme.of(context).scaffoldBackgroundColor),
-              child: const MyLogo(
-                path: "assets/images/logo.png",
+              child: MyLogo(
+                path: "${ApiService.BASE_URL + home.team!.logo}",
                 height: 45,
                 width: 45,
               ),
@@ -60,7 +67,7 @@ class _HistoriquesMatchsState extends State<HistoriquesMatchs> {
             ClipRRect(
               borderRadius: BorderRadius.circular(30),
               child: Container(
-                height: AppConstante.DISTANCE * 2,
+                height: AppConstante.PADDING * 2,
                 decoration: BoxDecoration(
                     gradient: LinearGradient(colors: [
                   AppConstante.primaryBlue,
@@ -73,20 +80,20 @@ class _HistoriquesMatchsState extends State<HistoriquesMatchs> {
                           elevation: 5.0,
                           backgroundColor: Colors.transparent,
                           padding: EdgeInsets.symmetric(
-                              horizontal: AppConstante.DISTANCE / 2,
-                              vertical: AppConstante.DISTANCE / 2),
+                              horizontal: AppConstante.PADDING / 2,
+                              vertical: AppConstante.PADDING / 2),
                         )
                       : ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(
-                              horizontal: AppConstante.DISTANCE / 2,
-                              vertical: AppConstante.DISTANCE / 2),
+                              horizontal: AppConstante.PADDING / 2,
+                              vertical: AppConstante.PADDING / 2),
                           backgroundColor: Theme.of(context)
                               .scaffoldBackgroundColor
                               .withOpacity(0.9)),
-                  child: const Row(
+                  child: Row(
                     children: [
                       MyLogo(
-                        path: "assets/images/logo.png",
+                        path: "${ApiService.BASE_URL + home.team!.logo}",
                         height: 40,
                         width: 40,
                       ),
@@ -94,8 +101,17 @@ class _HistoriquesMatchsState extends State<HistoriquesMatchs> {
                         'Vs',
                         style: AppTextStyle.titleMedium,
                       ),
+                      Checkbox(
+                          value: true,
+                          activeColor: Colors.green,
+                          onChanged: (bool? newValue) {
+                            // setState(() {
+                            //   var checkBoxValue = newValue;
+                            // });
+                            const Text('Remember me');
+                          }),
                       MyLogo(
-                        path: "assets/images/logo.png",
+                        path: "${ApiService.BASE_URL + away.team!.logo}",
                         height: 40,
                         width: 40,
                       ),
@@ -113,15 +129,15 @@ class _HistoriquesMatchsState extends State<HistoriquesMatchs> {
                   : ElevatedButton.styleFrom(
                       backgroundColor:
                           Theme.of(context).scaffoldBackgroundColor),
-              child: const MyLogo(
-                path: "assets/images/logo.png",
+              child: MyLogo(
+                path: "${ApiService.BASE_URL + away.team!.logo}",
                 height: 45,
                 width: 45,
               ),
             ),
           ],
         ),
-        SizedBox(height: AppConstante.DISTANCE / 2),
+        SizedBox(height: AppConstante.PADDING / 2),
         Container(
           constraints: BoxConstraints(maxHeight: Get.size.height * 0.7),
           child: PageView(
@@ -136,52 +152,66 @@ class _HistoriquesMatchsState extends State<HistoriquesMatchs> {
               Container(
                 child: Column(
                   children: [
-                    const Column(
+                    Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("10 derniers matchs de ",
+                        Text(
+                            "${controller.homeLastMatchs.value.length} derniers matchs de ",
                             style: AppTextStyle.titleSmall),
-                        Text("Union Sportive de Saint Galloise",
+                        Text("${home.team?.name}",
                             style: AppTextStyle.bodygras),
                       ],
                     ),
                     const Divider(
                       height: 1,
                     ),
-                    SizedBox(height: AppConstante.DISTANCE / 2),
+                    SizedBox(height: AppConstante.PADDING / 2),
                     Container(
-                      child: const Column(
-                        children: [
-                          LigneMatch(),
-                          LigneMatch(),
-                          LigneMatch(),
-                          LigneMatch(),
-                          LigneMatch(),
-                          LigneMatch(),
-                          LigneMatch(),
-                          LigneMatch(),
-                          LigneMatch(),
-                          LigneMatch(),
-                        ],
-                      ),
+                      child: Column(
+                          children: controller.homeLastMatchs.value
+                              .map((match) => LigneMatch(
+                                    match: match,
+                                  ))
+                              .toList()),
                     ),
                   ],
                 ),
               ),
               // Content for Tab 2
               Container(
-                child: const MyLogo(
-                  path: "assets/images/logo.png",
+                child: MyLogo(
+                  path: "${ApiService.BASE_URL + home.team!.logo}",
                   height: 40,
                   width: 40,
                 ),
               ),
               // Content for Tab 3
               Container(
-                child: const MyLogo(
-                  path: "assets/images/logo.png",
-                  height: 40,
-                  width: 40,
+                child: Column(
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                            "${controller.awayLastMatchs.value.length} derniers matchs de ",
+                            style: AppTextStyle.titleSmall),
+                        Text("${away.team?.name}",
+                            style: AppTextStyle.bodygras),
+                      ],
+                    ),
+                    const Divider(
+                      height: 1,
+                    ),
+                    SizedBox(height: AppConstante.PADDING / 2),
+                    Container(
+                      child: Column(
+                          children: controller.awayLastMatchs.value
+                              .map((match) => LigneMatch(
+                                    match: match,
+                                  ))
+                              .toList()),
+                    ),
+                  ],
                 ),
               ),
             ],

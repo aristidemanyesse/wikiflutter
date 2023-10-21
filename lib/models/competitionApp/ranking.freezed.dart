@@ -22,7 +22,7 @@ Ranking _$RankingFromJson(Map<String, dynamic> json) {
 mixin _$Ranking {
   String get id => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
+  String get updateAt => throw _privateConstructorUsedError;
   bool get deleted => throw _privateConstructorUsedError;
   String get date => throw _privateConstructorUsedError;
   Edition? get edition => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $RankingCopyWith<$Res> {
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       String date,
       Edition? edition});
@@ -63,7 +63,7 @@ class _$RankingCopyWithImpl<$Res, $Val extends Ranking>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? date = null,
     Object? edition = freezed,
@@ -77,9 +77,9 @@ class _$RankingCopyWithImpl<$Res, $Val extends Ranking>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -119,7 +119,7 @@ abstract class _$$RankingImplCopyWith<$Res> implements $RankingCopyWith<$Res> {
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       String date,
       Edition? edition});
@@ -141,7 +141,7 @@ class __$$RankingImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? date = null,
     Object? edition = freezed,
@@ -155,9 +155,9 @@ class __$$RankingImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -181,7 +181,7 @@ class _$RankingImpl with DiagnosticableTreeMixin implements _Ranking {
   const _$RankingImpl(
       {this.id = "",
       this.createdAt = "",
-      this.updatedAt = "",
+      this.updateAt = "",
       this.deleted = false,
       this.date = "",
       this.edition});
@@ -197,7 +197,7 @@ class _$RankingImpl with DiagnosticableTreeMixin implements _Ranking {
   final String createdAt;
   @override
   @JsonKey()
-  final String updatedAt;
+  final String updateAt;
   @override
   @JsonKey()
   final bool deleted;
@@ -209,7 +209,7 @@ class _$RankingImpl with DiagnosticableTreeMixin implements _Ranking {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Ranking(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, deleted: $deleted, date: $date, edition: $edition)';
+    return 'Ranking(id: $id, createdAt: $createdAt, updateAt: $updateAt, deleted: $deleted, date: $date, edition: $edition)';
   }
 
   @override
@@ -219,7 +219,7 @@ class _$RankingImpl with DiagnosticableTreeMixin implements _Ranking {
       ..add(DiagnosticsProperty('type', 'Ranking'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('updatedAt', updatedAt))
+      ..add(DiagnosticsProperty('updateAt', updateAt))
       ..add(DiagnosticsProperty('deleted', deleted))
       ..add(DiagnosticsProperty('date', date))
       ..add(DiagnosticsProperty('edition', edition));
@@ -233,8 +233,8 @@ class _$RankingImpl with DiagnosticableTreeMixin implements _Ranking {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
+            (identical(other.updateAt, updateAt) ||
+                other.updateAt == updateAt) &&
             (identical(other.deleted, deleted) || other.deleted == deleted) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.edition, edition) || other.edition == edition));
@@ -242,8 +242,8 @@ class _$RankingImpl with DiagnosticableTreeMixin implements _Ranking {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, createdAt, updatedAt, deleted, date, edition);
+  int get hashCode =>
+      Object.hash(runtimeType, id, createdAt, updateAt, deleted, date, edition);
 
   @JsonKey(ignore: true)
   @override
@@ -263,7 +263,7 @@ abstract class _Ranking implements Ranking {
   const factory _Ranking(
       {final String id,
       final String createdAt,
-      final String updatedAt,
+      final String updateAt,
       final bool deleted,
       final String date,
       final Edition? edition}) = _$RankingImpl;
@@ -275,7 +275,7 @@ abstract class _Ranking implements Ranking {
   @override
   String get createdAt;
   @override
-  String get updatedAt;
+  String get updateAt;
   @override
   bool get deleted;
   @override

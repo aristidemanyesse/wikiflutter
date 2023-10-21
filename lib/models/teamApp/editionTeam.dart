@@ -2,6 +2,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 import 'package:wikibet/models/competitionApp/edition.dart';
+import 'package:wikibet/models/competitionApp/editionCompetition.dart';
 import 'package:wikibet/models/teamApp/team.dart';
 part 'editionTeam.freezed.dart';
 part 'editionTeam.g.dart';
@@ -11,12 +12,27 @@ class EditionTeam with _$EditionTeam {
   const factory EditionTeam({
     @Default("") String id,
     @Default("") String createdAt,
-    @Default("") String updatedAt,
+    @Default("") String updateAt,
     @Default(false) bool deleted,
-    Edition? edition,
+    EditionCompetition? edition,
     Team? team,
   }) = _EditionTeam;
 
   factory EditionTeam.fromJson(Map<String, Object?> json) =>
       _$EditionTeamFromJson(json);
+
+  static const String editionTeamFragment = """
+  fragment EditionTeamFragment on EditionTeamGenericType {
+    id
+    createdAt
+    updateAt
+    deleted
+    edition{
+      ...EditionCompetitionFragment
+    }
+    team{
+      ...TeamFragment
+    }
+  }
+  """;
 }

@@ -1,6 +1,8 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:wikibet/components/logo_markers.dart';
+import 'package:wikibet/controllers/MatchController.dart';
 import 'package:wikibet/tools/tools.dart';
 
 class RadarStatsCard extends StatefulWidget {
@@ -12,6 +14,8 @@ class RadarStatsCard extends StatefulWidget {
   final artColor = Colors.orange;
   final offRoadColor = Colors.black26;
 
+  MatchController controller = Get.find();
+
   @override
   State<RadarStatsCard> createState() => _RadarStatsCardState();
 }
@@ -21,7 +25,7 @@ class _RadarStatsCardState extends State<RadarStatsCard> {
   Widget build(BuildContext context) {
     return Card(
       child: Container(
-        padding: EdgeInsets.all(AppConstante.DISTANCE / 2),
+        padding: EdgeInsets.all(AppConstante.PADDING / 2),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -40,7 +44,7 @@ class _RadarStatsCardState extends State<RadarStatsCard> {
                           width: 40,
                         ),
                         SizedBox(
-                          width: AppConstante.DISTANCE / 2,
+                          width: AppConstante.PADDING / 2,
                         ),
                         Container(
                           decoration: BoxDecoration(
@@ -63,7 +67,7 @@ class _RadarStatsCardState extends State<RadarStatsCard> {
                           width: 50,
                         ),
                         SizedBox(
-                          width: AppConstante.DISTANCE / 2,
+                          width: AppConstante.PADDING / 2,
                         ),
                         const MyLogo(
                           path: "assets/images/logo.png",
@@ -76,7 +80,7 @@ class _RadarStatsCardState extends State<RadarStatsCard> {
                 ],
               ),
             ),
-            SizedBox(height: AppConstante.DISTANCE),
+            SizedBox(height: AppConstante.PADDING),
             AspectRatio(
               aspectRatio: 2,
               child: RadarChart(

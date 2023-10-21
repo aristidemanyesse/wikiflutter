@@ -11,7 +11,7 @@ _$BeforeMatchStatImpl _$$BeforeMatchStatImplFromJson(
     _$BeforeMatchStatImpl(
       id: json['id'] as String? ?? "",
       createdAt: json['createdAt'] as String? ?? "",
-      updatedAt: json['updatedAt'] as String? ?? "",
+      updateAt: json['updateAt'] as String? ?? "",
       deleted: json['deleted'] as bool? ?? false,
       match: json['match'] == null
           ? null
@@ -24,9 +24,9 @@ _$BeforeMatchStatImpl _$$BeforeMatchStatImplFromJson(
       probabiliteElo: (json['probabiliteElo'] as num?)?.toDouble() ?? 0.0,
       gsExpected: (json['gsExpected'] as num?)?.toDouble() ?? 0.0,
       gaExpected: (json['gaExpected'] as num?)?.toDouble() ?? 0.0,
-      expectedGoals: (json['expectedGoals'] as num?)?.toDouble() ?? 0.0,
-      goalsScored: (json['goalsScored'] as num?)?.toDouble() ?? 0.0,
-      goalsConceded: (json['goalsConceded'] as num?)?.toDouble() ?? 0.0,
+      expectedGoals: json['expectedGoals'] as String? ?? "",
+      goalsScored: json['goalsScored'] as int? ?? 0,
+      goalsConceded: json['goalsConceded'] as int? ?? 0,
       avgGoalsScored: (json['avgGoalsScored'] as num?)?.toDouble() ?? 0.0,
       avgGoalsConceded: (json['avgGoalsConceded'] as num?)?.toDouble() ?? 0.0,
       avgFoulsFor: (json['avgFoulsFor'] as num?)?.toDouble() ?? 0.0,
@@ -64,7 +64,7 @@ Map<String, dynamic> _$$BeforeMatchStatImplToJson(
     <String, dynamic>{
       'id': instance.id,
       'createdAt': instance.createdAt,
-      'updatedAt': instance.updatedAt,
+      'updateAt': instance.updateAt,
       'deleted': instance.deleted,
       'match': instance.match,
       'team': instance.team,

@@ -22,7 +22,7 @@ ResultMatch _$ResultMatchFromJson(Map<String, dynamic> json) {
 mixin _$ResultMatch {
   String get id => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
+  String get updateAt => throw _privateConstructorUsedError;
   bool get deleted => throw _privateConstructorUsedError;
   Match? get match => throw _privateConstructorUsedError;
   double get homeScore => throw _privateConstructorUsedError;
@@ -47,7 +47,7 @@ abstract class $ResultMatchCopyWith<$Res> {
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       Match? match,
       double homeScore,
@@ -75,7 +75,7 @@ class _$ResultMatchCopyWithImpl<$Res, $Val extends ResultMatch>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? match = freezed,
     Object? homeScore = null,
@@ -94,9 +94,9 @@ class _$ResultMatchCopyWithImpl<$Res, $Val extends ResultMatch>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -157,7 +157,7 @@ abstract class _$$ResultMatchImplCopyWith<$Res>
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       Match? match,
       double homeScore,
@@ -184,7 +184,7 @@ class __$$ResultMatchImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? match = freezed,
     Object? homeScore = null,
@@ -203,9 +203,9 @@ class __$$ResultMatchImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -249,7 +249,7 @@ class _$ResultMatchImpl with DiagnosticableTreeMixin implements _ResultMatch {
   const _$ResultMatchImpl(
       {this.id = "",
       this.createdAt = "",
-      this.updatedAt = "",
+      this.updateAt = "",
       this.deleted = false,
       this.match,
       this.homeScore = 0.0,
@@ -270,7 +270,7 @@ class _$ResultMatchImpl with DiagnosticableTreeMixin implements _ResultMatch {
   final String createdAt;
   @override
   @JsonKey()
-  final String updatedAt;
+  final String updateAt;
   @override
   @JsonKey()
   final bool deleted;
@@ -297,7 +297,7 @@ class _$ResultMatchImpl with DiagnosticableTreeMixin implements _ResultMatch {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ResultMatch(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, deleted: $deleted, match: $match, homeScore: $homeScore, awayScore: $awayScore, result: $result, homeHalfScore: $homeHalfScore, awayHalfScore: $awayHalfScore, resultHalf: $resultHalf)';
+    return 'ResultMatch(id: $id, createdAt: $createdAt, updateAt: $updateAt, deleted: $deleted, match: $match, homeScore: $homeScore, awayScore: $awayScore, result: $result, homeHalfScore: $homeHalfScore, awayHalfScore: $awayHalfScore, resultHalf: $resultHalf)';
   }
 
   @override
@@ -307,7 +307,7 @@ class _$ResultMatchImpl with DiagnosticableTreeMixin implements _ResultMatch {
       ..add(DiagnosticsProperty('type', 'ResultMatch'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('updatedAt', updatedAt))
+      ..add(DiagnosticsProperty('updateAt', updateAt))
       ..add(DiagnosticsProperty('deleted', deleted))
       ..add(DiagnosticsProperty('match', match))
       ..add(DiagnosticsProperty('homeScore', homeScore))
@@ -326,8 +326,8 @@ class _$ResultMatchImpl with DiagnosticableTreeMixin implements _ResultMatch {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
+            (identical(other.updateAt, updateAt) ||
+                other.updateAt == updateAt) &&
             (identical(other.deleted, deleted) || other.deleted == deleted) &&
             (identical(other.match, match) || other.match == match) &&
             (identical(other.homeScore, homeScore) ||
@@ -349,7 +349,7 @@ class _$ResultMatchImpl with DiagnosticableTreeMixin implements _ResultMatch {
       runtimeType,
       id,
       createdAt,
-      updatedAt,
+      updateAt,
       deleted,
       match,
       homeScore,
@@ -377,7 +377,7 @@ abstract class _ResultMatch implements ResultMatch {
   const factory _ResultMatch(
       {final String id,
       final String createdAt,
-      final String updatedAt,
+      final String updateAt,
       final bool deleted,
       final Match? match,
       final double homeScore,
@@ -395,7 +395,7 @@ abstract class _ResultMatch implements ResultMatch {
   @override
   String get createdAt;
   @override
-  String get updatedAt;
+  String get updateAt;
   @override
   bool get deleted;
   @override

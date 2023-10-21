@@ -22,7 +22,7 @@ EditionCompetition _$EditionCompetitionFromJson(Map<String, dynamic> json) {
 mixin _$EditionCompetition {
   String get id => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
+  String get updateAt => throw _privateConstructorUsedError;
   bool get deleted => throw _privateConstructorUsedError;
   String get startDate => throw _privateConstructorUsedError;
   String get finishDate => throw _privateConstructorUsedError;
@@ -45,7 +45,7 @@ abstract class $EditionCompetitionCopyWith<$Res> {
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       String startDate,
       String finishDate,
@@ -72,7 +72,7 @@ class _$EditionCompetitionCopyWithImpl<$Res, $Val extends EditionCompetition>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? startDate = null,
     Object? finishDate = null,
@@ -89,9 +89,9 @@ class _$EditionCompetitionCopyWithImpl<$Res, $Val extends EditionCompetition>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -156,7 +156,7 @@ abstract class _$$EditionCompetitionImplCopyWith<$Res>
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       String startDate,
       String finishDate,
@@ -183,7 +183,7 @@ class __$$EditionCompetitionImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? startDate = null,
     Object? finishDate = null,
@@ -200,9 +200,9 @@ class __$$EditionCompetitionImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -240,7 +240,7 @@ class _$EditionCompetitionImpl
   const _$EditionCompetitionImpl(
       {this.id = "",
       this.createdAt = "",
-      this.updatedAt = "",
+      this.updateAt = "",
       this.deleted = false,
       this.startDate = "",
       this.finishDate = "",
@@ -259,7 +259,7 @@ class _$EditionCompetitionImpl
   final String createdAt;
   @override
   @JsonKey()
-  final String updatedAt;
+  final String updateAt;
   @override
   @JsonKey()
   final bool deleted;
@@ -279,7 +279,7 @@ class _$EditionCompetitionImpl
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'EditionCompetition(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, deleted: $deleted, startDate: $startDate, finishDate: $finishDate, isFinished: $isFinished, editon: $editon, competition: $competition)';
+    return 'EditionCompetition(id: $id, createdAt: $createdAt, updateAt: $updateAt, deleted: $deleted, startDate: $startDate, finishDate: $finishDate, isFinished: $isFinished, editon: $editon, competition: $competition)';
   }
 
   @override
@@ -289,7 +289,7 @@ class _$EditionCompetitionImpl
       ..add(DiagnosticsProperty('type', 'EditionCompetition'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('updatedAt', updatedAt))
+      ..add(DiagnosticsProperty('updateAt', updateAt))
       ..add(DiagnosticsProperty('deleted', deleted))
       ..add(DiagnosticsProperty('startDate', startDate))
       ..add(DiagnosticsProperty('finishDate', finishDate))
@@ -306,8 +306,8 @@ class _$EditionCompetitionImpl
             (identical(other.id, id) || other.id == id) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
+            (identical(other.updateAt, updateAt) ||
+                other.updateAt == updateAt) &&
             (identical(other.deleted, deleted) || other.deleted == deleted) &&
             (identical(other.startDate, startDate) ||
                 other.startDate == startDate) &&
@@ -322,8 +322,8 @@ class _$EditionCompetitionImpl
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, createdAt, updatedAt,
-      deleted, startDate, finishDate, isFinished, editon, competition);
+  int get hashCode => Object.hash(runtimeType, id, createdAt, updateAt, deleted,
+      startDate, finishDate, isFinished, editon, competition);
 
   @JsonKey(ignore: true)
   @override
@@ -344,7 +344,7 @@ abstract class _EditionCompetition implements EditionCompetition {
   const factory _EditionCompetition(
       {final String id,
       final String createdAt,
-      final String updatedAt,
+      final String updateAt,
       final bool deleted,
       final String startDate,
       final String finishDate,
@@ -360,7 +360,7 @@ abstract class _EditionCompetition implements EditionCompetition {
   @override
   String get createdAt;
   @override
-  String get updatedAt;
+  String get updateAt;
   @override
   bool get deleted;
   @override

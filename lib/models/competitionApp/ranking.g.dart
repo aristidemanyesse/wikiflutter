@@ -10,7 +10,7 @@ _$RankingImpl _$$RankingImplFromJson(Map<String, dynamic> json) =>
     _$RankingImpl(
       id: json['id'] as String? ?? "",
       createdAt: json['createdAt'] as String? ?? "",
-      updatedAt: json['updatedAt'] as String? ?? "",
+      updateAt: json['updateAt'] as String? ?? "",
       deleted: json['deleted'] as bool? ?? false,
       date: json['date'] as String? ?? "",
       edition: json['edition'] == null
@@ -22,7 +22,7 @@ Map<String, dynamic> _$$RankingImplToJson(_$RankingImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'createdAt': instance.createdAt,
-      'updatedAt': instance.updatedAt,
+      'updateAt': instance.updateAt,
       'deleted': instance.deleted,
       'date': instance.date,
       'edition': instance.edition,

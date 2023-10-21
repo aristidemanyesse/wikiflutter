@@ -9,7 +9,7 @@ class Pays with _$Pays {
   const factory Pays({
     @Default("") String id,
     @Default("") String createdAt,
-    @Default("") String updatedAt,
+    @Default("") String updateAt,
     @Default(false) bool deleted,
     required String name,
     @Default("") String code,
@@ -19,4 +19,17 @@ class Pays with _$Pays {
   }) = _Pays;
 
   factory Pays.fromJson(Map<String, Object?> json) => _$PaysFromJson(json);
+
+  static const String paysFragment = """
+  fragment PaysFragment on PaysGenericType {
+    id
+    createdAt
+    updateAt
+    deleted
+    name
+    code
+    abr
+    flag
+  }
+  """;
 }

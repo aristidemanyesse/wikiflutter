@@ -68,8 +68,7 @@ class _LandingPageState extends State<LandingPage> {
           ),
           const Spacer(),
           Container(
-            padding:
-                EdgeInsets.symmetric(horizontal: AppConstante.DISTANCE * 3),
+            padding: EdgeInsets.symmetric(horizontal: AppConstante.PADDING * 3),
             child: Text(
               "Si tu veux gagner, oublies les paris,\nvois ça comme des investissements! ",
               style: AppTextStyle.titleSmall.copyWith(
@@ -92,7 +91,7 @@ class _LandingPageState extends State<LandingPage> {
                 ))),
           ),
           SizedBox(
-            height: AppConstante.DISTANCE,
+            height: AppConstante.PADDING,
           ),
           const Row(
             mainAxisAlignment: MainAxisAlignment.center,

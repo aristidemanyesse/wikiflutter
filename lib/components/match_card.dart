@@ -1,88 +1,101 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
 import 'package:wikibet/components/logo_markers.dart';
 import 'package:wikibet/components/prediction_tip.dart';
+import 'package:wikibet/controllers/MatchController.dart';
+import 'package:wikibet/core/apiservice.dart';
+import 'package:wikibet/models/competitionApp/typeCompetition.dart';
+import 'package:wikibet/models/statsApp/resultMatch.dart';
+import 'package:wikibet/models/teamApp/editionTeam.dart';
 import 'package:wikibet/pages/match_page.dart';
 import 'package:wikibet/tools/tools.dart';
+import 'package:wikibet/models/fixtureApp/match.dart';
+import "package:intl/intl.dart";
+import 'package:intl/date_symbol_data_local.dart';
 
 class MatchCard extends StatelessWidget {
-  const MatchCard({
+  final Match match;
+
+  MatchController controller = Get.find();
+
+  MatchCard({
     super.key,
+    required this.match,
   });
 
   @override
   Widget build(BuildContext context) {
+    initializeDateFormatting();
+    DateFormat dateFormat = DateFormat.yMMMMd('fr');
+    DateFormat timeFormat = DateFormat.Hm('fr');
+
     return Container(
-      margin: EdgeInsets.symmetric(vertical: AppConstante.DISTANCE / 5),
+      margin: EdgeInsets.symmetric(vertical: AppConstante.PADDING / 5),
       child: InkWell(
         onTap: () {
-          Get.to(MatchPage());
+          controller.matchSelected.value = match;
+          Get.to(MatchPage(match: match));
         },
         child: Card(
           elevation: 5,
           child: Container(
             width: double.infinity,
-            padding: EdgeInsets.all(AppConstante.DISTANCE / 2),
+            padding: EdgeInsets.all(AppConstante.PADDING / 2),
             child: Column(
               children: [
                 Row(
                   children: [
-                    const MyLogo(
-                      path: "assets/images/logo.png",
+                    MyLogo(
+                      path:
+                          "${ApiService.BASE_URL + match.edition!.competition!.logo}",
                       height: 30,
                       width: 30,
                     ),
                     const SizedBox(
                       width: 5,
                     ),
-                    const Text(
-                      "Championnat de colombie",
+                    Text(
+                      "${match.edition?.competition?.name}",
                       style: AppTextStyle.bodygras,
                     ),
                     const Spacer(),
-                    Icon(
-                      Icons.bar_chart,
-                      size: AppConstante.DISTANCE,
-                    )
+                    match.edition!.competition!.type!.etiquette ==
+                            TypeCompetition.FULL
+                        ? Icon(
+                            Icons.bar_chart,
+                            size: AppConstante.PADDING,
+                          )
+                        : Container()
                   ],
                 ),
                 SizedBox(
-                  height: AppConstante.DISTANCE / 2,
+                  height: AppConstante.PADDING / 2,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Expanded(
-                        child: Column(
-                      children: [
-                        MyLogo(
-                          path: "assets/images/logo.png",
-                          height: 40,
-                          width: 40,
-                        ),
-                        Text(
-                          "Manchester United de Los Angeles",
-                          overflow: TextOverflow.ellipsis,
-                          style: AppTextStyle.bodysmall,
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    )),
+                    BlocTeam(team: match.home!),
                     SizedBox(
-                      width: AppConstante.DISTANCE / 4,
+                      width: AppConstante.PADDING / 4,
                     ),
                     Expanded(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text("0 : 0", style: AppTextStyle.titleMedium),
+                          match.isFinished
+                              ? Text("0 : 0", style: AppTextStyle.titleMedium)
+                              : Text("Vs", style: AppTextStyle.titleLarge),
                           SizedBox(
-                            height: AppConstante.DISTANCE / 4,
+                            height: AppConstante.PADDING / 4,
                           ),
-                          const Text("12 Décembre 2023",
+                          Text(
+                              "${dateFormat.format(DateTime.parse(match.date ?? ""))}",
                               style: AppTextStyle.bodygras),
-                          const Text(
-                            "17:45",
+                          Text(
+                            "${timeFormat.format(DateTime.parse(match.date + " " + match.hour ?? ""))}",
                             style: TextStyle(
                                 fontSize: 12, fontWeight: FontWeight.w500),
                           ),
@@ -90,28 +103,13 @@ class MatchCard extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      width: AppConstante.DISTANCE / 4,
+                      width: AppConstante.PADDING / 4,
                     ),
-                    const Expanded(
-                        child: Column(
-                      children: [
-                        MyLogo(
-                          path: "assets/images/logo.png",
-                          height: 40,
-                          width: 40,
-                        ),
-                        Text(
-                          "Manchester United",
-                          overflow: TextOverflow.ellipsis,
-                          style: AppTextStyle.bodysmall,
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    )),
+                    BlocTeam(team: match.away!),
                   ],
                 ),
                 SizedBox(
-                  height: AppConstante.DISTANCE / 2,
+                  height: AppConstante.PADDING / 2,
                 ),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
@@ -127,5 +125,34 @@ class MatchCard extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class BlocTeam extends StatelessWidget {
+  const BlocTeam({
+    super.key,
+    required this.team,
+  });
+
+  final EditionTeam team;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+        child: Column(
+      children: [
+        MyLogo(
+          path: ApiService.BASE_URL + team.team!.logo,
+          height: 40,
+          width: 40,
+        ),
+        Text(
+          "${team.team!.name}",
+          overflow: TextOverflow.ellipsis,
+          style: AppTextStyle.bodysmall,
+          textAlign: TextAlign.center,
+        ),
+      ],
+    ));
   }
 }

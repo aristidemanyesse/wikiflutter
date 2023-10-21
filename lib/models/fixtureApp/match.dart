@@ -1,8 +1,13 @@
 // This file is "main.dart"
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
+import 'package:wikibet/core/apiservice.dart';
 import 'package:wikibet/models/competitionApp/editionCompetition.dart';
+import 'package:wikibet/models/fixtureApp/match_schema.dart';
+import 'package:wikibet/models/statsApp/beforeMatchStat.dart';
+import 'package:wikibet/models/statsApp/resultMatch.dart';
 import 'package:wikibet/models/teamApp/editionTeam.dart';
+import "package:intl/intl.dart";
 part 'match.freezed.dart';
 part 'match.g.dart';
 
@@ -11,7 +16,7 @@ class Match with _$Match {
   const factory Match({
     @Default("") String id,
     @Default("") String createdAt,
-    @Default("") String updatedAt,
+    @Default("") String updateAt,
     @Default(false) bool deleted,
     @Default("") String name,
     @Default("") date,
@@ -19,6 +24,7 @@ class Match with _$Match {
     EditionTeam? home,
     EditionTeam? away,
     EditionCompetition? edition,
+    List<ResultMatch>? results,
     @Default(false) bool isFinished,
     @Default(false) bool isPosted,
     @Default(false) bool isFirstMatch,
@@ -30,4 +36,46 @@ class Match with _$Match {
   }) = _Match;
 
   factory Match.fromJson(Map<String, Object?> json) => _$MatchFromJson(json);
+
+  // ///////////////////////////////////////////////////////////////////////////////////////////
+
+  static const String matchFragment = """
+  fragment MatchFragment on MatchGenericType {
+    id
+    createdAt
+    updateAt
+    deleted
+    date
+    hour
+    home{
+      ...EditionTeamFragment
+    }
+    away{
+      ...EditionTeamFragment
+    }
+    edition{
+      ...EditionCompetitionFragment
+    }
+    resultMatch{
+			...ResultMatchFragment
+		}
+    isFinished
+    isPosted
+    isFirstMatch
+    isPredict
+    isCompared
+    isComparedElo
+    isFacted
+    isStated
+  }
+  """;
+
+  static Future<List<Match>> all(Map<String, dynamic> variables) async {
+    dynamic datas = await ApiService.request(MatchSchema.ALL, variables);
+    List<Match> items = [];
+    for (var jsonTask in datas["searchMatch"]["results"]) {
+      items.add(Match.fromJson(jsonTask));
+    }
+    return items;
+  }
 }

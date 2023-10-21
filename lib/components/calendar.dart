@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:wikibet/components/logo_markers.dart';
+import 'package:wikibet/controllers/CalendarController.dart';
 import 'package:wikibet/tools/tools.dart';
 import 'package:intl/intl.dart';
 
@@ -15,10 +17,11 @@ class Calendar extends StatefulWidget {
 class _CalendarState extends State<Calendar> {
   _CalendarState();
 
-  DateTime _focusedDay = DateTime.now();
-  DateTime? _selectedDay;
+  CalendarController calendar = Get.find();
 
   DateFormat dateFormat = DateFormat.yMMMMd();
+  DateTime _focusedDay = DateTime.now();
+  DateTime? _selectedDay;
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +35,9 @@ class _CalendarState extends State<Calendar> {
           onTap: () {},
           child: Center(
             child: Container(
-              margin: EdgeInsets.all(AppConstante.DISTANCE * 2),
+              margin: EdgeInsets.all(AppConstante.PADDING * 2),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(AppConstante.DISTANCE),
+                borderRadius: BorderRadius.circular(AppConstante.PADDING),
                 child: Container(
                   color: Theme.of(context).scaffoldBackgroundColor,
                   child: Column(
@@ -44,7 +47,7 @@ class _CalendarState extends State<Calendar> {
                         height: 50,
                         width: double.infinity,
                         padding: EdgeInsets.symmetric(
-                            horizontal: AppConstante.DISTANCE / 2),
+                            horizontal: AppConstante.PADDING / 2),
                         decoration: BoxDecoration(
                             gradient: LinearGradient(colors: [
                           AppConstante.grenn1.withOpacity(0.5),
@@ -52,19 +55,20 @@ class _CalendarState extends State<Calendar> {
                         ])),
                         child: Row(
                           children: [
-                            const MyLogo(
-                              path: "assets/images/logo.png",
+                            const WikibetLogo(
                               height: 35,
                               width: 35,
                             ),
                             Expanded(
                               child: Center(
-                                child: Text(
-                                  "$_focusedDay",
-                                  style: AppTextStyle.titleMedium,
-                                ),
+                                child: Obx(() {
+                                  return Text(
+                                    "${calendar.selectedDate_}",
+                                    style: AppTextStyle.titleMedium,
+                                  );
+                                }),
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
@@ -74,11 +78,11 @@ class _CalendarState extends State<Calendar> {
                         ),
                         width: Get.size.width,
                         child: Container(
-                          padding: EdgeInsets.all(AppConstante.DISTANCE / 2),
+                          padding: EdgeInsets.all(AppConstante.PADDING / 2),
                           child: Center(
                             child: TableCalendar(
                               locale: 'fr_FR',
-                              availableCalendarFormats: {
+                              availableCalendarFormats: const {
                                 CalendarFormat.month: 'Month'
                               },
                               calendarBuilders: CalendarBuilders(
@@ -113,23 +117,19 @@ class _CalendarState extends State<Calendar> {
                               ),
                               selectedDayPredicate: (day) {
                                 // Mettez en surbrillance le jour sélectionné
-                                return isSameDay(_selectedDay, day);
+                                return isSameDay(
+                                    calendar.selectedDate.value, day);
                               },
                               onDaySelected: (selectedDay, focusedDay) {
-                                setState(() {
-                                  _selectedDay = selectedDay;
-                                  _focusedDay = focusedDay;
-                                });
                                 Get.back();
+                                calendar.selectedDate.value = focusedDay;
                               },
                               onDisabledDayTapped: (selectedDay) {
-                                setState(() {
-                                  _selectedDay = selectedDay;
-                                });
+                                calendar.selectedDate.value = selectedDay;
                                 Get.back();
                               },
                               onPageChanged: (focusedDay) {
-                                _focusedDay = focusedDay;
+                                calendar.selectedDate.value = focusedDay;
                               },
                               firstDay: DateTime.utc(1993, 07, 23),
                               lastDay:

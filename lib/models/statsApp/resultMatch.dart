@@ -10,7 +10,7 @@ class ResultMatch with _$ResultMatch {
   const factory ResultMatch({
     @Default("") String id,
     @Default("") String createdAt,
-    @Default("") String updatedAt,
+    @Default("") String updateAt,
     @Default(false) bool deleted,
     Match? match,
     @Default(0.0) double homeScore,
@@ -23,4 +23,18 @@ class ResultMatch with _$ResultMatch {
 
   factory ResultMatch.fromJson(Map<String, Object?> json) =>
       _$ResultMatchFromJson(json);
+
+  static const String resultMatchFragment = r"""
+  fragment ResultMatchFragment on ResultMatchGenericType {
+    id
+    createdAt
+    updateAt
+    deleted
+    homeScore
+    awayScore
+    result
+    homeHalfScore
+    awayHalfScore
+  }
+  """;
 }

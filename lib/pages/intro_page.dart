@@ -76,7 +76,7 @@ class Intro1 extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: AppConstante.DISTANCE,
+            height: AppConstante.PADDING,
           ),
           const Row(
             mainAxisAlignment: MainAxisAlignment.center,

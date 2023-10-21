@@ -12,29 +12,25 @@ class GeneralSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: AppConstante.DISTANCE / 2),
+      padding: EdgeInsets.symmetric(horizontal: AppConstante.PADDING / 2),
       child: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(
-              height: AppConstante.DISTANCE,
+              height: AppConstante.PADDING,
             ),
-            const MatchTeamsrankingCard(),
+            MatchTeamsrankingCard(),
             SizedBox(
-              height: AppConstante.DISTANCE,
+              height: AppConstante.PADDING,
             ),
-            const B2BMatchStatsCard(),
+            B2BMatchStatsCard(),
             SizedBox(
-              height: AppConstante.DISTANCE,
+              height: AppConstante.PADDING,
             ),
-            RadarStatsCard(),
-            SizedBox(
-              height: AppConstante.DISTANCE,
-            ),
-            RadarStatsCard(),
-            SizedBox(
-              height: AppConstante.DISTANCE,
-            ),
+            // RadarStatsCard(),
+            // SizedBox(
+            //   height: AppConstante.PADDING,
+            // ),
           ],
         ),
       ),

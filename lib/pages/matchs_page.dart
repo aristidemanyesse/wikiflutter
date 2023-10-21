@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
 import 'package:wikibet/components/calendar.dart';
 import 'package:wikibet/components/logo_markers.dart';
 import 'package:wikibet/components/match_card.dart';
+import 'package:wikibet/controllers/MatchController.dart';
+import 'package:wikibet/models/fixtureApp/match_schema.dart';
+import 'package:wikibet/pages/calendar_button.dart';
 import 'package:wikibet/tools/tools.dart';
 
 class MatchsPage extends StatefulWidget {
@@ -13,6 +17,8 @@ class MatchsPage extends StatefulWidget {
 }
 
 class _MatchsPageState extends State<MatchsPage> {
+  MatchController matchController = Get.find();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,15 +32,14 @@ class _MatchsPageState extends State<MatchsPage> {
           ])),
         ),
         leading: Container(
-          margin: EdgeInsets.only(left: AppConstante.DISTANCE / 2),
-          child: const MyLogo(
-            path: "assets/images/logo.png",
+          margin: EdgeInsets.only(left: AppConstante.PADDING / 2),
+          child: const WikibetLogo(
             height: 10,
             width: 10,
           ),
         ),
         actions: [
-          const CalendarButton(),
+          CalendarButton(),
           IconButton(
               onPressed: () {},
               icon: const Icon(
@@ -62,48 +67,26 @@ class _MatchsPageState extends State<MatchsPage> {
         height: double.infinity,
         width: double.infinity,
         padding: EdgeInsets.symmetric(
-            horizontal: AppConstante.DISTANCE / 4,
-            vertical: AppConstante.DISTANCE / 3),
+            horizontal: AppConstante.PADDING / 4,
+            vertical: AppConstante.PADDING / 3),
         child: SingleChildScrollView(
-          child: Column(
-            children: List.generate(10, (index) => const MatchCard()),
-          ),
+          child: Obx(() {
+            return matchController.matchs.value.length > 0
+                ? Column(
+                    children: matchController.matchs.value
+                        .map((match) => MatchCard(
+                              match: match,
+                            ))
+                        .toList(),
+                  )
+                : Center(
+                    child: Text(
+                      "Aucun match pour ce jour !",
+                      style: AppTextStyle.titleMedium,
+                    ),
+                  );
+          }),
         ),
-      ),
-    );
-  }
-}
-
-class CalendarButton extends StatelessWidget {
-  const CalendarButton({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () {
-        Get.dialog(const Calendar());
-      },
-      icon: Stack(
-        alignment: Alignment.center,
-        children: [
-          Opacity(
-            opacity: 0.7,
-            child: Icon(
-              Icons.calendar_today_outlined,
-              size: AppConstante.DISTANCE * 1.5,
-            ),
-          ),
-          const Positioned(
-            top: 12,
-            left: 8.5,
-            child: Text(
-              "23",
-              style: AppTextStyle.bodygras,
-            ),
-          )
-        ],
       ),
     );
   }

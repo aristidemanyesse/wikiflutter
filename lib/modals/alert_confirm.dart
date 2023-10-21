@@ -14,9 +14,9 @@ class AlertConfirm extends StatelessWidget {
       backgroundColor: Colors.transparent,
       body: Center(
         child: Container(
-          margin: EdgeInsets.all(AppConstante.DISTANCE * 2),
+          margin: EdgeInsets.all(AppConstante.PADDING * 2),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(AppConstante.DISTANCE),
+            borderRadius: BorderRadius.circular(AppConstante.PADDING),
             child: Container(
               color: Theme.of(context).scaffoldBackgroundColor,
               child: Column(
@@ -26,7 +26,7 @@ class AlertConfirm extends StatelessWidget {
                     height: 50,
                     width: double.infinity,
                     padding: EdgeInsets.symmetric(
-                        horizontal: AppConstante.DISTANCE / 2),
+                        horizontal: AppConstante.PADDING / 2),
                     decoration: BoxDecoration(
                         gradient: LinearGradient(colors: [
                       AppConstante.grenn1.withOpacity(0.5),
@@ -58,13 +58,13 @@ class AlertConfirm extends StatelessWidget {
                     child: Column(
                       children: [
                         Container(
-                          padding: EdgeInsets.all(AppConstante.DISTANCE / 3),
+                          padding: EdgeInsets.all(AppConstante.PADDING / 3),
                           child: Column(
                             children: [
                               Card(
                                 child: Container(
                                   padding: EdgeInsets.symmetric(
-                                      horizontal: AppConstante.DISTANCE / 4),
+                                      horizontal: AppConstante.PADDING / 4),
                                   child: Row(
                                     children: [
                                       Expanded(
@@ -80,7 +80,7 @@ class AlertConfirm extends StatelessWidget {
                                                 ),
                                                 SizedBox(
                                                   width:
-                                                      AppConstante.DISTANCE / 2,
+                                                      AppConstante.PADDING / 2,
                                                 ),
                                                 Expanded(
                                                   child: Text(
@@ -105,7 +105,7 @@ class AlertConfirm extends StatelessWidget {
                                                 ),
                                                 SizedBox(
                                                   width:
-                                                      AppConstante.DISTANCE / 2,
+                                                      AppConstante.PADDING / 2,
                                                 ),
                                                 Expanded(
                                                   child: Text(

@@ -10,7 +10,7 @@ class Ranking with _$Ranking {
   const factory Ranking({
     @Default("") String id,
     @Default("") String createdAt,
-    @Default("") String updatedAt,
+    @Default("") String updateAt,
     @Default(false) bool deleted,
     @Default("") String date,
     Edition? edition,
@@ -18,4 +18,17 @@ class Ranking with _$Ranking {
 
   factory Ranking.fromJson(Map<String, Object?> json) =>
       _$RankingFromJson(json);
+
+  static const String rankingFragment = """
+  fragment RankingFragment on RankingGenericType {
+    id
+    createdAt
+    updateAt
+    deleted
+    date
+    edition{
+      ...EditionCompetitionFragment
+    }
+  }
+  """;
 }

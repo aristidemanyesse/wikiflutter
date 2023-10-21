@@ -11,7 +11,7 @@ class OtherStatsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(
-        horizontal: AppConstante.DISTANCE / 3,
+        horizontal: AppConstante.PADDING / 3,
       ),
       child: const Column(
         children: [

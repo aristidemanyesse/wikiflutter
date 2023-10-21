@@ -11,7 +11,7 @@ class CompetitionStat with _$CompetitionStat {
   const factory CompetitionStat({
     @Default("") String id,
     @Default("") String createdAt,
-    @Default("") String updatedAt,
+    @Default("") String updateAt,
     @Default(false) bool deleted,
     Ranking? ranking,
     Edition? edition,

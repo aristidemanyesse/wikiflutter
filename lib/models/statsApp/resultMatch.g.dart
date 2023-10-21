@@ -10,7 +10,7 @@ _$ResultMatchImpl _$$ResultMatchImplFromJson(Map<String, dynamic> json) =>
     _$ResultMatchImpl(
       id: json['id'] as String? ?? "",
       createdAt: json['createdAt'] as String? ?? "",
-      updatedAt: json['updatedAt'] as String? ?? "",
+      updateAt: json['updateAt'] as String? ?? "",
       deleted: json['deleted'] as bool? ?? false,
       match: json['match'] == null
           ? null
@@ -27,7 +27,7 @@ Map<String, dynamic> _$$ResultMatchImplToJson(_$ResultMatchImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'createdAt': instance.createdAt,
-      'updatedAt': instance.updatedAt,
+      'updateAt': instance.updateAt,
       'deleted': instance.deleted,
       'match': instance.match,
       'homeScore': instance.homeScore,

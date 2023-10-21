@@ -1,34 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:wikibet/components/logo_markers.dart';
+import 'package:wikibet/core/apiservice.dart';
+import 'package:wikibet/models/statsApp/resultMatch.dart';
 import 'package:wikibet/tools/tools.dart';
+import 'package:wikibet/models/fixtureApp/match.dart';
 
 class LigneMatch extends StatelessWidget {
+  final Match match;
   const LigneMatch({
     super.key,
+    required this.match,
   });
 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(AppConstante.DISTANCE / 2),
+      borderRadius: BorderRadius.circular(AppConstante.PADDING / 2),
       child: Card(
         margin: const EdgeInsets.all(3),
         child: Container(
-          padding: EdgeInsets.all(AppConstante.DISTANCE / 3),
+          padding: EdgeInsets.all(AppConstante.PADDING / 3),
           width: double.infinity,
           child: Row(
             children: [
               Container(
-                child: const Center(
+                child: Center(
                   child: Column(children: [
-                    Text("12/12", style: AppTextStyle.body),
-                    Text("17:20", style: AppTextStyle.bodysmall)
+                    Text(
+                        "${DateTime.parse(match.date + " " + match.hour).day}/${DateTime.parse(match.date + " " + match.hour).month}",
+                        style: AppTextStyle.body),
+                    Text(
+                        "${DateTime.parse(match.date + " " + match.hour).hour}:${DateTime.parse(match.date + " " + match.hour).minute}",
+                        style: AppTextStyle.bodysmall)
                   ]),
                 ),
               ),
               Container(
                 margin:
-                    EdgeInsets.symmetric(horizontal: AppConstante.DISTANCE / 2),
+                    EdgeInsets.symmetric(horizontal: AppConstante.PADDING / 2),
                 height: 20,
                 width: 1,
                 color: Colors.grey,
@@ -37,26 +46,26 @@ class LigneMatch extends StatelessWidget {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Expanded(
+                    Expanded(
                         child: Text(
-                      "Manchester United",
+                      "${match.home!.team!.name}",
                       style: AppTextStyle.body,
                       textAlign: TextAlign.right,
                       overflow: TextOverflow.ellipsis,
                     )),
                     SizedBox(
-                      width: AppConstante.DISTANCE / 4,
+                      width: AppConstante.PADDING / 4,
                     ),
-                    const MyLogo(
-                      path: "assets/images/logo.png",
+                    MyLogo(
+                      path: "${ApiService.BASE_URL + match.home!.team!.logo}",
                       height: 25,
                       width: 25,
                     ),
                     SizedBox(
-                      width: AppConstante.DISTANCE / 4,
+                      width: AppConstante.PADDING / 4,
                     ),
                     Container(
-                      child: const Column(
+                      child: Column(
                         children: [
                           Text(
                             "0 : 0",
@@ -70,19 +79,19 @@ class LigneMatch extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      width: AppConstante.DISTANCE / 4,
+                      width: AppConstante.PADDING / 4,
                     ),
-                    const MyLogo(
-                      path: "assets/images/logo.png",
+                    MyLogo(
+                      path: "${ApiService.BASE_URL + match.away!.team!.logo}",
                       height: 25,
                       width: 25,
                     ),
                     SizedBox(
-                      width: AppConstante.DISTANCE / 4,
+                      width: AppConstante.PADDING / 4,
                     ),
-                    const Expanded(
+                    Expanded(
                         child: Text(
-                      "Union Sportive de Saint Galloise",
+                      "${match.away!.team!.name}",
                       style: AppTextStyle.body,
                       textAlign: TextAlign.left,
                       overflow: TextOverflow.ellipsis,
@@ -91,7 +100,7 @@ class LigneMatch extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                width: AppConstante.DISTANCE / 4,
+                width: AppConstante.PADDING / 4,
               ),
               ClipRRect(
                 borderRadius: BorderRadius.circular(100),
@@ -99,7 +108,14 @@ class LigneMatch extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: AppConstante.grenn1,
                   ),
-                  padding: EdgeInsets.all(AppConstante.DISTANCE / 5),
+                  height: AppConstante.PADDING,
+                  width: AppConstante.PADDING,
+                  child: Center(
+                    child: Text(
+                      "V",
+                      style: AppTextStyle.bodysmall,
+                    ),
+                  ),
                 ),
               ),
             ],

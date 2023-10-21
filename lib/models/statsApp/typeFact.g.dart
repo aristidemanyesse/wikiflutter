@@ -10,7 +10,7 @@ _$TypeFactImpl _$$TypeFactImplFromJson(Map<String, dynamic> json) =>
     _$TypeFactImpl(
       id: json['id'] as String? ?? "",
       createdAt: json['createdAt'] as String? ?? "",
-      updatedAt: json['updatedAt'] as String? ?? "",
+      updateAt: json['updateAt'] as String? ?? "",
       deleted: json['deleted'] as bool? ?? false,
       name: json['name'] as String? ?? "",
       description: json['description'] as String? ?? "",
@@ -20,7 +20,7 @@ Map<String, dynamic> _$$TypeFactImplToJson(_$TypeFactImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'createdAt': instance.createdAt,
-      'updatedAt': instance.updatedAt,
+      'updateAt': instance.updateAt,
       'deleted': instance.deleted,
       'name': instance.name,
       'description': instance.description,

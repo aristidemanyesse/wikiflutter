@@ -22,9 +22,9 @@ EditionTeam _$EditionTeamFromJson(Map<String, dynamic> json) {
 mixin _$EditionTeam {
   String get id => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
+  String get updateAt => throw _privateConstructorUsedError;
   bool get deleted => throw _privateConstructorUsedError;
-  Edition? get edition => throw _privateConstructorUsedError;
+  EditionCompetition? get edition => throw _privateConstructorUsedError;
   Team? get team => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,12 +42,12 @@ abstract class $EditionTeamCopyWith<$Res> {
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
-      Edition? edition,
+      EditionCompetition? edition,
       Team? team});
 
-  $EditionCopyWith<$Res>? get edition;
+  $EditionCompetitionCopyWith<$Res>? get edition;
   $TeamCopyWith<$Res>? get team;
 }
 
@@ -66,7 +66,7 @@ class _$EditionTeamCopyWithImpl<$Res, $Val extends EditionTeam>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? edition = freezed,
     Object? team = freezed,
@@ -80,9 +80,9 @@ class _$EditionTeamCopyWithImpl<$Res, $Val extends EditionTeam>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -91,7 +91,7 @@ class _$EditionTeamCopyWithImpl<$Res, $Val extends EditionTeam>
       edition: freezed == edition
           ? _value.edition
           : edition // ignore: cast_nullable_to_non_nullable
-              as Edition?,
+              as EditionCompetition?,
       team: freezed == team
           ? _value.team
           : team // ignore: cast_nullable_to_non_nullable
@@ -101,12 +101,12 @@ class _$EditionTeamCopyWithImpl<$Res, $Val extends EditionTeam>
 
   @override
   @pragma('vm:prefer-inline')
-  $EditionCopyWith<$Res>? get edition {
+  $EditionCompetitionCopyWith<$Res>? get edition {
     if (_value.edition == null) {
       return null;
     }
 
-    return $EditionCopyWith<$Res>(_value.edition!, (value) {
+    return $EditionCompetitionCopyWith<$Res>(_value.edition!, (value) {
       return _then(_value.copyWith(edition: value) as $Val);
     });
   }
@@ -135,13 +135,13 @@ abstract class _$$EditionTeamImplCopyWith<$Res>
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
-      Edition? edition,
+      EditionCompetition? edition,
       Team? team});
 
   @override
-  $EditionCopyWith<$Res>? get edition;
+  $EditionCompetitionCopyWith<$Res>? get edition;
   @override
   $TeamCopyWith<$Res>? get team;
 }
@@ -159,7 +159,7 @@ class __$$EditionTeamImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? edition = freezed,
     Object? team = freezed,
@@ -173,9 +173,9 @@ class __$$EditionTeamImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -184,7 +184,7 @@ class __$$EditionTeamImplCopyWithImpl<$Res>
       edition: freezed == edition
           ? _value.edition
           : edition // ignore: cast_nullable_to_non_nullable
-              as Edition?,
+              as EditionCompetition?,
       team: freezed == team
           ? _value.team
           : team // ignore: cast_nullable_to_non_nullable
@@ -199,7 +199,7 @@ class _$EditionTeamImpl with DiagnosticableTreeMixin implements _EditionTeam {
   const _$EditionTeamImpl(
       {this.id = "",
       this.createdAt = "",
-      this.updatedAt = "",
+      this.updateAt = "",
       this.deleted = false,
       this.edition,
       this.team});
@@ -215,18 +215,18 @@ class _$EditionTeamImpl with DiagnosticableTreeMixin implements _EditionTeam {
   final String createdAt;
   @override
   @JsonKey()
-  final String updatedAt;
+  final String updateAt;
   @override
   @JsonKey()
   final bool deleted;
   @override
-  final Edition? edition;
+  final EditionCompetition? edition;
   @override
   final Team? team;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'EditionTeam(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, deleted: $deleted, edition: $edition, team: $team)';
+    return 'EditionTeam(id: $id, createdAt: $createdAt, updateAt: $updateAt, deleted: $deleted, edition: $edition, team: $team)';
   }
 
   @override
@@ -236,7 +236,7 @@ class _$EditionTeamImpl with DiagnosticableTreeMixin implements _EditionTeam {
       ..add(DiagnosticsProperty('type', 'EditionTeam'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('updatedAt', updatedAt))
+      ..add(DiagnosticsProperty('updateAt', updateAt))
       ..add(DiagnosticsProperty('deleted', deleted))
       ..add(DiagnosticsProperty('edition', edition))
       ..add(DiagnosticsProperty('team', team));
@@ -250,8 +250,8 @@ class _$EditionTeamImpl with DiagnosticableTreeMixin implements _EditionTeam {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
+            (identical(other.updateAt, updateAt) ||
+                other.updateAt == updateAt) &&
             (identical(other.deleted, deleted) || other.deleted == deleted) &&
             (identical(other.edition, edition) || other.edition == edition) &&
             (identical(other.team, team) || other.team == team));
@@ -259,8 +259,8 @@ class _$EditionTeamImpl with DiagnosticableTreeMixin implements _EditionTeam {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, createdAt, updatedAt, deleted, edition, team);
+  int get hashCode =>
+      Object.hash(runtimeType, id, createdAt, updateAt, deleted, edition, team);
 
   @JsonKey(ignore: true)
   @override
@@ -280,9 +280,9 @@ abstract class _EditionTeam implements EditionTeam {
   const factory _EditionTeam(
       {final String id,
       final String createdAt,
-      final String updatedAt,
+      final String updateAt,
       final bool deleted,
-      final Edition? edition,
+      final EditionCompetition? edition,
       final Team? team}) = _$EditionTeamImpl;
 
   factory _EditionTeam.fromJson(Map<String, dynamic> json) =
@@ -293,11 +293,11 @@ abstract class _EditionTeam implements EditionTeam {
   @override
   String get createdAt;
   @override
-  String get updatedAt;
+  String get updateAt;
   @override
   bool get deleted;
   @override
-  Edition? get edition;
+  EditionCompetition? get edition;
   @override
   Team? get team;
   @override

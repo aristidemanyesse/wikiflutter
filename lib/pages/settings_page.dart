@@ -19,7 +19,7 @@ class SettingsPage extends StatelessWidget {
           children: [
             Container(
               width: double.infinity,
-              padding: EdgeInsets.all(AppConstante.DISTANCE),
+              padding: EdgeInsets.all(AppConstante.PADDING),
               decoration: BoxDecoration(
                   gradient: LinearGradient(colors: [
                 AppConstante.primaryBlue.withOpacity(0.7),
@@ -33,13 +33,13 @@ class SettingsPage extends StatelessWidget {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(100),
                         child: Container(
-                          height: AppConstante.DISTANCE * 4,
-                          width: AppConstante.DISTANCE * 4,
+                          height: AppConstante.PADDING * 4,
+                          width: AppConstante.PADDING * 4,
                           color: AppConstante.background,
                         ),
                       ),
                       SizedBox(
-                        width: AppConstante.DISTANCE,
+                        width: AppConstante.PADDING,
                       ),
                       Expanded(
                         child: Text(
@@ -51,14 +51,14 @@ class SettingsPage extends StatelessWidget {
                     ],
                   ),
                   SizedBox(
-                    height: AppConstante.DISTANCE,
+                    height: AppConstante.PADDING,
                   ),
                   const MainButton(title: "Je me connectes maintenant !"),
                 ],
               ),
             ),
             SizedBox(
-              height: AppConstante.DISTANCE / 2,
+              height: AppConstante.PADDING / 2,
             ),
             Row(
               children: [
@@ -69,7 +69,7 @@ class SettingsPage extends StatelessWidget {
                 ),
                 Container(
                   margin:
-                      EdgeInsets.symmetric(horizontal: AppConstante.DISTANCE),
+                      EdgeInsets.symmetric(horizontal: AppConstante.PADDING),
                   child: Text(
                     "ou  ",
                     style:
@@ -84,7 +84,7 @@ class SettingsPage extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: AppConstante.DISTANCE / 2,
+              height: AppConstante.PADDING / 2,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -94,28 +94,28 @@ class SettingsPage extends StatelessWidget {
                     child: Center(
                         child: Icon(
                       Icons.facebook,
-                      size: AppConstante.DISTANCE * 2.5,
+                      size: AppConstante.PADDING * 2.5,
                     ))),
                 GestureDetector(
                     onTap: () {},
                     child: Center(
                         child: Icon(
                       Icons.facebook,
-                      size: AppConstante.DISTANCE * 2.5,
+                      size: AppConstante.PADDING * 2.5,
                     ))),
                 GestureDetector(
                     onTap: () {},
                     child: Center(
                         child: Icon(
                       Icons.facebook,
-                      size: AppConstante.DISTANCE * 2.5,
+                      size: AppConstante.PADDING * 2.5,
                     ))),
                 GestureDetector(
                   onTap: () {},
                   child: Center(
                       child: Icon(
                     Icons.facebook,
-                    size: AppConstante.DISTANCE * 2.5,
+                    size: AppConstante.PADDING * 2.5,
                   )),
                 ),
               ],
@@ -135,7 +135,7 @@ class SettingsPage extends StatelessWidget {
             ),
             const Spacer(),
             Container(
-              padding: EdgeInsets.all(AppConstante.DISTANCE / 2),
+              padding: EdgeInsets.all(AppConstante.PADDING / 2),
               child: SingleChildScrollView(
                 child: Column(
                   children: [
@@ -146,7 +146,7 @@ class SettingsPage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: AppConstante.DISTANCE,
+                      height: AppConstante.PADDING,
                     ),
                     GestureDetector(
                       child: const Text(
@@ -155,7 +155,7 @@ class SettingsPage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: AppConstante.DISTANCE,
+                      height: AppConstante.PADDING,
                     ),
                     GestureDetector(
                       child: const Text(
@@ -204,7 +204,7 @@ class SettingsPage extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: AppConstante.DISTANCE / 2,
+              height: AppConstante.PADDING / 2,
             )
           ],
         ),

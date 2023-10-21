@@ -7,13 +7,19 @@ import 'package:wikibet/components/match_page_sections/general_section.dart';
 import 'package:wikibet/components/match_page_sections/historiques_section.dart';
 import 'package:wikibet/components/match_page_sections/other_stats_section.dart';
 import 'package:wikibet/components/match_page_sections/prediction_section.dart';
+import 'package:wikibet/core/apiservice.dart';
 import 'package:wikibet/tools/tools.dart';
 import 'dart:math';
+import 'package:wikibet/models/fixtureApp/match.dart';
+import "package:intl/intl.dart";
+import 'package:intl/date_symbol_data_local.dart';
 
 /// Flutter code sample for [NestedScrollView].
 
 class MatchPage extends StatelessWidget {
-  MatchPage({super.key});
+  final Match match;
+
+  MatchPage({super.key, required this.match});
 
   List<Widget> tabs = [
     const GeneralSection(),
@@ -34,7 +40,7 @@ class MatchPage extends StatelessWidget {
             return <Widget>[
               SliverPersistentHeader(
                 pinned: true,
-                delegate: _SliverAppBarDelegate(),
+                delegate: _SliverAppBarDelegate(match),
               ),
               SliverOverlapAbsorber(
                 handle:
@@ -106,6 +112,9 @@ class MatchPage extends StatelessWidget {
 }
 
 class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
+  final Match match;
+  const _SliverAppBarDelegate(this.match);
+
   @override
   double get maxExtent => Get.size.height * 0.2;
 
@@ -132,6 +141,11 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   ) {
     final double visibleMainHeight = max(maxExtent - shrinkOffset, minExtent);
     final double animationVal = scrollAnimationValue(shrinkOffset);
+
+    initializeDateFormatting();
+    DateFormat dateFormat = DateFormat.yMMMMd('fr');
+    DateFormat timeFormat = DateFormat.Hm('fr');
+
     return SizedBox(
       height: visibleMainHeight,
       width: MediaQuery.of(context).size.width,
@@ -165,7 +179,8 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
                             child: Column(
                               children: [
                                 MyLogo(
-                                  path: "assets/images/logo.png",
+                                  path:
+                                      "${ApiService.BASE_URL + match.home!.team!.logo}",
                                   height: 50 + 5 * animationVal,
                                   width: 50 + 5 * animationVal,
                                 ),
@@ -173,7 +188,7 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
                                     ? Opacity(
                                         opacity: animationVal / 2,
                                         child: Text(
-                                          "Union Sportive de  Sportive de ",
+                                          "${match.home?.team?.name}",
                                           style: AppTextStyle.bodygras
                                               .copyWith(color: Colors.white),
                                           textAlign: TextAlign.center,
@@ -187,23 +202,26 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Text("0 : 0",
-                                  style: AppTextStyle.titleLarge
-                                      .copyWith(color: Colors.white)),
+                              match.isFinished
+                                  ? Text("0 : 0",
+                                      style: AppTextStyle.titleMedium
+                                          .copyWith(color: Colors.white))
+                                  : Text("Vs",
+                                      style: AppTextStyle.titleLarge
+                                          .copyWith(color: Colors.white)),
                               animationVal > 0.55
                                   ? Column(
                                       children: [
                                         SizedBox(
-                                          height: AppConstante.DISTANCE / 3,
+                                          height: AppConstante.PADDING / 3,
                                         ),
-                                        const Text(
-                                          "12 Decembre 2023",
+                                        Text(
+                                            "${dateFormat.format(DateTime.parse(match.date ?? ""))}",
+                                            style: AppTextStyle.body),
+                                        Text(
+                                          "${timeFormat.format(DateTime.parse(match.date + " " + match.hour ?? ""))}",
                                           style: AppTextStyle.body,
-                                        ),
-                                        const Text(
-                                          "12:09",
-                                          style: AppTextStyle.body,
-                                        ),
+                                        )
                                       ],
                                     )
                                   : Container(),
@@ -215,7 +233,8 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
                             child: Column(
                               children: [
                                 MyLogo(
-                                  path: "assets/images/logo.png",
+                                  path:
+                                      "${ApiService.BASE_URL + match.away!.team!.logo}",
                                   height: 50 + 5 * animationVal,
                                   width: 50 + 5 * animationVal,
                                 ),
@@ -223,7 +242,7 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
                                     ? Opacity(
                                         opacity: animationVal / 2,
                                         child: Text(
-                                          "Union Sportive de  Sportive de ",
+                                          "${match.away?.team?.name}",
                                           style: AppTextStyle.bodygras
                                               .copyWith(color: Colors.white),
                                           textAlign: TextAlign.center,
@@ -244,8 +263,8 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
             ),
           ),
           Positioned(
-            top: AppConstante.DISTANCE * 2 / 3,
-            left: AppConstante.DISTANCE / 2,
+            top: AppConstante.PADDING * 2 / 3,
+            left: AppConstante.PADDING / 2,
             child: SafeArea(
               child: Row(
                 children: [

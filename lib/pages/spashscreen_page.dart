@@ -2,6 +2,7 @@ import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:wikibet/pages/landing_page.dart';
+import 'package:wikibet/pages/ossature_app.dart';
 
 class SplashScreenPage extends StatefulWidget {
   const SplashScreenPage({super.key});
@@ -19,7 +20,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
 
   void _startAnimation() {
     Future.delayed(const Duration(seconds: 4), () {
-      Get.off(const LandingPage());
+      Get.off(const OssatureApp());
     });
   }
 

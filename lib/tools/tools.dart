@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppConstante {
-  static double DISTANCE = 20;
+  static double PADDING = 20;
 
   static Color primaryBlue = const Color(0xFF283475);
   static Color secondaryBlue = const Color(0xFF098FE9);

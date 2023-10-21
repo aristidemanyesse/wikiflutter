@@ -17,7 +17,7 @@ class PronosticLigne extends StatelessWidget {
       },
       child: Card(
         child: Container(
-          padding: EdgeInsets.all(AppConstante.DISTANCE / 2),
+          padding: EdgeInsets.all(AppConstante.PADDING / 2),
           child: const Row(children: [
             MyLogo(
               path: "assets/images/logo.png",

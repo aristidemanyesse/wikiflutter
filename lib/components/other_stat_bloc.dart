@@ -13,15 +13,15 @@ class OtherStatBloc extends StatelessWidget {
     return Card(
       child: Container(
         width: double.infinity,
-        margin: EdgeInsets.symmetric(vertical: AppConstante.DISTANCE),
-        padding: EdgeInsets.symmetric(horizontal: AppConstante.DISTANCE / 2),
+        margin: EdgeInsets.symmetric(vertical: AppConstante.PADDING),
+        padding: EdgeInsets.symmetric(horizontal: AppConstante.PADDING / 2),
         child: Column(
           children: [
             Row(
               children: [
                 Icon(
                   Icons.supervisor_account,
-                  size: AppConstante.DISTANCE,
+                  size: AppConstante.PADDING,
                 ),
                 const Expanded(
                   child: Center(
@@ -33,7 +33,7 @@ class OtherStatBloc extends StatelessWidget {
                 ),
                 Icon(
                   Icons.supervisor_account,
-                  size: AppConstante.DISTANCE,
+                  size: AppConstante.PADDING,
                 ),
               ],
             ),
@@ -42,14 +42,14 @@ class OtherStatBloc extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  padding: EdgeInsets.all(AppConstante.DISTANCE / 4),
+                  padding: EdgeInsets.all(AppConstante.PADDING / 4),
                   child: const Text(
                     "43,2",
                     style: AppTextStyle.titleSmall,
                   ),
                 ),
                 SizedBox(
-                  width: AppConstante.DISTANCE / 4,
+                  width: AppConstante.PADDING / 4,
                 ),
                 Expanded(
                   child: Column(
@@ -62,10 +62,10 @@ class OtherStatBloc extends StatelessWidget {
                               Icon(
                                 Icons.circle,
                                 color: AppConstante.grenn2,
-                                size: AppConstante.DISTANCE / 3,
+                                size: AppConstante.PADDING / 3,
                               ),
                               SizedBox(
-                                width: AppConstante.DISTANCE / 4,
+                                width: AppConstante.PADDING / 4,
                               ),
                               const Text("3,3", style: AppTextStyle.bodysmall),
                             ],
@@ -82,7 +82,7 @@ class OtherStatBloc extends StatelessWidget {
                         ],
                       ),
                       SizedBox(
-                        height: AppConstante.DISTANCE / 3,
+                        height: AppConstante.PADDING / 3,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -92,10 +92,10 @@ class OtherStatBloc extends StatelessWidget {
                               Icon(
                                 Icons.circle,
                                 color: AppConstante.orange,
-                                size: AppConstante.DISTANCE / 3,
+                                size: AppConstante.PADDING / 3,
                               ),
                               SizedBox(
-                                width: AppConstante.DISTANCE / 4,
+                                width: AppConstante.PADDING / 4,
                               ),
                               const Text("3,3", style: AppTextStyle.bodysmall),
                             ],
@@ -116,14 +116,14 @@ class OtherStatBloc extends StatelessWidget {
                 ),
                 Center(
                   child: Container(
-                    padding: EdgeInsets.all(AppConstante.DISTANCE / 2),
+                    padding: EdgeInsets.all(AppConstante.PADDING / 2),
                     child: GestureDetector(
                         onTap: () {
                           Get.dialog(const LineChartPopup());
                         },
                         child: Icon(
                           Icons.bar_chart,
-                          size: AppConstante.DISTANCE,
+                          size: AppConstante.PADDING,
                         )),
                   ),
                 ),
@@ -138,12 +138,12 @@ class OtherStatBloc extends StatelessWidget {
                             children: [
                               const Text("3,3", style: AppTextStyle.bodysmall),
                               SizedBox(
-                                width: AppConstante.DISTANCE / 4,
+                                width: AppConstante.PADDING / 4,
                               ),
                               Icon(
                                 Icons.circle,
                                 color: AppConstante.grenn2,
-                                size: AppConstante.DISTANCE / 3,
+                                size: AppConstante.PADDING / 3,
                               ),
                             ],
                           ),
@@ -156,7 +156,7 @@ class OtherStatBloc extends StatelessWidget {
                         ],
                       ),
                       SizedBox(
-                        height: AppConstante.DISTANCE / 3,
+                        height: AppConstante.PADDING / 3,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
@@ -166,12 +166,12 @@ class OtherStatBloc extends StatelessWidget {
                             children: [
                               const Text("3,3", style: AppTextStyle.bodysmall),
                               SizedBox(
-                                width: AppConstante.DISTANCE / 4,
+                                width: AppConstante.PADDING / 4,
                               ),
                               Icon(
                                 Icons.circle,
                                 color: AppConstante.orange,
-                                size: AppConstante.DISTANCE / 3,
+                                size: AppConstante.PADDING / 3,
                               ),
                             ],
                           ),
@@ -187,11 +187,11 @@ class OtherStatBloc extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: AppConstante.DISTANCE / 4,
+                  width: AppConstante.PADDING / 4,
                 ),
                 Center(
                   child: Container(
-                    padding: EdgeInsets.all(AppConstante.DISTANCE / 4),
+                    padding: EdgeInsets.all(AppConstante.PADDING / 4),
                     child: const Text(
                       "43,1",
                       style: AppTextStyle.titleSmall,

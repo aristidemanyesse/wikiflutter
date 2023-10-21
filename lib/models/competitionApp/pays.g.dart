@@ -9,7 +9,7 @@ part of 'pays.dart';
 _$PaysImpl _$$PaysImplFromJson(Map<String, dynamic> json) => _$PaysImpl(
       id: json['id'] as String? ?? "",
       createdAt: json['createdAt'] as String? ?? "",
-      updatedAt: json['updatedAt'] as String? ?? "",
+      updateAt: json['updateAt'] as String? ?? "",
       deleted: json['deleted'] as bool? ?? false,
       name: json['name'] as String,
       code: json['code'] as String? ?? "",
@@ -21,7 +21,7 @@ Map<String, dynamic> _$$PaysImplToJson(_$PaysImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'createdAt': instance.createdAt,
-      'updatedAt': instance.updatedAt,
+      'updateAt': instance.updateAt,
       'deleted': instance.deleted,
       'name': instance.name,
       'code': instance.code,

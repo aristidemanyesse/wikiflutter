@@ -11,17 +11,17 @@ class FactsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: AppConstante.DISTANCE / 2),
+      padding: EdgeInsets.symmetric(horizontal: AppConstante.PADDING / 2),
       child: SingleChildScrollView(
         child: Column(
           children: [
             const TeamFactsCard(),
             SizedBox(
-              height: AppConstante.DISTANCE,
+              height: AppConstante.PADDING,
             ),
             const OthersGoalsStatsTableCard(),
             SizedBox(
-              height: AppConstante.DISTANCE,
+              height: AppConstante.PADDING,
             ),
           ],
         ),

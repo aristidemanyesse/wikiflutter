@@ -12,8 +12,8 @@ class LigneProno extends StatelessWidget {
     return Card(
       child: Container(
         padding: EdgeInsets.symmetric(
-            horizontal: AppConstante.DISTANCE / 3,
-            vertical: AppConstante.DISTANCE / 2),
+            horizontal: AppConstante.PADDING / 3,
+            vertical: AppConstante.PADDING / 2),
         child: Row(
           children: [
             Expanded(
@@ -27,7 +27,7 @@ class LigneProno extends StatelessWidget {
                         width: 20,
                       ),
                       SizedBox(
-                        width: AppConstante.DISTANCE / 2,
+                        width: AppConstante.PADDING / 2,
                       ),
                       Expanded(
                         child: Text(
@@ -46,7 +46,7 @@ class LigneProno extends StatelessWidget {
                         width: 20,
                       ),
                       SizedBox(
-                        width: AppConstante.DISTANCE / 2,
+                        width: AppConstante.PADDING / 2,
                       ),
                       Expanded(
                         child: Text(
@@ -65,7 +65,7 @@ class LigneProno extends StatelessWidget {
                 children: [
                   const Text("V1", style: AppTextStyle.titleLarge),
                   SizedBox(
-                    height: AppConstante.DISTANCE / 5,
+                    height: AppConstante.PADDING / 5,
                   ),
                   Text("1,23",
                       style:

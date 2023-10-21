@@ -21,9 +21,9 @@ class PronoPopup extends StatelessWidget {
           onTap: () {},
           child: Center(
             child: Container(
-              margin: EdgeInsets.all(AppConstante.DISTANCE),
+              margin: EdgeInsets.all(AppConstante.PADDING),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(AppConstante.DISTANCE),
+                borderRadius: BorderRadius.circular(AppConstante.PADDING),
                 child: Container(
                   color: Theme.of(context).scaffoldBackgroundColor,
                   child: Column(
@@ -33,7 +33,7 @@ class PronoPopup extends StatelessWidget {
                         height: 50,
                         width: double.infinity,
                         padding: EdgeInsets.symmetric(
-                            horizontal: AppConstante.DISTANCE / 2),
+                            horizontal: AppConstante.PADDING / 2),
                         decoration: BoxDecoration(
                             gradient: LinearGradient(colors: [
                           AppConstante.grenn1.withOpacity(0.5),
@@ -65,8 +65,7 @@ class PronoPopup extends StatelessWidget {
                         child: Column(
                           children: [
                             Container(
-                              padding:
-                                  EdgeInsets.all(AppConstante.DISTANCE / 2),
+                              padding: EdgeInsets.all(AppConstante.PADDING / 2),
                               child: const Column(
                                 children: [
                                   LigneProno(),

@@ -11,7 +11,7 @@ _$CompetitionStatImpl _$$CompetitionStatImplFromJson(
     _$CompetitionStatImpl(
       id: json['id'] as String? ?? "",
       createdAt: json['createdAt'] as String? ?? "",
-      updatedAt: json['updatedAt'] as String? ?? "",
+      updateAt: json['updateAt'] as String? ?? "",
       deleted: json['deleted'] as bool? ?? false,
       ranking: json['ranking'] == null
           ? null
@@ -34,7 +34,7 @@ Map<String, dynamic> _$$CompetitionStatImplToJson(
     <String, dynamic>{
       'id': instance.id,
       'createdAt': instance.createdAt,
-      'updatedAt': instance.updatedAt,
+      'updateAt': instance.updateAt,
       'deleted': instance.deleted,
       'ranking': instance.ranking,
       'edition': instance.edition,

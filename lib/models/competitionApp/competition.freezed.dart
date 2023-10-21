@@ -22,7 +22,7 @@ Competition _$CompetitionFromJson(Map<String, dynamic> json) {
 mixin _$Competition {
   String get id => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
+  String get updateAt => throw _privateConstructorUsedError;
   bool get deleted => throw _privateConstructorUsedError;
   String get identifiant => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ abstract class $CompetitionCopyWith<$Res> {
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       String identifiant,
       String name,
@@ -74,7 +74,7 @@ class _$CompetitionCopyWithImpl<$Res, $Val extends Competition>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? identifiant = null,
     Object? name = null,
@@ -92,9 +92,9 @@ class _$CompetitionCopyWithImpl<$Res, $Val extends Competition>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -163,7 +163,7 @@ abstract class _$$CompetitionImplCopyWith<$Res>
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       String identifiant,
       String name,
@@ -191,7 +191,7 @@ class __$$CompetitionImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? identifiant = null,
     Object? name = null,
@@ -209,9 +209,9 @@ class __$$CompetitionImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -251,7 +251,7 @@ class _$CompetitionImpl with DiagnosticableTreeMixin implements _Competition {
   const _$CompetitionImpl(
       {this.id = "",
       this.createdAt = "",
-      this.updatedAt = "",
+      this.updateAt = "",
       this.deleted = false,
       this.identifiant = "",
       this.name = "",
@@ -271,7 +271,7 @@ class _$CompetitionImpl with DiagnosticableTreeMixin implements _Competition {
   final String createdAt;
   @override
   @JsonKey()
-  final String updatedAt;
+  final String updateAt;
   @override
   @JsonKey()
   final bool deleted;
@@ -294,7 +294,7 @@ class _$CompetitionImpl with DiagnosticableTreeMixin implements _Competition {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Competition(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, deleted: $deleted, identifiant: $identifiant, name: $name, code: $code, logo: $logo, pays: $pays, type: $type)';
+    return 'Competition(id: $id, createdAt: $createdAt, updateAt: $updateAt, deleted: $deleted, identifiant: $identifiant, name: $name, code: $code, logo: $logo, pays: $pays, type: $type)';
   }
 
   @override
@@ -304,7 +304,7 @@ class _$CompetitionImpl with DiagnosticableTreeMixin implements _Competition {
       ..add(DiagnosticsProperty('type', 'Competition'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('updatedAt', updatedAt))
+      ..add(DiagnosticsProperty('updateAt', updateAt))
       ..add(DiagnosticsProperty('deleted', deleted))
       ..add(DiagnosticsProperty('identifiant', identifiant))
       ..add(DiagnosticsProperty('name', name))
@@ -322,8 +322,8 @@ class _$CompetitionImpl with DiagnosticableTreeMixin implements _Competition {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
+            (identical(other.updateAt, updateAt) ||
+                other.updateAt == updateAt) &&
             (identical(other.deleted, deleted) || other.deleted == deleted) &&
             (identical(other.identifiant, identifiant) ||
                 other.identifiant == identifiant) &&
@@ -336,8 +336,8 @@ class _$CompetitionImpl with DiagnosticableTreeMixin implements _Competition {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, createdAt, updatedAt,
-      deleted, identifiant, name, code, logo, pays, type);
+  int get hashCode => Object.hash(runtimeType, id, createdAt, updateAt, deleted,
+      identifiant, name, code, logo, pays, type);
 
   @JsonKey(ignore: true)
   @override
@@ -357,7 +357,7 @@ abstract class _Competition implements Competition {
   const factory _Competition(
       {final String id,
       final String createdAt,
-      final String updatedAt,
+      final String updateAt,
       final bool deleted,
       final String identifiant,
       final String name,
@@ -374,7 +374,7 @@ abstract class _Competition implements Competition {
   @override
   String get createdAt;
   @override
-  String get updatedAt;
+  String get updateAt;
   @override
   bool get deleted;
   @override

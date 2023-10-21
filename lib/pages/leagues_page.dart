@@ -38,8 +38,8 @@ class LeaguesPage extends StatelessWidget {
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.symmetric(
-              horizontal: AppConstante.DISTANCE / 4,
-              vertical: AppConstante.DISTANCE / 2),
+              horizontal: AppConstante.PADDING / 4,
+              vertical: AppConstante.PADDING / 2),
           child: const SingleChildScrollView(
             child: Column(
               children: [

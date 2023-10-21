@@ -11,8 +11,7 @@ class PredictionSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(
-          horizontal: AppConstante.DISTANCE / 2,
-          vertical: AppConstante.DISTANCE),
+          horizontal: AppConstante.PADDING / 2, vertical: AppConstante.PADDING),
       child: const Column(
         children: [
           BlocPrediction(),

@@ -22,7 +22,7 @@ Match _$MatchFromJson(Map<String, dynamic> json) {
 mixin _$Match {
   String get id => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
+  String get updateAt => throw _privateConstructorUsedError;
   bool get deleted => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   dynamic get date => throw _privateConstructorUsedError;
@@ -30,6 +30,7 @@ mixin _$Match {
   EditionTeam? get home => throw _privateConstructorUsedError;
   EditionTeam? get away => throw _privateConstructorUsedError;
   EditionCompetition? get edition => throw _privateConstructorUsedError;
+  List<ResultMatch>? get results => throw _privateConstructorUsedError;
   bool get isFinished => throw _privateConstructorUsedError;
   bool get isPosted => throw _privateConstructorUsedError;
   bool get isFirstMatch => throw _privateConstructorUsedError;
@@ -52,7 +53,7 @@ abstract class $MatchCopyWith<$Res> {
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       String name,
       dynamic date,
@@ -60,6 +61,7 @@ abstract class $MatchCopyWith<$Res> {
       EditionTeam? home,
       EditionTeam? away,
       EditionCompetition? edition,
+      List<ResultMatch>? results,
       bool isFinished,
       bool isPosted,
       bool isFirstMatch,
@@ -89,7 +91,7 @@ class _$MatchCopyWithImpl<$Res, $Val extends Match>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? name = null,
     Object? date = freezed,
@@ -97,6 +99,7 @@ class _$MatchCopyWithImpl<$Res, $Val extends Match>
     Object? home = freezed,
     Object? away = freezed,
     Object? edition = freezed,
+    Object? results = freezed,
     Object? isFinished = null,
     Object? isPosted = null,
     Object? isFirstMatch = null,
@@ -115,9 +118,9 @@ class _$MatchCopyWithImpl<$Res, $Val extends Match>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -147,6 +150,10 @@ class _$MatchCopyWithImpl<$Res, $Val extends Match>
           ? _value.edition
           : edition // ignore: cast_nullable_to_non_nullable
               as EditionCompetition?,
+      results: freezed == results
+          ? _value.results
+          : results // ignore: cast_nullable_to_non_nullable
+              as List<ResultMatch>?,
       isFinished: null == isFinished
           ? _value.isFinished
           : isFinished // ignore: cast_nullable_to_non_nullable
@@ -229,7 +236,7 @@ abstract class _$$MatchImplCopyWith<$Res> implements $MatchCopyWith<$Res> {
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       String name,
       dynamic date,
@@ -237,6 +244,7 @@ abstract class _$$MatchImplCopyWith<$Res> implements $MatchCopyWith<$Res> {
       EditionTeam? home,
       EditionTeam? away,
       EditionCompetition? edition,
+      List<ResultMatch>? results,
       bool isFinished,
       bool isPosted,
       bool isFirstMatch,
@@ -267,7 +275,7 @@ class __$$MatchImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? name = null,
     Object? date = freezed,
@@ -275,6 +283,7 @@ class __$$MatchImplCopyWithImpl<$Res>
     Object? home = freezed,
     Object? away = freezed,
     Object? edition = freezed,
+    Object? results = freezed,
     Object? isFinished = null,
     Object? isPosted = null,
     Object? isFirstMatch = null,
@@ -293,9 +302,9 @@ class __$$MatchImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -319,6 +328,10 @@ class __$$MatchImplCopyWithImpl<$Res>
           ? _value.edition
           : edition // ignore: cast_nullable_to_non_nullable
               as EditionCompetition?,
+      results: freezed == results
+          ? _value._results
+          : results // ignore: cast_nullable_to_non_nullable
+              as List<ResultMatch>?,
       isFinished: null == isFinished
           ? _value.isFinished
           : isFinished // ignore: cast_nullable_to_non_nullable
@@ -361,7 +374,7 @@ class _$MatchImpl with DiagnosticableTreeMixin implements _Match {
   const _$MatchImpl(
       {this.id = "",
       this.createdAt = "",
-      this.updatedAt = "",
+      this.updateAt = "",
       this.deleted = false,
       this.name = "",
       this.date = "",
@@ -369,6 +382,7 @@ class _$MatchImpl with DiagnosticableTreeMixin implements _Match {
       this.home,
       this.away,
       this.edition,
+      final List<ResultMatch>? results,
       this.isFinished = false,
       this.isPosted = false,
       this.isFirstMatch = false,
@@ -376,7 +390,8 @@ class _$MatchImpl with DiagnosticableTreeMixin implements _Match {
       this.isCompared = false,
       this.isComparedElo = false,
       this.isFacted = false,
-      this.isStated = false});
+      this.isStated = false})
+      : _results = results;
 
   factory _$MatchImpl.fromJson(Map<String, dynamic> json) =>
       _$$MatchImplFromJson(json);
@@ -389,7 +404,7 @@ class _$MatchImpl with DiagnosticableTreeMixin implements _Match {
   final String createdAt;
   @override
   @JsonKey()
-  final String updatedAt;
+  final String updateAt;
   @override
   @JsonKey()
   final bool deleted;
@@ -408,6 +423,16 @@ class _$MatchImpl with DiagnosticableTreeMixin implements _Match {
   final EditionTeam? away;
   @override
   final EditionCompetition? edition;
+  final List<ResultMatch>? _results;
+  @override
+  List<ResultMatch>? get results {
+    final value = _results;
+    if (value == null) return null;
+    if (_results is EqualUnmodifiableListView) return _results;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   @JsonKey()
   final bool isFinished;
@@ -435,7 +460,7 @@ class _$MatchImpl with DiagnosticableTreeMixin implements _Match {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Match(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, deleted: $deleted, name: $name, date: $date, hour: $hour, home: $home, away: $away, edition: $edition, isFinished: $isFinished, isPosted: $isPosted, isFirstMatch: $isFirstMatch, isPredict: $isPredict, isCompared: $isCompared, isComparedElo: $isComparedElo, isFacted: $isFacted, isStated: $isStated)';
+    return 'Match(id: $id, createdAt: $createdAt, updateAt: $updateAt, deleted: $deleted, name: $name, date: $date, hour: $hour, home: $home, away: $away, edition: $edition, results: $results, isFinished: $isFinished, isPosted: $isPosted, isFirstMatch: $isFirstMatch, isPredict: $isPredict, isCompared: $isCompared, isComparedElo: $isComparedElo, isFacted: $isFacted, isStated: $isStated)';
   }
 
   @override
@@ -445,7 +470,7 @@ class _$MatchImpl with DiagnosticableTreeMixin implements _Match {
       ..add(DiagnosticsProperty('type', 'Match'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('updatedAt', updatedAt))
+      ..add(DiagnosticsProperty('updateAt', updateAt))
       ..add(DiagnosticsProperty('deleted', deleted))
       ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('date', date))
@@ -453,6 +478,7 @@ class _$MatchImpl with DiagnosticableTreeMixin implements _Match {
       ..add(DiagnosticsProperty('home', home))
       ..add(DiagnosticsProperty('away', away))
       ..add(DiagnosticsProperty('edition', edition))
+      ..add(DiagnosticsProperty('results', results))
       ..add(DiagnosticsProperty('isFinished', isFinished))
       ..add(DiagnosticsProperty('isPosted', isPosted))
       ..add(DiagnosticsProperty('isFirstMatch', isFirstMatch))
@@ -471,8 +497,8 @@ class _$MatchImpl with DiagnosticableTreeMixin implements _Match {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
+            (identical(other.updateAt, updateAt) ||
+                other.updateAt == updateAt) &&
             (identical(other.deleted, deleted) || other.deleted == deleted) &&
             (identical(other.name, name) || other.name == name) &&
             const DeepCollectionEquality().equals(other.date, date) &&
@@ -480,6 +506,7 @@ class _$MatchImpl with DiagnosticableTreeMixin implements _Match {
             (identical(other.home, home) || other.home == home) &&
             (identical(other.away, away) || other.away == away) &&
             (identical(other.edition, edition) || other.edition == edition) &&
+            const DeepCollectionEquality().equals(other._results, _results) &&
             (identical(other.isFinished, isFinished) ||
                 other.isFinished == isFinished) &&
             (identical(other.isPosted, isPosted) ||
@@ -500,26 +527,28 @@ class _$MatchImpl with DiagnosticableTreeMixin implements _Match {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      createdAt,
-      updatedAt,
-      deleted,
-      name,
-      const DeepCollectionEquality().hash(date),
-      const DeepCollectionEquality().hash(hour),
-      home,
-      away,
-      edition,
-      isFinished,
-      isPosted,
-      isFirstMatch,
-      isPredict,
-      isCompared,
-      isComparedElo,
-      isFacted,
-      isStated);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        id,
+        createdAt,
+        updateAt,
+        deleted,
+        name,
+        const DeepCollectionEquality().hash(date),
+        const DeepCollectionEquality().hash(hour),
+        home,
+        away,
+        edition,
+        const DeepCollectionEquality().hash(_results),
+        isFinished,
+        isPosted,
+        isFirstMatch,
+        isPredict,
+        isCompared,
+        isComparedElo,
+        isFacted,
+        isStated
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -539,7 +568,7 @@ abstract class _Match implements Match {
   const factory _Match(
       {final String id,
       final String createdAt,
-      final String updatedAt,
+      final String updateAt,
       final bool deleted,
       final String name,
       final dynamic date,
@@ -547,6 +576,7 @@ abstract class _Match implements Match {
       final EditionTeam? home,
       final EditionTeam? away,
       final EditionCompetition? edition,
+      final List<ResultMatch>? results,
       final bool isFinished,
       final bool isPosted,
       final bool isFirstMatch,
@@ -563,7 +593,7 @@ abstract class _Match implements Match {
   @override
   String get createdAt;
   @override
-  String get updatedAt;
+  String get updateAt;
   @override
   bool get deleted;
   @override
@@ -578,6 +608,8 @@ abstract class _Match implements Match {
   EditionTeam? get away;
   @override
   EditionCompetition? get edition;
+  @override
+  List<ResultMatch>? get results;
   @override
   bool get isFinished;
   @override

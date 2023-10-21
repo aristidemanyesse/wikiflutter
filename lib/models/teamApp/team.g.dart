@@ -9,13 +9,15 @@ part of 'team.dart';
 _$TeamImpl _$$TeamImplFromJson(Map<String, dynamic> json) => _$TeamImpl(
       id: json['id'] as String? ?? "",
       createdAt: json['createdAt'] as String? ?? "",
-      updatedAt: json['updatedAt'] as String? ?? "",
+      updateAt: json['updateAt'] as String? ?? "",
       deleted: json['deleted'] as bool? ?? false,
       name: json['name'] as String? ?? "",
       code: json['code'] as String? ?? "",
       name2: json['name2'] as String? ?? "",
       abr: json['abr'] as String? ?? "",
-      pays: json['pays'] as String? ?? "",
+      pays: json['pays'] == null
+          ? null
+          : Pays.fromJson(json['pays'] as Map<String, dynamic>),
       color1: json['color1'] as String? ?? "",
       color2: json['color2'] as String? ?? "",
       logo: json['logo'] as String? ?? "",
@@ -25,7 +27,7 @@ Map<String, dynamic> _$$TeamImplToJson(_$TeamImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'createdAt': instance.createdAt,
-      'updatedAt': instance.updatedAt,
+      'updateAt': instance.updateAt,
       'deleted': instance.deleted,
       'name': instance.name,
       'code': instance.code,

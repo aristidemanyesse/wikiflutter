@@ -56,23 +56,23 @@ class _OssatureAppState extends State<OssatureApp>
               ],
             ),
             padding: EdgeInsets.only(
-                top: AppConstante.DISTANCE / 3,
-                right: AppConstante.DISTANCE,
-                left: AppConstante.DISTANCE),
+                top: AppConstante.PADDING / 3,
+                right: AppConstante.PADDING,
+                left: AppConstante.PADDING),
             child: SafeArea(
               child: Container(
-                padding: EdgeInsets.only(bottom: AppConstante.DISTANCE / 4),
+                padding: EdgeInsets.only(bottom: AppConstante.PADDING / 4),
                 child: GNav(
                   tabBackgroundColor: Theme.of(context).scaffoldBackgroundColor,
                   haptic: true,
-                  gap: AppConstante.DISTANCE /
+                  gap: AppConstante.PADDING /
                       2, // the tab button gap between icon and text
                   tabBorderRadius: 40,
                   tabActiveBorder: Border.all(
                       color: Theme.of(context).scaffoldBackgroundColor,
                       width: 2),
                   padding: EdgeInsets.symmetric(
-                      horizontal: 10, vertical: AppConstante.DISTANCE / 3),
+                      horizontal: 10, vertical: AppConstante.PADDING / 3),
                   tabBackgroundGradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,

@@ -2,6 +2,8 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:wikibet/core/apiservice.dart';
+import 'package:wikibet/models/statsApp/beforeMatchStat_schema.dart';
 import 'package:wikibet/models/teamApp/editionTeam.dart';
 import 'package:wikibet/models/fixtureApp/match.dart';
 part 'beforeMatchStat.freezed.dart';
@@ -12,7 +14,7 @@ class BeforeMatchStat with _$BeforeMatchStat {
   const factory BeforeMatchStat(
       {@Default("") String id,
       @Default("") String createdAt,
-      @Default("") String updatedAt,
+      @Default("") String updateAt,
       @Default(false) bool deleted,
       Match? match,
       EditionTeam? team,
@@ -21,9 +23,9 @@ class BeforeMatchStat with _$BeforeMatchStat {
       @Default(0.0) double probabiliteElo,
       @Default(0.0) double gsExpected,
       @Default(0.0) double gaExpected,
-      @Default(0.0) double expectedGoals,
-      @Default(0.0) double goalsScored,
-      @Default(0.0) double goalsConceded,
+      @Default("") String expectedGoals,
+      @Default(0) int goalsScored,
+      @Default(0) int goalsConceded,
       @Default(0.0) double avgGoalsScored,
       @Default(0.0) double avgGoalsConceded,
       @Default(0.0) double avgFoulsFor,
@@ -52,4 +54,55 @@ class BeforeMatchStat with _$BeforeMatchStat {
 
   factory BeforeMatchStat.fromJson(Map<String, Object?> json) =>
       _$BeforeMatchStatFromJson(json);
+
+  static const String beforeMatchStatFragment = r"""
+  fragment BeforeMatchStatFragment on BeforeMatchStatGenericType {
+    id
+    createdAt
+    updateAt
+    deleted
+    ppg
+    scoreElo
+    probabiliteElo
+    gsExpected
+    gaExpected
+    expectedGoals
+    goalsScored
+    goalsConceded
+    avgGoalsScored
+    avgGoalsConceded
+    avgFoulsFor
+    avgFoulsAgainst
+    nbMatchsGtAvgFouls
+    avgCornersFor
+    avgCornersAgainst
+    nbCornersGtAvgFouls
+    avgShotsFor
+    avgShotsAgainst
+    nbShotsGtAvgFouls
+    avgShotsTargetFor
+    avgShotsTargetAgainst
+    nbShotsTargetGtAvgFouls
+    avgOffsideFor
+    avgOffsideAgainst
+    nbOffsideGtAvgFouls
+    avgCardsFor
+    avgCardsAgainst
+    nbCardsGtAvgFouls
+    team{
+      ...EditionTeamFragment
+    }
+  }
+  """;
+
+  static Future<List<BeforeMatchStat>> all(
+      Map<String, dynamic> variables) async {
+    dynamic datas =
+        await ApiService.request(BeforeMatchStatSchema.ALL, variables);
+    List<BeforeMatchStat> items = [];
+    for (var jsonTask in datas["searchBeforeMatchStat"]["results"]) {
+      items.add(BeforeMatchStat.fromJson(jsonTask));
+    }
+    return items;
+  }
 }

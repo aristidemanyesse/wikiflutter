@@ -12,9 +12,9 @@ class BlocPrediction extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Card(
-        margin: EdgeInsets.only(bottom: AppConstante.DISTANCE),
+        margin: EdgeInsets.only(bottom: AppConstante.PADDING),
         child: Container(
-          padding: EdgeInsets.all(AppConstante.DISTANCE / 2),
+          padding: EdgeInsets.all(AppConstante.PADDING / 2),
           child: Column(
             children: [
               const Row(
@@ -30,7 +30,7 @@ class BlocPrediction extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: AppConstante.DISTANCE / 2,
+                height: AppConstante.PADDING / 2,
               ),
               Row(
                 children: [
@@ -44,7 +44,7 @@ class BlocPrediction extends StatelessWidget {
                   Expanded(
                     child: Container(
                       margin: EdgeInsets.symmetric(
-                          horizontal: AppConstante.DISTANCE / 2),
+                          horizontal: AppConstante.PADDING / 2),
                       child: Column(
                         children: [
                           const Row(
@@ -66,11 +66,11 @@ class BlocPrediction extends StatelessWidget {
                           ),
                           LinearProgressIndicator(
                             borderRadius: BorderRadius.circular(40),
-                            minHeight: AppConstante.DISTANCE / 2,
+                            minHeight: AppConstante.PADDING / 2,
                             value: 0.7,
                           ),
                           SizedBox(
-                            height: AppConstante.DISTANCE / 4,
+                            height: AppConstante.PADDING / 4,
                           ),
                           const Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -109,7 +109,7 @@ class BlocPrediction extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: AppConstante.DISTANCE / 2,
+                height: AppConstante.PADDING / 2,
               ),
               const Column(
                 children: [

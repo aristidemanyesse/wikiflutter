@@ -22,7 +22,7 @@ BeforeMatchStat _$BeforeMatchStatFromJson(Map<String, dynamic> json) {
 mixin _$BeforeMatchStat {
   String get id => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
+  String get updateAt => throw _privateConstructorUsedError;
   bool get deleted => throw _privateConstructorUsedError;
   Match? get match => throw _privateConstructorUsedError;
   EditionTeam? get team => throw _privateConstructorUsedError;
@@ -31,9 +31,9 @@ mixin _$BeforeMatchStat {
   double get probabiliteElo => throw _privateConstructorUsedError;
   double get gsExpected => throw _privateConstructorUsedError;
   double get gaExpected => throw _privateConstructorUsedError;
-  double get expectedGoals => throw _privateConstructorUsedError;
-  double get goalsScored => throw _privateConstructorUsedError;
-  double get goalsConceded => throw _privateConstructorUsedError;
+  String get expectedGoals => throw _privateConstructorUsedError;
+  int get goalsScored => throw _privateConstructorUsedError;
+  int get goalsConceded => throw _privateConstructorUsedError;
   double get avgGoalsScored => throw _privateConstructorUsedError;
   double get avgGoalsConceded => throw _privateConstructorUsedError;
   double get avgFoulsFor => throw _privateConstructorUsedError;
@@ -75,7 +75,7 @@ abstract class $BeforeMatchStatCopyWith<$Res> {
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       Match? match,
       EditionTeam? team,
@@ -84,9 +84,9 @@ abstract class $BeforeMatchStatCopyWith<$Res> {
       double probabiliteElo,
       double gsExpected,
       double gaExpected,
-      double expectedGoals,
-      double goalsScored,
-      double goalsConceded,
+      String expectedGoals,
+      int goalsScored,
+      int goalsConceded,
       double avgGoalsScored,
       double avgGoalsConceded,
       double avgFoulsFor,
@@ -132,7 +132,7 @@ class _$BeforeMatchStatCopyWithImpl<$Res, $Val extends BeforeMatchStat>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? match = freezed,
     Object? team = freezed,
@@ -179,9 +179,9 @@ class _$BeforeMatchStatCopyWithImpl<$Res, $Val extends BeforeMatchStat>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -218,15 +218,15 @@ class _$BeforeMatchStatCopyWithImpl<$Res, $Val extends BeforeMatchStat>
       expectedGoals: null == expectedGoals
           ? _value.expectedGoals
           : expectedGoals // ignore: cast_nullable_to_non_nullable
-              as double,
+              as String,
       goalsScored: null == goalsScored
           ? _value.goalsScored
           : goalsScored // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       goalsConceded: null == goalsConceded
           ? _value.goalsConceded
           : goalsConceded // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       avgGoalsScored: null == avgGoalsScored
           ? _value.avgGoalsScored
           : avgGoalsScored // ignore: cast_nullable_to_non_nullable
@@ -366,7 +366,7 @@ abstract class _$$BeforeMatchStatImplCopyWith<$Res>
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       Match? match,
       EditionTeam? team,
@@ -375,9 +375,9 @@ abstract class _$$BeforeMatchStatImplCopyWith<$Res>
       double probabiliteElo,
       double gsExpected,
       double gaExpected,
-      double expectedGoals,
-      double goalsScored,
-      double goalsConceded,
+      String expectedGoals,
+      int goalsScored,
+      int goalsConceded,
       double avgGoalsScored,
       double avgGoalsConceded,
       double avgFoulsFor,
@@ -423,7 +423,7 @@ class __$$BeforeMatchStatImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? match = freezed,
     Object? team = freezed,
@@ -470,9 +470,9 @@ class __$$BeforeMatchStatImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -509,15 +509,15 @@ class __$$BeforeMatchStatImplCopyWithImpl<$Res>
       expectedGoals: null == expectedGoals
           ? _value.expectedGoals
           : expectedGoals // ignore: cast_nullable_to_non_nullable
-              as double,
+              as String,
       goalsScored: null == goalsScored
           ? _value.goalsScored
           : goalsScored // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       goalsConceded: null == goalsConceded
           ? _value.goalsConceded
           : goalsConceded // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       avgGoalsScored: null == avgGoalsScored
           ? _value.avgGoalsScored
           : avgGoalsScored // ignore: cast_nullable_to_non_nullable
@@ -630,7 +630,7 @@ class _$BeforeMatchStatImpl
   const _$BeforeMatchStatImpl(
       {this.id = "",
       this.createdAt = "",
-      this.updatedAt = "",
+      this.updateAt = "",
       this.deleted = false,
       this.match,
       this.team,
@@ -639,9 +639,9 @@ class _$BeforeMatchStatImpl
       this.probabiliteElo = 0.0,
       this.gsExpected = 0.0,
       this.gaExpected = 0.0,
-      this.expectedGoals = 0.0,
-      this.goalsScored = 0.0,
-      this.goalsConceded = 0.0,
+      this.expectedGoals = "",
+      this.goalsScored = 0,
+      this.goalsConceded = 0,
       this.avgGoalsScored = 0.0,
       this.avgGoalsConceded = 0.0,
       this.avgFoulsFor = 0.0,
@@ -679,7 +679,7 @@ class _$BeforeMatchStatImpl
   final String createdAt;
   @override
   @JsonKey()
-  final String updatedAt;
+  final String updateAt;
   @override
   @JsonKey()
   final bool deleted;
@@ -704,13 +704,13 @@ class _$BeforeMatchStatImpl
   final double gaExpected;
   @override
   @JsonKey()
-  final double expectedGoals;
+  final String expectedGoals;
   @override
   @JsonKey()
-  final double goalsScored;
+  final int goalsScored;
   @override
   @JsonKey()
-  final double goalsConceded;
+  final int goalsConceded;
   @override
   @JsonKey()
   final double avgGoalsScored;
@@ -789,7 +789,7 @@ class _$BeforeMatchStatImpl
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'BeforeMatchStat(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, deleted: $deleted, match: $match, team: $team, ppg: $ppg, scoreElo: $scoreElo, probabiliteElo: $probabiliteElo, gsExpected: $gsExpected, gaExpected: $gaExpected, expectedGoals: $expectedGoals, goalsScored: $goalsScored, goalsConceded: $goalsConceded, avgGoalsScored: $avgGoalsScored, avgGoalsConceded: $avgGoalsConceded, avgFoulsFor: $avgFoulsFor, avgFoulsAgainst: $avgFoulsAgainst, nbMatchsGtAvgFouls: $nbMatchsGtAvgFouls, avgCornersFor: $avgCornersFor, avgCornersAgainst: $avgCornersAgainst, nbCornersGtAvgFouls: $nbCornersGtAvgFouls, avgShotsFor: $avgShotsFor, avgShotsAgainst: $avgShotsAgainst, nbShotsGtAvgFouls: $nbShotsGtAvgFouls, avgShotsTargetFor: $avgShotsTargetFor, avgShotsTargetAgainst: $avgShotsTargetAgainst, nbShotsTargetGtAvgFouls: $nbShotsTargetGtAvgFouls, avgOffsideFor: $avgOffsideFor, avgOffsideAgainst: $avgOffsideAgainst, nbOffsideGtAvgFouls: $nbOffsideGtAvgFouls, avgCardsFor: $avgCardsFor, avgCardsAgainst: $avgCardsAgainst, nbCardsGtAvgFouls: $nbCardsGtAvgFouls, listConfrontations: $listConfrontations, listSimilairesPpg: $listSimilairesPpg, listSimilairesPpg2: $listSimilairesPpg2, listSimilairesBetting: $listSimilairesBetting, listIntercepts: $listIntercepts)';
+    return 'BeforeMatchStat(id: $id, createdAt: $createdAt, updateAt: $updateAt, deleted: $deleted, match: $match, team: $team, ppg: $ppg, scoreElo: $scoreElo, probabiliteElo: $probabiliteElo, gsExpected: $gsExpected, gaExpected: $gaExpected, expectedGoals: $expectedGoals, goalsScored: $goalsScored, goalsConceded: $goalsConceded, avgGoalsScored: $avgGoalsScored, avgGoalsConceded: $avgGoalsConceded, avgFoulsFor: $avgFoulsFor, avgFoulsAgainst: $avgFoulsAgainst, nbMatchsGtAvgFouls: $nbMatchsGtAvgFouls, avgCornersFor: $avgCornersFor, avgCornersAgainst: $avgCornersAgainst, nbCornersGtAvgFouls: $nbCornersGtAvgFouls, avgShotsFor: $avgShotsFor, avgShotsAgainst: $avgShotsAgainst, nbShotsGtAvgFouls: $nbShotsGtAvgFouls, avgShotsTargetFor: $avgShotsTargetFor, avgShotsTargetAgainst: $avgShotsTargetAgainst, nbShotsTargetGtAvgFouls: $nbShotsTargetGtAvgFouls, avgOffsideFor: $avgOffsideFor, avgOffsideAgainst: $avgOffsideAgainst, nbOffsideGtAvgFouls: $nbOffsideGtAvgFouls, avgCardsFor: $avgCardsFor, avgCardsAgainst: $avgCardsAgainst, nbCardsGtAvgFouls: $nbCardsGtAvgFouls, listConfrontations: $listConfrontations, listSimilairesPpg: $listSimilairesPpg, listSimilairesPpg2: $listSimilairesPpg2, listSimilairesBetting: $listSimilairesBetting, listIntercepts: $listIntercepts)';
   }
 
   @override
@@ -799,7 +799,7 @@ class _$BeforeMatchStatImpl
       ..add(DiagnosticsProperty('type', 'BeforeMatchStat'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('updatedAt', updatedAt))
+      ..add(DiagnosticsProperty('updateAt', updateAt))
       ..add(DiagnosticsProperty('deleted', deleted))
       ..add(DiagnosticsProperty('match', match))
       ..add(DiagnosticsProperty('team', team))
@@ -847,8 +847,8 @@ class _$BeforeMatchStatImpl
             (identical(other.id, id) || other.id == id) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
+            (identical(other.updateAt, updateAt) ||
+                other.updateAt == updateAt) &&
             (identical(other.deleted, deleted) || other.deleted == deleted) &&
             (identical(other.match, match) || other.match == match) &&
             (identical(other.team, team) || other.team == team) &&
@@ -926,7 +926,7 @@ class _$BeforeMatchStatImpl
         runtimeType,
         id,
         createdAt,
-        updatedAt,
+        updateAt,
         deleted,
         match,
         team,
@@ -984,7 +984,7 @@ abstract class _BeforeMatchStat implements BeforeMatchStat {
   const factory _BeforeMatchStat(
       {final String id,
       final String createdAt,
-      final String updatedAt,
+      final String updateAt,
       final bool deleted,
       final Match? match,
       final EditionTeam? team,
@@ -993,9 +993,9 @@ abstract class _BeforeMatchStat implements BeforeMatchStat {
       final double probabiliteElo,
       final double gsExpected,
       final double gaExpected,
-      final double expectedGoals,
-      final double goalsScored,
-      final double goalsConceded,
+      final String expectedGoals,
+      final int goalsScored,
+      final int goalsConceded,
       final double avgGoalsScored,
       final double avgGoalsConceded,
       final double avgFoulsFor,
@@ -1030,7 +1030,7 @@ abstract class _BeforeMatchStat implements BeforeMatchStat {
   @override
   String get createdAt;
   @override
-  String get updatedAt;
+  String get updateAt;
   @override
   bool get deleted;
   @override
@@ -1048,11 +1048,11 @@ abstract class _BeforeMatchStat implements BeforeMatchStat {
   @override
   double get gaExpected;
   @override
-  double get expectedGoals;
+  String get expectedGoals;
   @override
-  double get goalsScored;
+  int get goalsScored;
   @override
-  double get goalsConceded;
+  int get goalsConceded;
   @override
   double get avgGoalsScored;
   @override

@@ -9,7 +9,7 @@ part of 'match.dart';
 _$MatchImpl _$$MatchImplFromJson(Map<String, dynamic> json) => _$MatchImpl(
       id: json['id'] as String? ?? "",
       createdAt: json['createdAt'] as String? ?? "",
-      updatedAt: json['updatedAt'] as String? ?? "",
+      updateAt: json['updateAt'] as String? ?? "",
       deleted: json['deleted'] as bool? ?? false,
       name: json['name'] as String? ?? "",
       date: json['date'] ?? "",
@@ -24,6 +24,9 @@ _$MatchImpl _$$MatchImplFromJson(Map<String, dynamic> json) => _$MatchImpl(
           ? null
           : EditionCompetition.fromJson(
               json['edition'] as Map<String, dynamic>),
+      results: (json['results'] as List<dynamic>?)
+          ?.map((e) => ResultMatch.fromJson(e as Map<String, dynamic>))
+          .toList(),
       isFinished: json['isFinished'] as bool? ?? false,
       isPosted: json['isPosted'] as bool? ?? false,
       isFirstMatch: json['isFirstMatch'] as bool? ?? false,
@@ -38,7 +41,7 @@ Map<String, dynamic> _$$MatchImplToJson(_$MatchImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'createdAt': instance.createdAt,
-      'updatedAt': instance.updatedAt,
+      'updateAt': instance.updateAt,
       'deleted': instance.deleted,
       'name': instance.name,
       'date': instance.date,
@@ -46,6 +49,7 @@ Map<String, dynamic> _$$MatchImplToJson(_$MatchImpl instance) =>
       'home': instance.home,
       'away': instance.away,
       'edition': instance.edition,
+      'results': instance.results,
       'isFinished': instance.isFinished,
       'isPosted': instance.isPosted,
       'isFirstMatch': instance.isFirstMatch,

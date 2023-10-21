@@ -22,7 +22,7 @@ ExtraInfosMatch _$ExtraInfosMatchFromJson(Map<String, dynamic> json) {
 mixin _$ExtraInfosMatch {
   String get id => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
+  String get updateAt => throw _privateConstructorUsedError;
   bool get deleted => throw _privateConstructorUsedError;
   Match? get match => throw _privateConstructorUsedError;
   double get homeShots => throw _privateConstructorUsedError;
@@ -55,7 +55,7 @@ abstract class $ExtraInfosMatchCopyWith<$Res> {
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       Match? match,
       double homeShots,
@@ -91,7 +91,7 @@ class _$ExtraInfosMatchCopyWithImpl<$Res, $Val extends ExtraInfosMatch>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? match = freezed,
     Object? homeShots = null,
@@ -118,9 +118,9 @@ class _$ExtraInfosMatchCopyWithImpl<$Res, $Val extends ExtraInfosMatch>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -213,7 +213,7 @@ abstract class _$$ExtraInfosMatchImplCopyWith<$Res>
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       Match? match,
       double homeShots,
@@ -248,7 +248,7 @@ class __$$ExtraInfosMatchImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? match = freezed,
     Object? homeShots = null,
@@ -275,9 +275,9 @@ class __$$ExtraInfosMatchImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -355,7 +355,7 @@ class _$ExtraInfosMatchImpl
   const _$ExtraInfosMatchImpl(
       {this.id = "",
       this.createdAt = "",
-      this.updatedAt = "",
+      this.updateAt = "",
       this.deleted = false,
       this.match,
       this.homeShots = 0.0,
@@ -384,7 +384,7 @@ class _$ExtraInfosMatchImpl
   final String createdAt;
   @override
   @JsonKey()
-  final String updatedAt;
+  final String updateAt;
   @override
   @JsonKey()
   final bool deleted;
@@ -435,7 +435,7 @@ class _$ExtraInfosMatchImpl
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ExtraInfosMatch(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, deleted: $deleted, match: $match, homeShots: $homeShots, awayShots: $awayShots, homeShotsOnTarget: $homeShotsOnTarget, awayShotsOnTarget: $awayShotsOnTarget, homeCorners: $homeCorners, awayCorners: $awayCorners, homeFouls: $homeFouls, awayFouls: $awayFouls, homeOffsides: $homeOffsides, awayOffsides: $awayOffsides, homeYellowCards: $homeYellowCards, awayYellowCards: $awayYellowCards, homeRedCards: $homeRedCards, awayRedCards: $awayRedCards)';
+    return 'ExtraInfosMatch(id: $id, createdAt: $createdAt, updateAt: $updateAt, deleted: $deleted, match: $match, homeShots: $homeShots, awayShots: $awayShots, homeShotsOnTarget: $homeShotsOnTarget, awayShotsOnTarget: $awayShotsOnTarget, homeCorners: $homeCorners, awayCorners: $awayCorners, homeFouls: $homeFouls, awayFouls: $awayFouls, homeOffsides: $homeOffsides, awayOffsides: $awayOffsides, homeYellowCards: $homeYellowCards, awayYellowCards: $awayYellowCards, homeRedCards: $homeRedCards, awayRedCards: $awayRedCards)';
   }
 
   @override
@@ -445,7 +445,7 @@ class _$ExtraInfosMatchImpl
       ..add(DiagnosticsProperty('type', 'ExtraInfosMatch'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('updatedAt', updatedAt))
+      ..add(DiagnosticsProperty('updateAt', updateAt))
       ..add(DiagnosticsProperty('deleted', deleted))
       ..add(DiagnosticsProperty('match', match))
       ..add(DiagnosticsProperty('homeShots', homeShots))
@@ -472,8 +472,8 @@ class _$ExtraInfosMatchImpl
             (identical(other.id, id) || other.id == id) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
+            (identical(other.updateAt, updateAt) ||
+                other.updateAt == updateAt) &&
             (identical(other.deleted, deleted) || other.deleted == deleted) &&
             (identical(other.match, match) || other.match == match) &&
             (identical(other.homeShots, homeShots) ||
@@ -512,7 +512,7 @@ class _$ExtraInfosMatchImpl
         runtimeType,
         id,
         createdAt,
-        updatedAt,
+        updateAt,
         deleted,
         match,
         homeShots,
@@ -550,7 +550,7 @@ abstract class _ExtraInfosMatch implements ExtraInfosMatch {
   const factory _ExtraInfosMatch(
       {final String id,
       final String createdAt,
-      final String updatedAt,
+      final String updateAt,
       final bool deleted,
       final Match? match,
       final double homeShots,
@@ -576,7 +576,7 @@ abstract class _ExtraInfosMatch implements ExtraInfosMatch {
   @override
   String get createdAt;
   @override
-  String get updatedAt;
+  String get updateAt;
   @override
   bool get deleted;
   @override

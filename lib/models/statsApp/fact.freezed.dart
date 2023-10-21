@@ -22,7 +22,7 @@ Fact _$FactFromJson(Map<String, dynamic> json) {
 mixin _$Fact {
   String get id => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
+  String get updateAt => throw _privateConstructorUsedError;
   bool get deleted => throw _privateConstructorUsedError;
   TypeFact? get type => throw _privateConstructorUsedError;
   Match? get match => throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ abstract class $FactCopyWith<$Res> {
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       TypeFact? type,
       Match? match,
@@ -77,7 +77,7 @@ class _$FactCopyWithImpl<$Res, $Val extends Fact>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? type = freezed,
     Object? match = freezed,
@@ -97,9 +97,9 @@ class _$FactCopyWithImpl<$Res, $Val extends Fact>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -187,7 +187,7 @@ abstract class _$$FactImplCopyWith<$Res> implements $FactCopyWith<$Res> {
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       TypeFact? type,
       Match? match,
@@ -218,7 +218,7 @@ class __$$FactImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? type = freezed,
     Object? match = freezed,
@@ -238,9 +238,9 @@ class __$$FactImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -288,7 +288,7 @@ class _$FactImpl with DiagnosticableTreeMixin implements _Fact {
   const _$FactImpl(
       {this.id = "",
       this.createdAt = "",
-      this.updatedAt = "",
+      this.updateAt = "",
       this.deleted = false,
       this.type,
       this.match,
@@ -310,7 +310,7 @@ class _$FactImpl with DiagnosticableTreeMixin implements _Fact {
   final String createdAt;
   @override
   @JsonKey()
-  final String updatedAt;
+  final String updateAt;
   @override
   @JsonKey()
   final bool deleted;
@@ -338,7 +338,7 @@ class _$FactImpl with DiagnosticableTreeMixin implements _Fact {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Fact(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, deleted: $deleted, type: $type, match: $match, team: $team, fullTime: $fullTime, allMatches: $allMatches, total: $total, success: $success, pct: $pct)';
+    return 'Fact(id: $id, createdAt: $createdAt, updateAt: $updateAt, deleted: $deleted, type: $type, match: $match, team: $team, fullTime: $fullTime, allMatches: $allMatches, total: $total, success: $success, pct: $pct)';
   }
 
   @override
@@ -348,7 +348,7 @@ class _$FactImpl with DiagnosticableTreeMixin implements _Fact {
       ..add(DiagnosticsProperty('type', 'Fact'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('updatedAt', updatedAt))
+      ..add(DiagnosticsProperty('updateAt', updateAt))
       ..add(DiagnosticsProperty('deleted', deleted))
       ..add(DiagnosticsProperty('type', type))
       ..add(DiagnosticsProperty('match', match))
@@ -368,8 +368,8 @@ class _$FactImpl with DiagnosticableTreeMixin implements _Fact {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
+            (identical(other.updateAt, updateAt) ||
+                other.updateAt == updateAt) &&
             (identical(other.deleted, deleted) || other.deleted == deleted) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.match, match) || other.match == match) &&
@@ -385,8 +385,8 @@ class _$FactImpl with DiagnosticableTreeMixin implements _Fact {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, createdAt, updatedAt,
-      deleted, type, match, team, fullTime, allMatches, total, success, pct);
+  int get hashCode => Object.hash(runtimeType, id, createdAt, updateAt, deleted,
+      type, match, team, fullTime, allMatches, total, success, pct);
 
   @JsonKey(ignore: true)
   @override
@@ -406,7 +406,7 @@ abstract class _Fact implements Fact {
   const factory _Fact(
       {final String id,
       final String createdAt,
-      final String updatedAt,
+      final String updateAt,
       final bool deleted,
       final TypeFact? type,
       final Match? match,
@@ -424,7 +424,7 @@ abstract class _Fact implements Fact {
   @override
   String get createdAt;
   @override
-  String get updatedAt;
+  String get updateAt;
   @override
   bool get deleted;
   @override

@@ -15,8 +15,28 @@ class MyLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
+    return Image.network(
       path,
+      width: width,
+      height: height,
+    );
+  }
+}
+
+class WikibetLogo extends StatelessWidget {
+  final double width;
+  final double height;
+
+  const WikibetLogo({
+    super.key,
+    required this.width,
+    required this.height,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset(
+      "assets/images/logo.png",
       width: width,
       height: height,
     );

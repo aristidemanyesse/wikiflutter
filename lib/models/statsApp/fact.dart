@@ -12,7 +12,7 @@ class Fact with _$Fact {
   const factory Fact({
     @Default("") String id,
     @Default("") String createdAt,
-    @Default("") String updatedAt,
+    @Default("") String updateAt,
     @Default(false) bool deleted,
     TypeFact? type,
     Match? match,

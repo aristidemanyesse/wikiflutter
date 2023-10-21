@@ -23,18 +23,18 @@ class _LineChartPopupState extends State<LineChartPopup> {
     return Center(
       child: Container(
         width: double.infinity,
-        padding: EdgeInsets.all(AppConstante.DISTANCE / 3),
-        margin: EdgeInsets.symmetric(horizontal: AppConstante.DISTANCE / 4),
+        padding: EdgeInsets.all(AppConstante.PADDING / 3),
+        margin: EdgeInsets.symmetric(horizontal: AppConstante.PADDING / 4),
         child: Card(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(
-                height: AppConstante.DISTANCE / 2,
+                height: AppConstante.PADDING / 2,
               ),
               Container(
                 padding:
-                    EdgeInsets.symmetric(horizontal: AppConstante.DISTANCE / 2),
+                    EdgeInsets.symmetric(horizontal: AppConstante.PADDING / 2),
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -49,11 +49,11 @@ class _LineChartPopupState extends State<LineChartPopup> {
                 ),
               ),
               SizedBox(
-                height: AppConstante.DISTANCE / 3,
+                height: AppConstante.PADDING / 3,
               ),
               Container(
                 margin:
-                    EdgeInsets.symmetric(horizontal: AppConstante.DISTANCE / 2),
+                    EdgeInsets.symmetric(horizontal: AppConstante.PADDING / 2),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -66,7 +66,7 @@ class _LineChartPopupState extends State<LineChartPopup> {
                             width: 30,
                           ),
                           SizedBox(
-                            width: AppConstante.DISTANCE / 2,
+                            width: AppConstante.PADDING / 2,
                           ),
                           Container(
                             decoration: BoxDecoration(
@@ -89,7 +89,7 @@ class _LineChartPopupState extends State<LineChartPopup> {
                             width: 50,
                           ),
                           SizedBox(
-                            width: AppConstante.DISTANCE / 2,
+                            width: AppConstante.PADDING / 2,
                           ),
                           const MyLogo(
                             path: "assets/images/logo.png",

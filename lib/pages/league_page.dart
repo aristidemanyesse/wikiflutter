@@ -40,7 +40,7 @@ class _LeaguePageState extends State<LeaguePage> {
                       width: 40,
                     ),
                     SizedBox(
-                      width: AppConstante.DISTANCE / 2,
+                      width: AppConstante.PADDING / 2,
                     ),
                     Container(
                         child: Column(
@@ -52,7 +52,7 @@ class _LeaguePageState extends State<LeaguePage> {
                           textAlign: TextAlign.center,
                         ),
                         SizedBox(
-                          height: AppConstante.DISTANCE / 4,
+                          height: AppConstante.PADDING / 4,
                         ),
                         const Text(
                           "2020 - 2021",

@@ -43,7 +43,7 @@ class PronosticsDayPage extends StatelessWidget {
                     opacity: 0.7,
                     child: Icon(
                       Icons.calendar_today_outlined,
-                      size: AppConstante.DISTANCE * 1.7,
+                      size: AppConstante.PADDING * 1.7,
                     ),
                   ),
                   const Positioned(
@@ -105,17 +105,17 @@ class PronosticsDayPage extends StatelessWidget {
                           style: AppTextStyle.titleLarge,
                         ),
                         SizedBox(
-                          height: AppConstante.DISTANCE / 2,
+                          height: AppConstante.PADDING / 2,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(
                               Icons.calendar_today,
-                              size: AppConstante.DISTANCE * 2 / 3,
+                              size: AppConstante.PADDING * 2 / 3,
                             ),
                             SizedBox(
-                              width: AppConstante.DISTANCE / 3,
+                              width: AppConstante.PADDING / 3,
                             ),
                             const Text(
                               "22 décembre 2023",
@@ -128,7 +128,7 @@ class PronosticsDayPage extends StatelessWidget {
               ),
             ),
             Container(
-              padding: EdgeInsets.all(AppConstante.DISTANCE / 4),
+              padding: EdgeInsets.all(AppConstante.PADDING / 4),
               child: const SingleChildScrollView(
                 child: Column(
                   children: [

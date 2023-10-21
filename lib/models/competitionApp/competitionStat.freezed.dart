@@ -22,7 +22,7 @@ CompetitionStat _$CompetitionStatFromJson(Map<String, dynamic> json) {
 mixin _$CompetitionStat {
   String get id => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
+  String get updateAt => throw _privateConstructorUsedError;
   bool get deleted => throw _privateConstructorUsedError;
   Ranking? get ranking => throw _privateConstructorUsedError;
   Edition? get edition => throw _privateConstructorUsedError;
@@ -50,7 +50,7 @@ abstract class $CompetitionStatCopyWith<$Res> {
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       Ranking? ranking,
       Edition? edition,
@@ -82,7 +82,7 @@ class _$CompetitionStatCopyWithImpl<$Res, $Val extends CompetitionStat>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? ranking = freezed,
     Object? edition = freezed,
@@ -104,9 +104,9 @@ class _$CompetitionStatCopyWithImpl<$Res, $Val extends CompetitionStat>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -191,7 +191,7 @@ abstract class _$$CompetitionStatImplCopyWith<$Res>
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       Ranking? ranking,
       Edition? edition,
@@ -223,7 +223,7 @@ class __$$CompetitionStatImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? ranking = freezed,
     Object? edition = freezed,
@@ -245,9 +245,9 @@ class __$$CompetitionStatImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -305,7 +305,7 @@ class _$CompetitionStatImpl
   const _$CompetitionStatImpl(
       {this.id = "",
       this.createdAt = "",
-      this.updatedAt = "",
+      this.updateAt = "",
       this.deleted = false,
       this.ranking,
       this.edition,
@@ -329,7 +329,7 @@ class _$CompetitionStatImpl
   final String createdAt;
   @override
   @JsonKey()
-  final String updatedAt;
+  final String updateAt;
   @override
   @JsonKey()
   final bool deleted;
@@ -364,7 +364,7 @@ class _$CompetitionStatImpl
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CompetitionStat(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, deleted: $deleted, ranking: $ranking, edition: $edition, avgGoals: $avgGoals, avgFouls: $avgFouls, avgCorners: $avgCorners, avgShots: $avgShots, avgShotsTarget: $avgShotsTarget, avgOffside: $avgOffside, avgYellowCards: $avgYellowCards, avgRedCards: $avgRedCards)';
+    return 'CompetitionStat(id: $id, createdAt: $createdAt, updateAt: $updateAt, deleted: $deleted, ranking: $ranking, edition: $edition, avgGoals: $avgGoals, avgFouls: $avgFouls, avgCorners: $avgCorners, avgShots: $avgShots, avgShotsTarget: $avgShotsTarget, avgOffside: $avgOffside, avgYellowCards: $avgYellowCards, avgRedCards: $avgRedCards)';
   }
 
   @override
@@ -374,7 +374,7 @@ class _$CompetitionStatImpl
       ..add(DiagnosticsProperty('type', 'CompetitionStat'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('updatedAt', updatedAt))
+      ..add(DiagnosticsProperty('updateAt', updateAt))
       ..add(DiagnosticsProperty('deleted', deleted))
       ..add(DiagnosticsProperty('ranking', ranking))
       ..add(DiagnosticsProperty('edition', edition))
@@ -396,8 +396,8 @@ class _$CompetitionStatImpl
             (identical(other.id, id) || other.id == id) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
+            (identical(other.updateAt, updateAt) ||
+                other.updateAt == updateAt) &&
             (identical(other.deleted, deleted) || other.deleted == deleted) &&
             (identical(other.ranking, ranking) || other.ranking == ranking) &&
             (identical(other.edition, edition) || other.edition == edition) &&
@@ -425,7 +425,7 @@ class _$CompetitionStatImpl
       runtimeType,
       id,
       createdAt,
-      updatedAt,
+      updateAt,
       deleted,
       ranking,
       edition,
@@ -457,7 +457,7 @@ abstract class _CompetitionStat implements CompetitionStat {
   const factory _CompetitionStat(
       {final String id,
       final String createdAt,
-      final String updatedAt,
+      final String updateAt,
       final bool deleted,
       final Ranking? ranking,
       final Edition? edition,
@@ -478,7 +478,7 @@ abstract class _CompetitionStat implements CompetitionStat {
   @override
   String get createdAt;
   @override
-  String get updatedAt;
+  String get updateAt;
   @override
   bool get deleted;
   @override

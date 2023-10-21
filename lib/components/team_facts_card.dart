@@ -10,8 +10,8 @@ class TeamFactsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Container(
-        padding: EdgeInsets.all(AppConstante.DISTANCE / 2),
-        margin: EdgeInsets.symmetric(vertical: AppConstante.DISTANCE / 2),
+        padding: EdgeInsets.all(AppConstante.PADDING / 2),
+        margin: EdgeInsets.symmetric(vertical: AppConstante.PADDING / 2),
         child: Column(
           children: [
             Row(
@@ -22,7 +22,7 @@ class TeamFactsCard extends StatelessWidget {
                   width: 40,
                 ),
                 SizedBox(
-                  width: AppConstante.DISTANCE / 2,
+                  width: AppConstante.PADDING / 2,
                 ),
                 const Expanded(
                   child: Text("Union Sportive de Saint Galloise",

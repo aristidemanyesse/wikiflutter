@@ -9,7 +9,7 @@ class PredictionTip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(right: AppConstante.DISTANCE / 5),
+      margin: EdgeInsets.only(right: AppConstante.PADDING / 5),
       child: Card(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 7),

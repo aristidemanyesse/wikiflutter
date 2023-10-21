@@ -11,7 +11,7 @@ class Competition with _$Competition {
   const factory Competition({
     @Default("") String id,
     @Default("") String createdAt,
-    @Default("") String updatedAt,
+    @Default("") String updateAt,
     @Default(false) bool deleted,
     @Default("") String identifiant,
     @Default("") String name,
@@ -23,4 +23,23 @@ class Competition with _$Competition {
 
   factory Competition.fromJson(Map<String, Object?> json) =>
       _$CompetitionFromJson(json);
+
+  static const String competitionFragment = """
+  fragment CompetitionFragment on CompetitionGenericType {
+    id
+    createdAt
+    updateAt
+    deleted
+    identifiant
+    name
+    code
+    logo
+    pays{
+      ...PaysFragment
+    }
+    type{
+      ...TypeCompetitionFragment
+    }
+  }
+  """;
 }

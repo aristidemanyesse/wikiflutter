@@ -22,7 +22,7 @@ TypeCompetition _$TypeCompetitionFromJson(Map<String, dynamic> json) {
 mixin _$TypeCompetition {
   String get id => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
+  String get updateAt => throw _privateConstructorUsedError;
   bool get deleted => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get etiquette => throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ abstract class $TypeCompetitionCopyWith<$Res> {
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       String name,
       String etiquette});
@@ -63,7 +63,7 @@ class _$TypeCompetitionCopyWithImpl<$Res, $Val extends TypeCompetition>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? name = null,
     Object? etiquette = null,
@@ -77,9 +77,9 @@ class _$TypeCompetitionCopyWithImpl<$Res, $Val extends TypeCompetition>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -108,7 +108,7 @@ abstract class _$$TypeCompetitionImplCopyWith<$Res>
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       String name,
       String etiquette});
@@ -127,7 +127,7 @@ class __$$TypeCompetitionImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? name = null,
     Object? etiquette = null,
@@ -141,9 +141,9 @@ class __$$TypeCompetitionImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -169,7 +169,7 @@ class _$TypeCompetitionImpl
   const _$TypeCompetitionImpl(
       {this.id = "",
       this.createdAt = "",
-      this.updatedAt = "",
+      this.updateAt = "",
       this.deleted = false,
       this.name = "",
       this.etiquette = ""});
@@ -185,7 +185,7 @@ class _$TypeCompetitionImpl
   final String createdAt;
   @override
   @JsonKey()
-  final String updatedAt;
+  final String updateAt;
   @override
   @JsonKey()
   final bool deleted;
@@ -198,7 +198,7 @@ class _$TypeCompetitionImpl
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TypeCompetition(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, deleted: $deleted, name: $name, etiquette: $etiquette)';
+    return 'TypeCompetition(id: $id, createdAt: $createdAt, updateAt: $updateAt, deleted: $deleted, name: $name, etiquette: $etiquette)';
   }
 
   @override
@@ -208,7 +208,7 @@ class _$TypeCompetitionImpl
       ..add(DiagnosticsProperty('type', 'TypeCompetition'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('updatedAt', updatedAt))
+      ..add(DiagnosticsProperty('updateAt', updateAt))
       ..add(DiagnosticsProperty('deleted', deleted))
       ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('etiquette', etiquette));
@@ -222,8 +222,8 @@ class _$TypeCompetitionImpl
             (identical(other.id, id) || other.id == id) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
+            (identical(other.updateAt, updateAt) ||
+                other.updateAt == updateAt) &&
             (identical(other.deleted, deleted) || other.deleted == deleted) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.etiquette, etiquette) ||
@@ -233,7 +233,7 @@ class _$TypeCompetitionImpl
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, createdAt, updatedAt, deleted, name, etiquette);
+      runtimeType, id, createdAt, updateAt, deleted, name, etiquette);
 
   @JsonKey(ignore: true)
   @override
@@ -254,7 +254,7 @@ abstract class _TypeCompetition implements TypeCompetition {
   const factory _TypeCompetition(
       {final String id,
       final String createdAt,
-      final String updatedAt,
+      final String updateAt,
       final bool deleted,
       final String name,
       final String etiquette}) = _$TypeCompetitionImpl;
@@ -267,7 +267,7 @@ abstract class _TypeCompetition implements TypeCompetition {
   @override
   String get createdAt;
   @override
-  String get updatedAt;
+  String get updateAt;
   @override
   bool get deleted;
   @override

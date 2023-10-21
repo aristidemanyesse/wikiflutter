@@ -22,7 +22,7 @@ TypeFact _$TypeFactFromJson(Map<String, dynamic> json) {
 mixin _$TypeFact {
   String get id => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
+  String get updateAt => throw _privateConstructorUsedError;
   bool get deleted => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
@@ -41,7 +41,7 @@ abstract class $TypeFactCopyWith<$Res> {
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       String name,
       String description});
@@ -62,7 +62,7 @@ class _$TypeFactCopyWithImpl<$Res, $Val extends TypeFact>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? name = null,
     Object? description = null,
@@ -76,9 +76,9 @@ class _$TypeFactCopyWithImpl<$Res, $Val extends TypeFact>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -107,7 +107,7 @@ abstract class _$$TypeFactImplCopyWith<$Res>
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       String name,
       String description});
@@ -126,7 +126,7 @@ class __$$TypeFactImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? name = null,
     Object? description = null,
@@ -140,9 +140,9 @@ class __$$TypeFactImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -166,7 +166,7 @@ class _$TypeFactImpl with DiagnosticableTreeMixin implements _TypeFact {
   const _$TypeFactImpl(
       {this.id = "",
       this.createdAt = "",
-      this.updatedAt = "",
+      this.updateAt = "",
       this.deleted = false,
       this.name = "",
       this.description = ""});
@@ -182,7 +182,7 @@ class _$TypeFactImpl with DiagnosticableTreeMixin implements _TypeFact {
   final String createdAt;
   @override
   @JsonKey()
-  final String updatedAt;
+  final String updateAt;
   @override
   @JsonKey()
   final bool deleted;
@@ -195,7 +195,7 @@ class _$TypeFactImpl with DiagnosticableTreeMixin implements _TypeFact {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TypeFact(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, deleted: $deleted, name: $name, description: $description)';
+    return 'TypeFact(id: $id, createdAt: $createdAt, updateAt: $updateAt, deleted: $deleted, name: $name, description: $description)';
   }
 
   @override
@@ -205,7 +205,7 @@ class _$TypeFactImpl with DiagnosticableTreeMixin implements _TypeFact {
       ..add(DiagnosticsProperty('type', 'TypeFact'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('updatedAt', updatedAt))
+      ..add(DiagnosticsProperty('updateAt', updateAt))
       ..add(DiagnosticsProperty('deleted', deleted))
       ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('description', description));
@@ -219,8 +219,8 @@ class _$TypeFactImpl with DiagnosticableTreeMixin implements _TypeFact {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
+            (identical(other.updateAt, updateAt) ||
+                other.updateAt == updateAt) &&
             (identical(other.deleted, deleted) || other.deleted == deleted) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
@@ -230,7 +230,7 @@ class _$TypeFactImpl with DiagnosticableTreeMixin implements _TypeFact {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, createdAt, updatedAt, deleted, name, description);
+      runtimeType, id, createdAt, updateAt, deleted, name, description);
 
   @JsonKey(ignore: true)
   @override
@@ -250,7 +250,7 @@ abstract class _TypeFact implements TypeFact {
   const factory _TypeFact(
       {final String id,
       final String createdAt,
-      final String updatedAt,
+      final String updateAt,
       final bool deleted,
       final String name,
       final String description}) = _$TypeFactImpl;
@@ -263,7 +263,7 @@ abstract class _TypeFact implements TypeFact {
   @override
   String get createdAt;
   @override
-  String get updatedAt;
+  String get updateAt;
   @override
   bool get deleted;
   @override

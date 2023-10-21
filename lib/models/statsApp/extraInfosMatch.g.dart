@@ -11,7 +11,7 @@ _$ExtraInfosMatchImpl _$$ExtraInfosMatchImplFromJson(
     _$ExtraInfosMatchImpl(
       id: json['id'] as String? ?? "",
       createdAt: json['createdAt'] as String? ?? "",
-      updatedAt: json['updatedAt'] as String? ?? "",
+      updateAt: json['updateAt'] as String? ?? "",
       deleted: json['deleted'] as bool? ?? false,
       match: json['match'] == null
           ? null
@@ -37,7 +37,7 @@ Map<String, dynamic> _$$ExtraInfosMatchImplToJson(
     <String, dynamic>{
       'id': instance.id,
       'createdAt': instance.createdAt,
-      'updatedAt': instance.updatedAt,
+      'updateAt': instance.updateAt,
       'deleted': instance.deleted,
       'match': instance.match,
       'homeShots': instance.homeShots,

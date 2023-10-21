@@ -22,7 +22,7 @@ Pays _$PaysFromJson(Map<String, dynamic> json) {
 mixin _$Pays {
   String get id => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
+  String get updateAt => throw _privateConstructorUsedError;
   bool get deleted => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get code => throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ abstract class $PaysCopyWith<$Res> {
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       String name,
       String code,
@@ -65,7 +65,7 @@ class _$PaysCopyWithImpl<$Res, $Val extends Pays>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? name = null,
     Object? code = null,
@@ -81,9 +81,9 @@ class _$PaysCopyWithImpl<$Res, $Val extends Pays>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -119,7 +119,7 @@ abstract class _$$PaysImplCopyWith<$Res> implements $PaysCopyWith<$Res> {
   $Res call(
       {String id,
       String createdAt,
-      String updatedAt,
+      String updateAt,
       bool deleted,
       String name,
       String code,
@@ -139,7 +139,7 @@ class __$$PaysImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updateAt = null,
     Object? deleted = null,
     Object? name = null,
     Object? code = null,
@@ -155,9 +155,9 @@ class __$$PaysImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      updateAt: null == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
               as String,
       deleted: null == deleted
           ? _value.deleted
@@ -189,7 +189,7 @@ class _$PaysImpl with DiagnosticableTreeMixin implements _Pays {
   const _$PaysImpl(
       {this.id = "",
       this.createdAt = "",
-      this.updatedAt = "",
+      this.updateAt = "",
       this.deleted = false,
       required this.name,
       this.code = "",
@@ -207,7 +207,7 @@ class _$PaysImpl with DiagnosticableTreeMixin implements _Pays {
   final String createdAt;
   @override
   @JsonKey()
-  final String updatedAt;
+  final String updateAt;
   @override
   @JsonKey()
   final bool deleted;
@@ -225,7 +225,7 @@ class _$PaysImpl with DiagnosticableTreeMixin implements _Pays {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Pays(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, deleted: $deleted, name: $name, code: $code, abr: $abr, flag: $flag)';
+    return 'Pays(id: $id, createdAt: $createdAt, updateAt: $updateAt, deleted: $deleted, name: $name, code: $code, abr: $abr, flag: $flag)';
   }
 
   @override
@@ -235,7 +235,7 @@ class _$PaysImpl with DiagnosticableTreeMixin implements _Pays {
       ..add(DiagnosticsProperty('type', 'Pays'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('updatedAt', updatedAt))
+      ..add(DiagnosticsProperty('updateAt', updateAt))
       ..add(DiagnosticsProperty('deleted', deleted))
       ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('code', code))
@@ -251,8 +251,8 @@ class _$PaysImpl with DiagnosticableTreeMixin implements _Pays {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
+            (identical(other.updateAt, updateAt) ||
+                other.updateAt == updateAt) &&
             (identical(other.deleted, deleted) || other.deleted == deleted) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.code, code) || other.code == code) &&
@@ -263,7 +263,7 @@ class _$PaysImpl with DiagnosticableTreeMixin implements _Pays {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, createdAt, updatedAt, deleted, name, code, abr, flag);
+      runtimeType, id, createdAt, updateAt, deleted, name, code, abr, flag);
 
   @JsonKey(ignore: true)
   @override
@@ -283,7 +283,7 @@ abstract class _Pays implements Pays {
   const factory _Pays(
       {final String id,
       final String createdAt,
-      final String updatedAt,
+      final String updateAt,
       final bool deleted,
       required final String name,
       final String code,
@@ -297,7 +297,7 @@ abstract class _Pays implements Pays {
   @override
   String get createdAt;
   @override
-  String get updatedAt;
+  String get updateAt;
   @override
   bool get deleted;
   @override
