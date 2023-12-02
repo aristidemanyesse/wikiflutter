@@ -25,7 +25,8 @@ mixin _$Ranking {
   String get updateAt => throw _privateConstructorUsedError;
   bool get deleted => throw _privateConstructorUsedError;
   String get date => throw _privateConstructorUsedError;
-  Edition? get edition => throw _privateConstructorUsedError;
+  EditionCompetition? get edition => throw _privateConstructorUsedError;
+  List<LigneRanking>? get rankingLignes => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,9 +44,10 @@ abstract class $RankingCopyWith<$Res> {
       String updateAt,
       bool deleted,
       String date,
-      Edition? edition});
+      EditionCompetition? edition,
+      List<LigneRanking>? rankingLignes});
 
-  $EditionCopyWith<$Res>? get edition;
+  $EditionCompetitionCopyWith<$Res>? get edition;
 }
 
 /// @nodoc
@@ -67,6 +69,7 @@ class _$RankingCopyWithImpl<$Res, $Val extends Ranking>
     Object? deleted = null,
     Object? date = null,
     Object? edition = freezed,
+    Object? rankingLignes = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -92,18 +95,22 @@ class _$RankingCopyWithImpl<$Res, $Val extends Ranking>
       edition: freezed == edition
           ? _value.edition
           : edition // ignore: cast_nullable_to_non_nullable
-              as Edition?,
+              as EditionCompetition?,
+      rankingLignes: freezed == rankingLignes
+          ? _value.rankingLignes
+          : rankingLignes // ignore: cast_nullable_to_non_nullable
+              as List<LigneRanking>?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $EditionCopyWith<$Res>? get edition {
+  $EditionCompetitionCopyWith<$Res>? get edition {
     if (_value.edition == null) {
       return null;
     }
 
-    return $EditionCopyWith<$Res>(_value.edition!, (value) {
+    return $EditionCompetitionCopyWith<$Res>(_value.edition!, (value) {
       return _then(_value.copyWith(edition: value) as $Val);
     });
   }
@@ -122,10 +129,11 @@ abstract class _$$RankingImplCopyWith<$Res> implements $RankingCopyWith<$Res> {
       String updateAt,
       bool deleted,
       String date,
-      Edition? edition});
+      EditionCompetition? edition,
+      List<LigneRanking>? rankingLignes});
 
   @override
-  $EditionCopyWith<$Res>? get edition;
+  $EditionCompetitionCopyWith<$Res>? get edition;
 }
 
 /// @nodoc
@@ -145,6 +153,7 @@ class __$$RankingImplCopyWithImpl<$Res>
     Object? deleted = null,
     Object? date = null,
     Object? edition = freezed,
+    Object? rankingLignes = freezed,
   }) {
     return _then(_$RankingImpl(
       id: null == id
@@ -170,7 +179,11 @@ class __$$RankingImplCopyWithImpl<$Res>
       edition: freezed == edition
           ? _value.edition
           : edition // ignore: cast_nullable_to_non_nullable
-              as Edition?,
+              as EditionCompetition?,
+      rankingLignes: freezed == rankingLignes
+          ? _value._rankingLignes
+          : rankingLignes // ignore: cast_nullable_to_non_nullable
+              as List<LigneRanking>?,
     ));
   }
 }
@@ -184,7 +197,9 @@ class _$RankingImpl with DiagnosticableTreeMixin implements _Ranking {
       this.updateAt = "",
       this.deleted = false,
       this.date = "",
-      this.edition});
+      this.edition,
+      final List<LigneRanking>? rankingLignes})
+      : _rankingLignes = rankingLignes;
 
   factory _$RankingImpl.fromJson(Map<String, dynamic> json) =>
       _$$RankingImplFromJson(json);
@@ -205,11 +220,20 @@ class _$RankingImpl with DiagnosticableTreeMixin implements _Ranking {
   @JsonKey()
   final String date;
   @override
-  final Edition? edition;
+  final EditionCompetition? edition;
+  final List<LigneRanking>? _rankingLignes;
+  @override
+  List<LigneRanking>? get rankingLignes {
+    final value = _rankingLignes;
+    if (value == null) return null;
+    if (_rankingLignes is EqualUnmodifiableListView) return _rankingLignes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Ranking(id: $id, createdAt: $createdAt, updateAt: $updateAt, deleted: $deleted, date: $date, edition: $edition)';
+    return 'Ranking(id: $id, createdAt: $createdAt, updateAt: $updateAt, deleted: $deleted, date: $date, edition: $edition, rankingLignes: $rankingLignes)';
   }
 
   @override
@@ -222,7 +246,8 @@ class _$RankingImpl with DiagnosticableTreeMixin implements _Ranking {
       ..add(DiagnosticsProperty('updateAt', updateAt))
       ..add(DiagnosticsProperty('deleted', deleted))
       ..add(DiagnosticsProperty('date', date))
-      ..add(DiagnosticsProperty('edition', edition));
+      ..add(DiagnosticsProperty('edition', edition))
+      ..add(DiagnosticsProperty('rankingLignes', rankingLignes));
   }
 
   @override
@@ -237,13 +262,15 @@ class _$RankingImpl with DiagnosticableTreeMixin implements _Ranking {
                 other.updateAt == updateAt) &&
             (identical(other.deleted, deleted) || other.deleted == deleted) &&
             (identical(other.date, date) || other.date == date) &&
-            (identical(other.edition, edition) || other.edition == edition));
+            (identical(other.edition, edition) || other.edition == edition) &&
+            const DeepCollectionEquality()
+                .equals(other._rankingLignes, _rankingLignes));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, createdAt, updateAt, deleted, date, edition);
+  int get hashCode => Object.hash(runtimeType, id, createdAt, updateAt, deleted,
+      date, edition, const DeepCollectionEquality().hash(_rankingLignes));
 
   @JsonKey(ignore: true)
   @override
@@ -266,7 +293,8 @@ abstract class _Ranking implements Ranking {
       final String updateAt,
       final bool deleted,
       final String date,
-      final Edition? edition}) = _$RankingImpl;
+      final EditionCompetition? edition,
+      final List<LigneRanking>? rankingLignes}) = _$RankingImpl;
 
   factory _Ranking.fromJson(Map<String, dynamic> json) = _$RankingImpl.fromJson;
 
@@ -281,7 +309,9 @@ abstract class _Ranking implements Ranking {
   @override
   String get date;
   @override
-  Edition? get edition;
+  EditionCompetition? get edition;
+  @override
+  List<LigneRanking>? get rankingLignes;
   @override
   @JsonKey(ignore: true)
   _$$RankingImplCopyWith<_$RankingImpl> get copyWith =>

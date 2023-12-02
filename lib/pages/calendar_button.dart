@@ -15,7 +15,7 @@ class CalendarButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
-        Get.dialog(Calendar());
+        Get.dialog(const Calendar());
       },
       icon: Stack(
         alignment: Alignment.center,

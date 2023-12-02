@@ -1,6 +1,8 @@
 // This file is "main.dart"
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
+import 'package:wikibet/core/apiservice.dart';
+import 'package:wikibet/models/competitionApp/competition_schema.dart';
 import 'package:wikibet/models/competitionApp/pays.dart';
 import 'package:wikibet/models/competitionApp/typeCompetition.dart';
 part 'competition.freezed.dart';
@@ -42,4 +44,13 @@ class Competition with _$Competition {
     }
   }
   """;
+
+  static Future<List<Competition>> all(Map<String, dynamic> variables) async {
+    dynamic datas = await ApiService.request(CompetitionSchema.ALL, variables);
+    List<Competition> items = [];
+    for (var jsonTask in datas["searchCompetition"]["results"]) {
+      items.add(Competition.fromJson(jsonTask));
+    }
+    return items;
+  }
 }

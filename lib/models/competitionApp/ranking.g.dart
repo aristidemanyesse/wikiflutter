@@ -15,7 +15,11 @@ _$RankingImpl _$$RankingImplFromJson(Map<String, dynamic> json) =>
       date: json['date'] as String? ?? "",
       edition: json['edition'] == null
           ? null
-          : Edition.fromJson(json['edition'] as Map<String, dynamic>),
+          : EditionCompetition.fromJson(
+              json['edition'] as Map<String, dynamic>),
+      rankingLignes: (json['rankingLignes'] as List<dynamic>?)
+          ?.map((e) => LigneRanking.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$RankingImplToJson(_$RankingImpl instance) =>
@@ -26,4 +30,5 @@ Map<String, dynamic> _$$RankingImplToJson(_$RankingImpl instance) =>
       'deleted': instance.deleted,
       'date': instance.date,
       'edition': instance.edition,
+      'rankingLignes': instance.rankingLignes,
     };

@@ -4,6 +4,7 @@ import 'package:internet_connection_checker/internet_connection_checker.dart';
 class ConnexionController extends GetxController {
   RxBool isConnected = true.obs;
 
+  @override
   void onInit() async {
     isConnected.value = await InternetConnectionChecker().hasConnection;
     execute();

@@ -1,15 +1,10 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:widgets_to_image/widgets_to_image.dart';
-import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
-import 'dart:typed_data';
-import 'package:flutter/material.dart';
 import 'package:palette_generator/palette_generator.dart';
 import 'package:http/http.dart' as http;
-import 'dart:typed_data';
-import 'dart:ui';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -31,7 +26,7 @@ class MainPageState extends State<MainPage> {
 
     // Écrire les données de l'image dans un fichier
     File file = File(filePath);
-    await file.writeAsBytes(bytes as List<int>);
+    await file.writeAsBytes(bytes);
 
     // Afficher un message pour indiquer que l'image a été enregistrée
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -93,7 +88,7 @@ class MainPageState extends State<MainPage> {
                     'https://via.placeholder.com/350x150'),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return CircularProgressIndicator();
+                    return const CircularProgressIndicator();
                   } else if (snapshot.hasError) {
                     return Text('Erreur : ${snapshot.error}');
                   } else if (snapshot.hasData) {
@@ -114,7 +109,7 @@ class MainPageState extends State<MainPage> {
                           .toList(),
                     );
                   } else {
-                    return Text('Aucune donnée');
+                    return const Text('Aucune donnée');
                   }
                 },
               ),
@@ -154,9 +149,9 @@ class MainPageState extends State<MainPage> {
           ),
           Container(
             padding: const EdgeInsets.all(16),
-            child: Column(
+            child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
                   "Title",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),

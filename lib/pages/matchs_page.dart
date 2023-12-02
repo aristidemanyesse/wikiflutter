@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/route_manager.dart';
-import 'package:wikibet/components/calendar.dart';
 import 'package:wikibet/components/logo_markers.dart';
 import 'package:wikibet/components/match_card.dart';
 import 'package:wikibet/controllers/MatchController.dart';
-import 'package:wikibet/models/fixtureApp/match_schema.dart';
 import 'package:wikibet/pages/calendar_button.dart';
 import 'package:wikibet/tools/tools.dart';
 
@@ -71,7 +68,7 @@ class _MatchsPageState extends State<MatchsPage> {
             vertical: AppConstante.PADDING / 3),
         child: SingleChildScrollView(
           child: Obx(() {
-            return matchController.matchs.value.length > 0
+            return matchController.matchs.value.isNotEmpty
                 ? Column(
                     children: matchController.matchs.value
                         .map((match) => MatchCard(
@@ -79,11 +76,15 @@ class _MatchsPageState extends State<MatchsPage> {
                             ))
                         .toList(),
                   )
-                : Center(
-                    child: Text(
-                      "Aucun match pour ce jour !",
-                      style: AppTextStyle.titleMedium,
-                    ),
+                : Column(
+                    children: [
+                      const Center(
+                        child: Text(
+                          "Aucun match pour ce jour !",
+                          style: AppTextStyle.titleMedium,
+                        ),
+                      ),
+                    ],
                   );
           }),
         ),

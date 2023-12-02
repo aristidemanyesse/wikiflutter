@@ -13,6 +13,7 @@ class UtilisateurController extends GetxController {
   Rx<UtilisateurModel?> currentUser = Rx<UtilisateurModel?>(null);
   Rx<bool> valide = Rx<bool>(false);
 
+  @override
   void onInit() async {
     String id = box.read('userId') ?? "";
     String imei = box.read('imei') ?? "";

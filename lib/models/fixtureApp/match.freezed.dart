@@ -30,7 +30,14 @@ mixin _$Match {
   EditionTeam? get home => throw _privateConstructorUsedError;
   EditionTeam? get away => throw _privateConstructorUsedError;
   EditionCompetition? get edition => throw _privateConstructorUsedError;
-  List<ResultMatch>? get results => throw _privateConstructorUsedError;
+  List<ResultMatch>? get resultMatch => throw _privateConstructorUsedError;
+  List<BeforeMatchStat>? get beforeStatMatch =>
+      throw _privateConstructorUsedError;
+  List<ExtraInfosMatch>? get extraInfoMatch =>
+      throw _privateConstructorUsedError;
+  List<Prediction>? get predictionMatch => throw _privateConstructorUsedError;
+  List<TeamProfileMatch>? get matchProfile =>
+      throw _privateConstructorUsedError;
   bool get isFinished => throw _privateConstructorUsedError;
   bool get isPosted => throw _privateConstructorUsedError;
   bool get isFirstMatch => throw _privateConstructorUsedError;
@@ -61,7 +68,11 @@ abstract class $MatchCopyWith<$Res> {
       EditionTeam? home,
       EditionTeam? away,
       EditionCompetition? edition,
-      List<ResultMatch>? results,
+      List<ResultMatch>? resultMatch,
+      List<BeforeMatchStat>? beforeStatMatch,
+      List<ExtraInfosMatch>? extraInfoMatch,
+      List<Prediction>? predictionMatch,
+      List<TeamProfileMatch>? matchProfile,
       bool isFinished,
       bool isPosted,
       bool isFirstMatch,
@@ -99,7 +110,11 @@ class _$MatchCopyWithImpl<$Res, $Val extends Match>
     Object? home = freezed,
     Object? away = freezed,
     Object? edition = freezed,
-    Object? results = freezed,
+    Object? resultMatch = freezed,
+    Object? beforeStatMatch = freezed,
+    Object? extraInfoMatch = freezed,
+    Object? predictionMatch = freezed,
+    Object? matchProfile = freezed,
     Object? isFinished = null,
     Object? isPosted = null,
     Object? isFirstMatch = null,
@@ -150,10 +165,26 @@ class _$MatchCopyWithImpl<$Res, $Val extends Match>
           ? _value.edition
           : edition // ignore: cast_nullable_to_non_nullable
               as EditionCompetition?,
-      results: freezed == results
-          ? _value.results
-          : results // ignore: cast_nullable_to_non_nullable
+      resultMatch: freezed == resultMatch
+          ? _value.resultMatch
+          : resultMatch // ignore: cast_nullable_to_non_nullable
               as List<ResultMatch>?,
+      beforeStatMatch: freezed == beforeStatMatch
+          ? _value.beforeStatMatch
+          : beforeStatMatch // ignore: cast_nullable_to_non_nullable
+              as List<BeforeMatchStat>?,
+      extraInfoMatch: freezed == extraInfoMatch
+          ? _value.extraInfoMatch
+          : extraInfoMatch // ignore: cast_nullable_to_non_nullable
+              as List<ExtraInfosMatch>?,
+      predictionMatch: freezed == predictionMatch
+          ? _value.predictionMatch
+          : predictionMatch // ignore: cast_nullable_to_non_nullable
+              as List<Prediction>?,
+      matchProfile: freezed == matchProfile
+          ? _value.matchProfile
+          : matchProfile // ignore: cast_nullable_to_non_nullable
+              as List<TeamProfileMatch>?,
       isFinished: null == isFinished
           ? _value.isFinished
           : isFinished // ignore: cast_nullable_to_non_nullable
@@ -244,7 +275,11 @@ abstract class _$$MatchImplCopyWith<$Res> implements $MatchCopyWith<$Res> {
       EditionTeam? home,
       EditionTeam? away,
       EditionCompetition? edition,
-      List<ResultMatch>? results,
+      List<ResultMatch>? resultMatch,
+      List<BeforeMatchStat>? beforeStatMatch,
+      List<ExtraInfosMatch>? extraInfoMatch,
+      List<Prediction>? predictionMatch,
+      List<TeamProfileMatch>? matchProfile,
       bool isFinished,
       bool isPosted,
       bool isFirstMatch,
@@ -283,7 +318,11 @@ class __$$MatchImplCopyWithImpl<$Res>
     Object? home = freezed,
     Object? away = freezed,
     Object? edition = freezed,
-    Object? results = freezed,
+    Object? resultMatch = freezed,
+    Object? beforeStatMatch = freezed,
+    Object? extraInfoMatch = freezed,
+    Object? predictionMatch = freezed,
+    Object? matchProfile = freezed,
     Object? isFinished = null,
     Object? isPosted = null,
     Object? isFirstMatch = null,
@@ -328,10 +367,26 @@ class __$$MatchImplCopyWithImpl<$Res>
           ? _value.edition
           : edition // ignore: cast_nullable_to_non_nullable
               as EditionCompetition?,
-      results: freezed == results
-          ? _value._results
-          : results // ignore: cast_nullable_to_non_nullable
+      resultMatch: freezed == resultMatch
+          ? _value._resultMatch
+          : resultMatch // ignore: cast_nullable_to_non_nullable
               as List<ResultMatch>?,
+      beforeStatMatch: freezed == beforeStatMatch
+          ? _value._beforeStatMatch
+          : beforeStatMatch // ignore: cast_nullable_to_non_nullable
+              as List<BeforeMatchStat>?,
+      extraInfoMatch: freezed == extraInfoMatch
+          ? _value._extraInfoMatch
+          : extraInfoMatch // ignore: cast_nullable_to_non_nullable
+              as List<ExtraInfosMatch>?,
+      predictionMatch: freezed == predictionMatch
+          ? _value._predictionMatch
+          : predictionMatch // ignore: cast_nullable_to_non_nullable
+              as List<Prediction>?,
+      matchProfile: freezed == matchProfile
+          ? _value._matchProfile
+          : matchProfile // ignore: cast_nullable_to_non_nullable
+              as List<TeamProfileMatch>?,
       isFinished: null == isFinished
           ? _value.isFinished
           : isFinished // ignore: cast_nullable_to_non_nullable
@@ -382,7 +437,11 @@ class _$MatchImpl with DiagnosticableTreeMixin implements _Match {
       this.home,
       this.away,
       this.edition,
-      final List<ResultMatch>? results,
+      final List<ResultMatch>? resultMatch,
+      final List<BeforeMatchStat>? beforeStatMatch,
+      final List<ExtraInfosMatch>? extraInfoMatch,
+      final List<Prediction>? predictionMatch,
+      final List<TeamProfileMatch>? matchProfile,
       this.isFinished = false,
       this.isPosted = false,
       this.isFirstMatch = false,
@@ -391,7 +450,11 @@ class _$MatchImpl with DiagnosticableTreeMixin implements _Match {
       this.isComparedElo = false,
       this.isFacted = false,
       this.isStated = false})
-      : _results = results;
+      : _resultMatch = resultMatch,
+        _beforeStatMatch = beforeStatMatch,
+        _extraInfoMatch = extraInfoMatch,
+        _predictionMatch = predictionMatch,
+        _matchProfile = matchProfile;
 
   factory _$MatchImpl.fromJson(Map<String, dynamic> json) =>
       _$$MatchImplFromJson(json);
@@ -423,12 +486,52 @@ class _$MatchImpl with DiagnosticableTreeMixin implements _Match {
   final EditionTeam? away;
   @override
   final EditionCompetition? edition;
-  final List<ResultMatch>? _results;
+  final List<ResultMatch>? _resultMatch;
   @override
-  List<ResultMatch>? get results {
-    final value = _results;
+  List<ResultMatch>? get resultMatch {
+    final value = _resultMatch;
     if (value == null) return null;
-    if (_results is EqualUnmodifiableListView) return _results;
+    if (_resultMatch is EqualUnmodifiableListView) return _resultMatch;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<BeforeMatchStat>? _beforeStatMatch;
+  @override
+  List<BeforeMatchStat>? get beforeStatMatch {
+    final value = _beforeStatMatch;
+    if (value == null) return null;
+    if (_beforeStatMatch is EqualUnmodifiableListView) return _beforeStatMatch;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<ExtraInfosMatch>? _extraInfoMatch;
+  @override
+  List<ExtraInfosMatch>? get extraInfoMatch {
+    final value = _extraInfoMatch;
+    if (value == null) return null;
+    if (_extraInfoMatch is EqualUnmodifiableListView) return _extraInfoMatch;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<Prediction>? _predictionMatch;
+  @override
+  List<Prediction>? get predictionMatch {
+    final value = _predictionMatch;
+    if (value == null) return null;
+    if (_predictionMatch is EqualUnmodifiableListView) return _predictionMatch;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<TeamProfileMatch>? _matchProfile;
+  @override
+  List<TeamProfileMatch>? get matchProfile {
+    final value = _matchProfile;
+    if (value == null) return null;
+    if (_matchProfile is EqualUnmodifiableListView) return _matchProfile;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -460,7 +563,7 @@ class _$MatchImpl with DiagnosticableTreeMixin implements _Match {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Match(id: $id, createdAt: $createdAt, updateAt: $updateAt, deleted: $deleted, name: $name, date: $date, hour: $hour, home: $home, away: $away, edition: $edition, results: $results, isFinished: $isFinished, isPosted: $isPosted, isFirstMatch: $isFirstMatch, isPredict: $isPredict, isCompared: $isCompared, isComparedElo: $isComparedElo, isFacted: $isFacted, isStated: $isStated)';
+    return 'Match(id: $id, createdAt: $createdAt, updateAt: $updateAt, deleted: $deleted, name: $name, date: $date, hour: $hour, home: $home, away: $away, edition: $edition, resultMatch: $resultMatch, beforeStatMatch: $beforeStatMatch, extraInfoMatch: $extraInfoMatch, predictionMatch: $predictionMatch, matchProfile: $matchProfile, isFinished: $isFinished, isPosted: $isPosted, isFirstMatch: $isFirstMatch, isPredict: $isPredict, isCompared: $isCompared, isComparedElo: $isComparedElo, isFacted: $isFacted, isStated: $isStated)';
   }
 
   @override
@@ -478,7 +581,11 @@ class _$MatchImpl with DiagnosticableTreeMixin implements _Match {
       ..add(DiagnosticsProperty('home', home))
       ..add(DiagnosticsProperty('away', away))
       ..add(DiagnosticsProperty('edition', edition))
-      ..add(DiagnosticsProperty('results', results))
+      ..add(DiagnosticsProperty('resultMatch', resultMatch))
+      ..add(DiagnosticsProperty('beforeStatMatch', beforeStatMatch))
+      ..add(DiagnosticsProperty('extraInfoMatch', extraInfoMatch))
+      ..add(DiagnosticsProperty('predictionMatch', predictionMatch))
+      ..add(DiagnosticsProperty('matchProfile', matchProfile))
       ..add(DiagnosticsProperty('isFinished', isFinished))
       ..add(DiagnosticsProperty('isPosted', isPosted))
       ..add(DiagnosticsProperty('isFirstMatch', isFirstMatch))
@@ -506,7 +613,16 @@ class _$MatchImpl with DiagnosticableTreeMixin implements _Match {
             (identical(other.home, home) || other.home == home) &&
             (identical(other.away, away) || other.away == away) &&
             (identical(other.edition, edition) || other.edition == edition) &&
-            const DeepCollectionEquality().equals(other._results, _results) &&
+            const DeepCollectionEquality()
+                .equals(other._resultMatch, _resultMatch) &&
+            const DeepCollectionEquality()
+                .equals(other._beforeStatMatch, _beforeStatMatch) &&
+            const DeepCollectionEquality()
+                .equals(other._extraInfoMatch, _extraInfoMatch) &&
+            const DeepCollectionEquality()
+                .equals(other._predictionMatch, _predictionMatch) &&
+            const DeepCollectionEquality()
+                .equals(other._matchProfile, _matchProfile) &&
             (identical(other.isFinished, isFinished) ||
                 other.isFinished == isFinished) &&
             (identical(other.isPosted, isPosted) ||
@@ -539,7 +655,11 @@ class _$MatchImpl with DiagnosticableTreeMixin implements _Match {
         home,
         away,
         edition,
-        const DeepCollectionEquality().hash(_results),
+        const DeepCollectionEquality().hash(_resultMatch),
+        const DeepCollectionEquality().hash(_beforeStatMatch),
+        const DeepCollectionEquality().hash(_extraInfoMatch),
+        const DeepCollectionEquality().hash(_predictionMatch),
+        const DeepCollectionEquality().hash(_matchProfile),
         isFinished,
         isPosted,
         isFirstMatch,
@@ -576,7 +696,11 @@ abstract class _Match implements Match {
       final EditionTeam? home,
       final EditionTeam? away,
       final EditionCompetition? edition,
-      final List<ResultMatch>? results,
+      final List<ResultMatch>? resultMatch,
+      final List<BeforeMatchStat>? beforeStatMatch,
+      final List<ExtraInfosMatch>? extraInfoMatch,
+      final List<Prediction>? predictionMatch,
+      final List<TeamProfileMatch>? matchProfile,
       final bool isFinished,
       final bool isPosted,
       final bool isFirstMatch,
@@ -609,7 +733,15 @@ abstract class _Match implements Match {
   @override
   EditionCompetition? get edition;
   @override
-  List<ResultMatch>? get results;
+  List<ResultMatch>? get resultMatch;
+  @override
+  List<BeforeMatchStat>? get beforeStatMatch;
+  @override
+  List<ExtraInfosMatch>? get extraInfoMatch;
+  @override
+  List<Prediction>? get predictionMatch;
+  @override
+  List<TeamProfileMatch>? get matchProfile;
   @override
   bool get isFinished;
   @override

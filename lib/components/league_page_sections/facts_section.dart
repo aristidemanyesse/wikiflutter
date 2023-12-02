@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:wikibet/components/others_goals_stats_table_card.dart';
-import 'package:wikibet/components/team_facts_card.dart';
 import 'package:wikibet/tools/tools.dart';
 
 class FactsSection extends StatelessWidget {
@@ -15,7 +14,7 @@ class FactsSection extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            const TeamFactsCard(),
+            //  TeamFactsCard(),
             SizedBox(
               height: AppConstante.PADDING,
             ),

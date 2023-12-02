@@ -25,11 +25,11 @@ mixin _$ResultMatch {
   String get updateAt => throw _privateConstructorUsedError;
   bool get deleted => throw _privateConstructorUsedError;
   Match? get match => throw _privateConstructorUsedError;
-  double get homeScore => throw _privateConstructorUsedError;
-  double get awayScore => throw _privateConstructorUsedError;
+  int get homeScore => throw _privateConstructorUsedError;
+  int get awayScore => throw _privateConstructorUsedError;
   String get result => throw _privateConstructorUsedError;
-  double get homeHalfScore => throw _privateConstructorUsedError;
-  double get awayHalfScore => throw _privateConstructorUsedError;
+  int get homeHalfScore => throw _privateConstructorUsedError;
+  int get awayHalfScore => throw _privateConstructorUsedError;
   String get resultHalf => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -50,11 +50,11 @@ abstract class $ResultMatchCopyWith<$Res> {
       String updateAt,
       bool deleted,
       Match? match,
-      double homeScore,
-      double awayScore,
+      int homeScore,
+      int awayScore,
       String result,
-      double homeHalfScore,
-      double awayHalfScore,
+      int homeHalfScore,
+      int awayHalfScore,
       String resultHalf});
 
   $MatchCopyWith<$Res>? get match;
@@ -109,11 +109,11 @@ class _$ResultMatchCopyWithImpl<$Res, $Val extends ResultMatch>
       homeScore: null == homeScore
           ? _value.homeScore
           : homeScore // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       awayScore: null == awayScore
           ? _value.awayScore
           : awayScore // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
@@ -121,11 +121,11 @@ class _$ResultMatchCopyWithImpl<$Res, $Val extends ResultMatch>
       homeHalfScore: null == homeHalfScore
           ? _value.homeHalfScore
           : homeHalfScore // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       awayHalfScore: null == awayHalfScore
           ? _value.awayHalfScore
           : awayHalfScore // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       resultHalf: null == resultHalf
           ? _value.resultHalf
           : resultHalf // ignore: cast_nullable_to_non_nullable
@@ -160,11 +160,11 @@ abstract class _$$ResultMatchImplCopyWith<$Res>
       String updateAt,
       bool deleted,
       Match? match,
-      double homeScore,
-      double awayScore,
+      int homeScore,
+      int awayScore,
       String result,
-      double homeHalfScore,
-      double awayHalfScore,
+      int homeHalfScore,
+      int awayHalfScore,
       String resultHalf});
 
   @override
@@ -218,11 +218,11 @@ class __$$ResultMatchImplCopyWithImpl<$Res>
       homeScore: null == homeScore
           ? _value.homeScore
           : homeScore // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       awayScore: null == awayScore
           ? _value.awayScore
           : awayScore // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
@@ -230,11 +230,11 @@ class __$$ResultMatchImplCopyWithImpl<$Res>
       homeHalfScore: null == homeHalfScore
           ? _value.homeHalfScore
           : homeHalfScore // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       awayHalfScore: null == awayHalfScore
           ? _value.awayHalfScore
           : awayHalfScore // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       resultHalf: null == resultHalf
           ? _value.resultHalf
           : resultHalf // ignore: cast_nullable_to_non_nullable
@@ -252,11 +252,11 @@ class _$ResultMatchImpl with DiagnosticableTreeMixin implements _ResultMatch {
       this.updateAt = "",
       this.deleted = false,
       this.match,
-      this.homeScore = 0.0,
-      this.awayScore = 0.0,
+      this.homeScore = 0,
+      this.awayScore = 0,
       this.result = "",
-      this.homeHalfScore = 0.0,
-      this.awayHalfScore = 0.0,
+      this.homeHalfScore = 0,
+      this.awayHalfScore = 0,
       this.resultHalf = ""});
 
   factory _$ResultMatchImpl.fromJson(Map<String, dynamic> json) =>
@@ -278,19 +278,19 @@ class _$ResultMatchImpl with DiagnosticableTreeMixin implements _ResultMatch {
   final Match? match;
   @override
   @JsonKey()
-  final double homeScore;
+  final int homeScore;
   @override
   @JsonKey()
-  final double awayScore;
+  final int awayScore;
   @override
   @JsonKey()
   final String result;
   @override
   @JsonKey()
-  final double homeHalfScore;
+  final int homeHalfScore;
   @override
   @JsonKey()
-  final double awayHalfScore;
+  final int awayHalfScore;
   @override
   @JsonKey()
   final String resultHalf;
@@ -380,11 +380,11 @@ abstract class _ResultMatch implements ResultMatch {
       final String updateAt,
       final bool deleted,
       final Match? match,
-      final double homeScore,
-      final double awayScore,
+      final int homeScore,
+      final int awayScore,
       final String result,
-      final double homeHalfScore,
-      final double awayHalfScore,
+      final int homeHalfScore,
+      final int awayHalfScore,
       final String resultHalf}) = _$ResultMatchImpl;
 
   factory _ResultMatch.fromJson(Map<String, dynamic> json) =
@@ -401,15 +401,15 @@ abstract class _ResultMatch implements ResultMatch {
   @override
   Match? get match;
   @override
-  double get homeScore;
+  int get homeScore;
   @override
-  double get awayScore;
+  int get awayScore;
   @override
   String get result;
   @override
-  double get homeHalfScore;
+  int get homeHalfScore;
   @override
-  double get awayHalfScore;
+  int get awayHalfScore;
   @override
   String get resultHalf;
   @override

@@ -66,6 +66,7 @@ dependencies:
   widgets_to_image: ^0.0.2
   path_provider: ^2.1.1
   internet_connection_checker: ^1.0.0+1
+  lordicon: ^1.0.3
 
 dev_dependencies:
   flutter_test:

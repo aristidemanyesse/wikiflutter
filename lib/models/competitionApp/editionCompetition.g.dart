@@ -16,9 +16,9 @@ _$EditionCompetitionImpl _$$EditionCompetitionImplFromJson(
       startDate: json['startDate'] as String? ?? "",
       finishDate: json['finishDate'] as String? ?? "",
       isFinished: json['isFinished'] as bool? ?? false,
-      editon: json['editon'] == null
+      edition: json['edition'] == null
           ? null
-          : Edition.fromJson(json['editon'] as Map<String, dynamic>),
+          : Edition.fromJson(json['edition'] as Map<String, dynamic>),
       competition: json['competition'] == null
           ? null
           : Competition.fromJson(json['competition'] as Map<String, dynamic>),
@@ -34,6 +34,6 @@ Map<String, dynamic> _$$EditionCompetitionImplToJson(
       'startDate': instance.startDate,
       'finishDate': instance.finishDate,
       'isFinished': instance.isFinished,
-      'editon': instance.editon,
+      'edition': instance.edition,
       'competition': instance.competition,
     };

@@ -35,11 +35,11 @@ class _OssatureAppState extends State<OssatureApp>
           body: TabBarView(
             physics: const NeverScrollableScrollPhysics(),
             controller: _tabController,
-            children: const [
-              MatchsPage(),
+            children: [
+              const MatchsPage(),
               LeaguesPage(),
-              PronosticsDayPage(),
-              SettingsPage()
+              const PronosticsDayPage(),
+              const SettingsPage()
             ],
           ),
           bottomNavigationBar: Container(

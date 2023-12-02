@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:wikibet/components/league_ligne.dart';
+import 'package:wikibet/controllers/LeagueController.dart';
 import 'package:wikibet/tools/tools.dart';
 
 class LeaguesPage extends StatelessWidget {
-  const LeaguesPage({
+  LeaguesPage({
     super.key,
   });
+
+  LeagueController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +23,7 @@ class LeaguesPage extends StatelessWidget {
             AppConstante.primaryBlue.withOpacity(0.5)
           ])),
         ),
-        title: const SizedBox(
+        title: SizedBox(
           width: double.infinity,
           child: Column(
             children: [
@@ -28,7 +32,7 @@ class LeaguesPage extends StatelessWidget {
                 style: AppTextStyle.titleMedium,
               ),
               Text(
-                "22 leagues",
+                "${controller.competitions.value.length} leagues",
                 style: AppTextStyle.body,
               )
             ],
@@ -40,24 +44,13 @@ class LeaguesPage extends StatelessWidget {
           padding: EdgeInsets.symmetric(
               horizontal: AppConstante.PADDING / 4,
               vertical: AppConstante.PADDING / 2),
-          child: const SingleChildScrollView(
+          child: SingleChildScrollView(
             child: Column(
-              children: [
-                LeagueLigne(),
-                LeagueLigne(),
-                LeagueLigne(),
-                LeagueLigne(),
-                LeagueLigne(),
-                LeagueLigne(),
-                LeagueLigne(),
-                LeagueLigne(),
-                LeagueLigne(),
-                LeagueLigne(),
-                LeagueLigne(),
-                LeagueLigne(),
-                LeagueLigne(),
-              ],
-            ),
+                children: controller.competitions.value
+                    .map((league) => LeagueLigne(
+                          league: league,
+                        ))
+                    .toList()),
           ),
         ),
       ),

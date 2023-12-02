@@ -1,12 +1,19 @@
 // This file is "main.dart"
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
+import 'package:palette_generator/palette_generator.dart';
+import 'package:wikibet/core/apiservice.dart';
 import 'package:wikibet/models/competitionApp/pays.dart';
+import 'package:http/http.dart' as http;
+
 part 'team.freezed.dart';
 part 'team.g.dart';
 
 @freezed
 class Team with _$Team {
+  const Team._();
+
   const factory Team({
     @Default("") String id,
     @Default("") String createdAt,
@@ -23,6 +30,10 @@ class Team with _$Team {
   }) = _Team;
 
   factory Team.fromJson(Map<String, Object?> json) => _$TeamFromJson(json);
+
+  void method() {
+    print('hello world');
+  }
 
   static const String teamFragment = """
   fragment TeamFragment on TeamGenericType {

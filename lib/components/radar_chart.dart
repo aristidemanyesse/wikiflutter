@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wikibet/components/logo_markers.dart';
 import 'package:wikibet/controllers/MatchController.dart';
+import 'package:wikibet/models/statsApp/beforeMatchStat.dart';
 import 'package:wikibet/tools/tools.dart';
 
-class RadarStatsCard extends StatefulWidget {
+class RadarStatsCard extends StatelessWidget {
   RadarStatsCard({super.key});
 
   final gridColor = Colors.grey;
@@ -16,13 +17,16 @@ class RadarStatsCard extends StatefulWidget {
 
   MatchController controller = Get.find();
 
-  @override
-  State<RadarStatsCard> createState() => _RadarStatsCardState();
-}
+  late BeforeMatchStat homeStat;
+  late BeforeMatchStat awayStat;
 
-class _RadarStatsCardState extends State<RadarStatsCard> {
   @override
   Widget build(BuildContext context) {
+    homeStat = controller.befores.value.firstWhere(
+        (stat) => stat.team!.id == controller.matchSelected.value.home!.id);
+    awayStat = controller.befores.value.firstWhere(
+        (stat) => stat.team!.id == controller.matchSelected.value.away!.id);
+
     return Card(
       child: Container(
         padding: EdgeInsets.all(AppConstante.PADDING / 2),
@@ -128,7 +132,7 @@ class _RadarStatsCardState extends State<RadarStatsCard> {
                   ticksTextStyle:
                       const TextStyle(color: Colors.transparent, fontSize: 10),
                   tickBorderData: const BorderSide(color: Colors.transparent),
-                  gridBorderData: BorderSide(color: widget.gridColor, width: 2),
+                  gridBorderData: BorderSide(color: gridColor, width: 2),
                 ),
                 swapAnimationDuration: const Duration(milliseconds: 400),
               ),
@@ -157,7 +161,7 @@ class _RadarStatsCardState extends State<RadarStatsCard> {
     return [
       RawDataSet(
         title: 'Real de Madrid',
-        color: widget.fashionColor,
+        color: fashionColor,
         values: [
           300,
           50,
@@ -168,7 +172,7 @@ class _RadarStatsCardState extends State<RadarStatsCard> {
       ),
       RawDataSet(
         title: 'Chelsea',
-        color: widget.artColor,
+        color: artColor,
         values: [
           250,
           100,

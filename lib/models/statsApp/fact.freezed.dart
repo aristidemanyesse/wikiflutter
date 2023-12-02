@@ -27,10 +27,10 @@ mixin _$Fact {
   TypeFact? get type => throw _privateConstructorUsedError;
   Match? get match => throw _privateConstructorUsedError;
   EditionTeam? get team => throw _privateConstructorUsedError;
-  String get fullTime => throw _privateConstructorUsedError;
-  String get allMatches => throw _privateConstructorUsedError;
-  String get total => throw _privateConstructorUsedError;
-  bool get success => throw _privateConstructorUsedError;
+  bool get fullTime => throw _privateConstructorUsedError;
+  bool get allMatches => throw _privateConstructorUsedError;
+  int get total => throw _privateConstructorUsedError;
+  int get success => throw _privateConstructorUsedError;
   double get pct => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -51,10 +51,10 @@ abstract class $FactCopyWith<$Res> {
       TypeFact? type,
       Match? match,
       EditionTeam? team,
-      String fullTime,
-      String allMatches,
-      String total,
-      bool success,
+      bool fullTime,
+      bool allMatches,
+      int total,
+      int success,
       double pct});
 
   $TypeFactCopyWith<$Res>? get type;
@@ -120,19 +120,19 @@ class _$FactCopyWithImpl<$Res, $Val extends Fact>
       fullTime: null == fullTime
           ? _value.fullTime
           : fullTime // ignore: cast_nullable_to_non_nullable
-              as String,
+              as bool,
       allMatches: null == allMatches
           ? _value.allMatches
           : allMatches // ignore: cast_nullable_to_non_nullable
-              as String,
+              as bool,
       total: null == total
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       success: null == success
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as int,
       pct: null == pct
           ? _value.pct
           : pct // ignore: cast_nullable_to_non_nullable
@@ -192,10 +192,10 @@ abstract class _$$FactImplCopyWith<$Res> implements $FactCopyWith<$Res> {
       TypeFact? type,
       Match? match,
       EditionTeam? team,
-      String fullTime,
-      String allMatches,
-      String total,
-      bool success,
+      bool fullTime,
+      bool allMatches,
+      int total,
+      int success,
       double pct});
 
   @override
@@ -261,19 +261,19 @@ class __$$FactImplCopyWithImpl<$Res>
       fullTime: null == fullTime
           ? _value.fullTime
           : fullTime // ignore: cast_nullable_to_non_nullable
-              as String,
+              as bool,
       allMatches: null == allMatches
           ? _value.allMatches
           : allMatches // ignore: cast_nullable_to_non_nullable
-              as String,
+              as bool,
       total: null == total
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       success: null == success
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as int,
       pct: null == pct
           ? _value.pct
           : pct // ignore: cast_nullable_to_non_nullable
@@ -293,10 +293,10 @@ class _$FactImpl with DiagnosticableTreeMixin implements _Fact {
       this.type,
       this.match,
       this.team,
-      this.fullTime = "",
-      this.allMatches = "",
-      this.total = "",
-      this.success = false,
+      this.fullTime = false,
+      this.allMatches = false,
+      this.total = 0,
+      this.success = 0,
       this.pct = 0.0});
 
   factory _$FactImpl.fromJson(Map<String, dynamic> json) =>
@@ -322,16 +322,16 @@ class _$FactImpl with DiagnosticableTreeMixin implements _Fact {
   final EditionTeam? team;
   @override
   @JsonKey()
-  final String fullTime;
+  final bool fullTime;
   @override
   @JsonKey()
-  final String allMatches;
+  final bool allMatches;
   @override
   @JsonKey()
-  final String total;
+  final int total;
   @override
   @JsonKey()
-  final bool success;
+  final int success;
   @override
   @JsonKey()
   final double pct;
@@ -411,10 +411,10 @@ abstract class _Fact implements Fact {
       final TypeFact? type,
       final Match? match,
       final EditionTeam? team,
-      final String fullTime,
-      final String allMatches,
-      final String total,
-      final bool success,
+      final bool fullTime,
+      final bool allMatches,
+      final int total,
+      final int success,
       final double pct}) = _$FactImpl;
 
   factory _Fact.fromJson(Map<String, dynamic> json) = _$FactImpl.fromJson;
@@ -434,13 +434,13 @@ abstract class _Fact implements Fact {
   @override
   EditionTeam? get team;
   @override
-  String get fullTime;
+  bool get fullTime;
   @override
-  String get allMatches;
+  bool get allMatches;
   @override
-  String get total;
+  int get total;
   @override
-  bool get success;
+  int get success;
   @override
   double get pct;
   @override

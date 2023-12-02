@@ -23,9 +23,11 @@ class AppTextStyle {
   static const TextStyle body = TextStyle(
     fontSize: 12,
   );
+  static const TextStyle bodygras =
+      TextStyle(fontSize: 12, fontWeight: FontWeight.bold);
   static const TextStyle bodysmall = TextStyle(
     fontSize: 10,
   );
-  static const TextStyle bodygras =
-      TextStyle(fontSize: 12, fontWeight: FontWeight.bold);
+  static const TextStyle bodysmallgras =
+      TextStyle(fontSize: 10, fontWeight: FontWeight.bold);
 }

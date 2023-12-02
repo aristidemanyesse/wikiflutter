@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:wikibet/components/others_goals_stats_table_card.dart';
 import 'package:wikibet/components/team_facts_card.dart';
+import 'package:wikibet/controllers/MatchController.dart';
 import 'package:wikibet/tools/tools.dart';
 
 class FactsSection extends StatelessWidget {
-  const FactsSection({
+  FactsSection({
     super.key,
   });
+
+  MatchController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +19,17 @@ class FactsSection extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            const TeamFactsCard(),
+            TeamFactsCard(
+              team: controller.matchSelected.value.home!,
+              facts: controller.homeFacts.value,
+            ),
             SizedBox(
               height: AppConstante.PADDING,
             ),
-            const TeamFactsCard(),
+            TeamFactsCard(
+              team: controller.matchSelected.value.away!,
+              facts: controller.awayFacts.value,
+            ),
             SizedBox(
               height: AppConstante.PADDING,
             ),

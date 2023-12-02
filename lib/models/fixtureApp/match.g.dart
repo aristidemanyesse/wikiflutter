@@ -24,8 +24,20 @@ _$MatchImpl _$$MatchImplFromJson(Map<String, dynamic> json) => _$MatchImpl(
           ? null
           : EditionCompetition.fromJson(
               json['edition'] as Map<String, dynamic>),
-      results: (json['results'] as List<dynamic>?)
+      resultMatch: (json['resultMatch'] as List<dynamic>?)
           ?.map((e) => ResultMatch.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      beforeStatMatch: (json['beforeStatMatch'] as List<dynamic>?)
+          ?.map((e) => BeforeMatchStat.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      extraInfoMatch: (json['extraInfoMatch'] as List<dynamic>?)
+          ?.map((e) => ExtraInfosMatch.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      predictionMatch: (json['predictionMatch'] as List<dynamic>?)
+          ?.map((e) => Prediction.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      matchProfile: (json['matchProfile'] as List<dynamic>?)
+          ?.map((e) => TeamProfileMatch.fromJson(e as Map<String, dynamic>))
           .toList(),
       isFinished: json['isFinished'] as bool? ?? false,
       isPosted: json['isPosted'] as bool? ?? false,
@@ -49,7 +61,11 @@ Map<String, dynamic> _$$MatchImplToJson(_$MatchImpl instance) =>
       'home': instance.home,
       'away': instance.away,
       'edition': instance.edition,
-      'results': instance.results,
+      'resultMatch': instance.resultMatch,
+      'beforeStatMatch': instance.beforeStatMatch,
+      'extraInfoMatch': instance.extraInfoMatch,
+      'predictionMatch': instance.predictionMatch,
+      'matchProfile': instance.matchProfile,
       'isFinished': instance.isFinished,
       'isPosted': instance.isPosted,
       'isFirstMatch': instance.isFirstMatch,

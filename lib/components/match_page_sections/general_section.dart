@@ -27,10 +27,10 @@ class GeneralSection extends StatelessWidget {
             SizedBox(
               height: AppConstante.PADDING,
             ),
-            // RadarStatsCard(),
-            // SizedBox(
-            //   height: AppConstante.PADDING,
-            // ),
+            RadarStatsCard(),
+            SizedBox(
+              height: AppConstante.PADDING,
+            ),
           ],
         ),
       ),

@@ -27,7 +27,7 @@ mixin _$EditionCompetition {
   String get startDate => throw _privateConstructorUsedError;
   String get finishDate => throw _privateConstructorUsedError;
   bool get isFinished => throw _privateConstructorUsedError;
-  Edition? get editon => throw _privateConstructorUsedError;
+  Edition? get edition => throw _privateConstructorUsedError;
   Competition? get competition => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -50,10 +50,10 @@ abstract class $EditionCompetitionCopyWith<$Res> {
       String startDate,
       String finishDate,
       bool isFinished,
-      Edition? editon,
+      Edition? edition,
       Competition? competition});
 
-  $EditionCopyWith<$Res>? get editon;
+  $EditionCopyWith<$Res>? get edition;
   $CompetitionCopyWith<$Res>? get competition;
 }
 
@@ -77,7 +77,7 @@ class _$EditionCompetitionCopyWithImpl<$Res, $Val extends EditionCompetition>
     Object? startDate = null,
     Object? finishDate = null,
     Object? isFinished = null,
-    Object? editon = freezed,
+    Object? edition = freezed,
     Object? competition = freezed,
   }) {
     return _then(_value.copyWith(
@@ -109,9 +109,9 @@ class _$EditionCompetitionCopyWithImpl<$Res, $Val extends EditionCompetition>
           ? _value.isFinished
           : isFinished // ignore: cast_nullable_to_non_nullable
               as bool,
-      editon: freezed == editon
-          ? _value.editon
-          : editon // ignore: cast_nullable_to_non_nullable
+      edition: freezed == edition
+          ? _value.edition
+          : edition // ignore: cast_nullable_to_non_nullable
               as Edition?,
       competition: freezed == competition
           ? _value.competition
@@ -122,13 +122,13 @@ class _$EditionCompetitionCopyWithImpl<$Res, $Val extends EditionCompetition>
 
   @override
   @pragma('vm:prefer-inline')
-  $EditionCopyWith<$Res>? get editon {
-    if (_value.editon == null) {
+  $EditionCopyWith<$Res>? get edition {
+    if (_value.edition == null) {
       return null;
     }
 
-    return $EditionCopyWith<$Res>(_value.editon!, (value) {
-      return _then(_value.copyWith(editon: value) as $Val);
+    return $EditionCopyWith<$Res>(_value.edition!, (value) {
+      return _then(_value.copyWith(edition: value) as $Val);
     });
   }
 
@@ -161,11 +161,11 @@ abstract class _$$EditionCompetitionImplCopyWith<$Res>
       String startDate,
       String finishDate,
       bool isFinished,
-      Edition? editon,
+      Edition? edition,
       Competition? competition});
 
   @override
-  $EditionCopyWith<$Res>? get editon;
+  $EditionCopyWith<$Res>? get edition;
   @override
   $CompetitionCopyWith<$Res>? get competition;
 }
@@ -188,7 +188,7 @@ class __$$EditionCompetitionImplCopyWithImpl<$Res>
     Object? startDate = null,
     Object? finishDate = null,
     Object? isFinished = null,
-    Object? editon = freezed,
+    Object? edition = freezed,
     Object? competition = freezed,
   }) {
     return _then(_$EditionCompetitionImpl(
@@ -220,9 +220,9 @@ class __$$EditionCompetitionImplCopyWithImpl<$Res>
           ? _value.isFinished
           : isFinished // ignore: cast_nullable_to_non_nullable
               as bool,
-      editon: freezed == editon
-          ? _value.editon
-          : editon // ignore: cast_nullable_to_non_nullable
+      edition: freezed == edition
+          ? _value.edition
+          : edition // ignore: cast_nullable_to_non_nullable
               as Edition?,
       competition: freezed == competition
           ? _value.competition
@@ -245,7 +245,7 @@ class _$EditionCompetitionImpl
       this.startDate = "",
       this.finishDate = "",
       this.isFinished = false,
-      this.editon,
+      this.edition,
       this.competition});
 
   factory _$EditionCompetitionImpl.fromJson(Map<String, dynamic> json) =>
@@ -273,13 +273,13 @@ class _$EditionCompetitionImpl
   @JsonKey()
   final bool isFinished;
   @override
-  final Edition? editon;
+  final Edition? edition;
   @override
   final Competition? competition;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'EditionCompetition(id: $id, createdAt: $createdAt, updateAt: $updateAt, deleted: $deleted, startDate: $startDate, finishDate: $finishDate, isFinished: $isFinished, editon: $editon, competition: $competition)';
+    return 'EditionCompetition(id: $id, createdAt: $createdAt, updateAt: $updateAt, deleted: $deleted, startDate: $startDate, finishDate: $finishDate, isFinished: $isFinished, edition: $edition, competition: $competition)';
   }
 
   @override
@@ -294,7 +294,7 @@ class _$EditionCompetitionImpl
       ..add(DiagnosticsProperty('startDate', startDate))
       ..add(DiagnosticsProperty('finishDate', finishDate))
       ..add(DiagnosticsProperty('isFinished', isFinished))
-      ..add(DiagnosticsProperty('editon', editon))
+      ..add(DiagnosticsProperty('edition', edition))
       ..add(DiagnosticsProperty('competition', competition));
   }
 
@@ -315,7 +315,7 @@ class _$EditionCompetitionImpl
                 other.finishDate == finishDate) &&
             (identical(other.isFinished, isFinished) ||
                 other.isFinished == isFinished) &&
-            (identical(other.editon, editon) || other.editon == editon) &&
+            (identical(other.edition, edition) || other.edition == edition) &&
             (identical(other.competition, competition) ||
                 other.competition == competition));
   }
@@ -323,7 +323,7 @@ class _$EditionCompetitionImpl
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, createdAt, updateAt, deleted,
-      startDate, finishDate, isFinished, editon, competition);
+      startDate, finishDate, isFinished, edition, competition);
 
   @JsonKey(ignore: true)
   @override
@@ -349,7 +349,7 @@ abstract class _EditionCompetition implements EditionCompetition {
       final String startDate,
       final String finishDate,
       final bool isFinished,
-      final Edition? editon,
+      final Edition? edition,
       final Competition? competition}) = _$EditionCompetitionImpl;
 
   factory _EditionCompetition.fromJson(Map<String, dynamic> json) =
@@ -370,7 +370,7 @@ abstract class _EditionCompetition implements EditionCompetition {
   @override
   bool get isFinished;
   @override
-  Edition? get editon;
+  Edition? get edition;
   @override
   Competition? get competition;
   @override

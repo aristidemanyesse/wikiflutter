@@ -1,13 +1,19 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:wikibet/components/logo_markers.dart';
+import 'package:wikibet/components/main_button.dart';
 import 'package:wikibet/components/match_page_sections/facts_section.dart';
 import 'package:wikibet/components/match_page_sections/general_section.dart';
 import 'package:wikibet/components/match_page_sections/historiques_section.dart';
 import 'package:wikibet/components/match_page_sections/other_stats_section.dart';
 import 'package:wikibet/components/match_page_sections/prediction_section.dart';
+import 'package:wikibet/components/match_page_sections/resume_section.dart';
 import 'package:wikibet/core/apiservice.dart';
+import 'package:wikibet/models/competitionApp/typeCompetition.dart';
+import 'package:wikibet/models/statsApp/resultMatch.dart';
 import 'package:wikibet/tools/tools.dart';
 import 'dart:math';
 import 'package:wikibet/models/fixtureApp/match.dart';
@@ -21,99 +27,110 @@ class MatchPage extends StatelessWidget {
 
   MatchPage({super.key, required this.match});
 
-  List<Widget> tabs = [
-    const GeneralSection(),
-    const HistoriquesSection(),
-    const FactsSection(),
-    const OtherStatsSection(),
-    const PredictionSection()
-  ];
-
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: tabs.length, // This is the number of tabs.
-      child: Scaffold(
-        body: NestedScrollView(
-          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-            // These are the slivers that show up in the "outer" scroll view.
-            return <Widget>[
-              SliverPersistentHeader(
-                pinned: true,
-                delegate: _SliverAppBarDelegate(match),
-              ),
-              SliverOverlapAbsorber(
-                handle:
-                    NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-                sliver: SliverAppBar(
-                  elevation: 3.0,
-                  pinned: true,
-                  automaticallyImplyLeading: false,
-                  primary: false,
-                  scrolledUnderElevation: 3.0,
-                  toolbarHeight: 50,
-                  titleSpacing: 0,
-                  title: Container(
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(colors: [
-                      AppConstante.secondaryBlue.withOpacity(0.9),
-                      AppConstante.primaryBlue.withOpacity(0.9),
-                    ])),
-                    child: const TabBar(
-                      indicatorWeight: 4,
-                      isScrollable: true,
-                      tabs: [
-                        Tab(text: 'GENERAL'),
-                        Tab(text: 'HISTORIQUES'),
-                        Tab(text: 'FACTS'),
-                        Tab(text: 'AUTRES'),
-                        Tab(text: 'PREDICTIONS'),
-                      ],
+    return PageView(
+      scrollDirection: Axis.horizontal,
+      children: [
+        DefaultTabController(
+          length: match.isFinished ? 6 : 5, // This is the number of tabs.
+          child: Scaffold(
+            body: NestedScrollView(
+              headerSliverBuilder:
+                  (BuildContext context, bool innerBoxIsScrolled) {
+                // These are the slivers that show up in the "outer" scroll view.
+                return <Widget>[
+                  SliverPersistentHeader(
+                    pinned: true,
+                    delegate: _SliverAppBarDelegate(match),
+                  ),
+                  SliverOverlapAbsorber(
+                    handle: NestedScrollView.sliverOverlapAbsorberHandleFor(
+                        context),
+                    sliver: SliverAppBar(
+                      elevation: 3.0,
+                      pinned: true,
+                      automaticallyImplyLeading: false,
+                      primary: false,
+                      scrolledUnderElevation: 3.0,
+                      toolbarHeight: 50,
+                      titleSpacing: 0,
+                      title: Container(
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(colors: [
+                          AppConstante.secondaryBlue.withOpacity(0.9),
+                          AppConstante.primaryBlue.withOpacity(0.9),
+                        ])),
+                        child: TabBar(
+                          indicatorWeight: 4,
+                          isScrollable: true,
+                          tabs: [
+                            if (match.isFinished) Tab(text: 'RESUME'),
+                            Tab(text: 'GENERAL'),
+                            Tab(text: 'HISTORIQUES'),
+                            Tab(text: 'FACTS'),
+                            Tab(text: 'AUTRES'),
+                            Tab(text: 'PREDICTIONS'),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
-            ];
-          },
-          body: TabBarView(
-            children: tabs.map((Widget widget) {
-              return SafeArea(
-                top: false,
-                bottom: false,
-                child: Builder(
-                  builder: (BuildContext context) {
-                    return CustomScrollView(
-                      key: PageStorageKey<String>(widget.toString()),
-                      slivers: <Widget>[
-                        SliverOverlapInjector(
-                          handle:
-                              NestedScrollView.sliverOverlapAbsorberHandleFor(
-                                  context),
-                        ),
-                        SliverPadding(
-                          padding: const EdgeInsets.all(1.0),
-                          sliver: SliverList(
-                            delegate: SliverChildListDelegate(
-                              [widget],
+                ];
+              },
+              body: TabBarView(
+                physics: const NeverScrollableScrollPhysics(),
+                children: [
+                  if (match.isFinished)
+                    ResumeSection(
+                      match: match,
+                    ),
+                  const GeneralSection(),
+                  const HistoriquesSection(),
+                  FactsSection(),
+                  OtherStatsSection(),
+                  const PredictionSection()
+                ].map((Widget widget) {
+                  return SafeArea(
+                    top: false,
+                    bottom: false,
+                    child: Builder(
+                      builder: (BuildContext context) {
+                        return CustomScrollView(
+                          key: PageStorageKey<String>(widget.toString()),
+                          slivers: <Widget>[
+                            SliverOverlapInjector(
+                              handle: NestedScrollView
+                                  .sliverOverlapAbsorberHandleFor(context),
                             ),
-                          ),
-                        ),
-                      ],
-                    );
-                  },
-                ),
-              );
-            }).toList(),
+                            SliverPadding(
+                              padding: const EdgeInsets.all(1.0),
+                              sliver: SliverList(
+                                delegate: SliverChildListDelegate(
+                                  [widget],
+                                ),
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
           ),
         ),
-      ),
+      ],
     );
   }
 }
 
 class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   final Match match;
-  const _SliverAppBarDelegate(this.match);
+  _SliverAppBarDelegate(this.match);
+
+  ResultMatch result = const ResultMatch();
 
   @override
   double get maxExtent => Get.size.height * 0.2;
@@ -146,21 +163,51 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
     DateFormat dateFormat = DateFormat.yMMMMd('fr');
     DateFormat timeFormat = DateFormat.Hm('fr');
 
+    if (match.resultMatch!.isNotEmpty) {
+      result = match.resultMatch!.first;
+    }
+
     return SizedBox(
       height: visibleMainHeight,
       width: MediaQuery.of(context).size.width,
       child: Stack(
         children: <Widget>[
           Container(
-            color: Theme.of(context).primaryColor,
+            child: SizedBox(
+              height: 200,
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      MyLogo(
+                        path: match.home!.team!.logo,
+                        height: 150,
+                        width: 200,
+                      ),
+                      MyLogo(
+                        path: match.away!.team!.logo,
+                        height: 150,
+                        width: 200,
+                      ),
+                    ],
+                  ),
+                  ClipRRect(
+                    // Clip it cleanly.
+                    child: BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 50, sigmaY: 50),
+                      child: Container(
+                        color: Colors.grey.withOpacity(0.1),
+                        alignment: Alignment.center,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
-          Container(
-            decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [
-              AppConstante.secondaryBlue.withOpacity(0.9),
-              AppConstante.primaryBlue.withOpacity(0.9),
-            ])),
-          ),
+
           SafeArea(
             child: Center(
               child: SizedBox(
@@ -179,20 +226,25 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
                             child: Column(
                               children: [
                                 MyLogo(
-                                  path:
-                                      "${ApiService.BASE_URL + match.home!.team!.logo}",
-                                  height: 50 + 5 * animationVal,
-                                  width: 50 + 5 * animationVal,
+                                  path: match.home!.team!.logo,
+                                  height: 45 + 5 * animationVal,
+                                  width: 45 + 5 * animationVal,
                                 ),
                                 animationVal > 0.55
-                                    ? Opacity(
-                                        opacity: animationVal / 2,
-                                        child: Text(
-                                          "${match.home?.team?.name}",
-                                          style: AppTextStyle.bodygras
-                                              .copyWith(color: Colors.white),
-                                          textAlign: TextAlign.center,
-                                        ),
+                                    ? Column(
+                                        children: [
+                                          SizedBox(
+                                            height: AppConstante.PADDING / 2,
+                                          ),
+                                          Opacity(
+                                            opacity: animationVal,
+                                            child: Text(
+                                              "${match.home?.team?.name}",
+                                              style: AppTextStyle.bodygras,
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ),
+                                        ],
                                       )
                                     : Container(),
                               ],
@@ -203,24 +255,45 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               match.isFinished
-                                  ? Text("0 : 0",
-                                      style: AppTextStyle.titleMedium
-                                          .copyWith(color: Colors.white))
+                                  ? Column(
+                                      children: [
+                                        Text(
+                                          "${result.homeScore} : ${result.awayScore}",
+                                          style: AppTextStyle.titleLarge,
+                                        ),
+                                        match.edition?.competition?.type
+                                                    ?.etiquette ==
+                                                TypeCompetition.FULL
+                                            ? Text(
+                                                "${result.homeHalfScore} : ${result.awayHalfScore}",
+                                                style: AppTextStyle.bodysmall,
+                                              )
+                                            : Container(),
+                                      ],
+                                    )
                                   : Text("Vs",
                                       style: AppTextStyle.titleLarge
                                           .copyWith(color: Colors.white)),
                               animationVal > 0.55
                                   ? Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         SizedBox(
-                                          height: AppConstante.PADDING / 3,
+                                          height: AppConstante.PADDING / 2,
                                         ),
                                         Text(
-                                            "${dateFormat.format(DateTime.parse(match.date ?? ""))}",
-                                            style: AppTextStyle.body),
+                                            dateFormat.format(DateTime.parse(
+                                                match.date ?? "")),
+                                            style: AppTextStyle.bodysmall),
+                                        SizedBox(
+                                          width: AppConstante.PADDING,
+                                        ),
                                         Text(
-                                          "${timeFormat.format(DateTime.parse(match.date + " " + match.hour ?? ""))}",
-                                          style: AppTextStyle.body,
+                                          timeFormat.format(DateTime.parse(
+                                              match.date + " " + match.hour ??
+                                                  "")),
+                                          style: AppTextStyle.bodysmall,
                                         )
                                       ],
                                     )
@@ -233,20 +306,25 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
                             child: Column(
                               children: [
                                 MyLogo(
-                                  path:
-                                      "${ApiService.BASE_URL + match.away!.team!.logo}",
-                                  height: 50 + 5 * animationVal,
-                                  width: 50 + 5 * animationVal,
+                                  path: match.away!.team!.logo,
+                                  height: 45 + 5 * animationVal,
+                                  width: 45 + 5 * animationVal,
                                 ),
                                 animationVal > 0.55
-                                    ? Opacity(
-                                        opacity: animationVal / 2,
-                                        child: Text(
-                                          "${match.away?.team?.name}",
-                                          style: AppTextStyle.bodygras
-                                              .copyWith(color: Colors.white),
-                                          textAlign: TextAlign.center,
-                                        ),
+                                    ? Column(
+                                        children: [
+                                          SizedBox(
+                                            height: AppConstante.PADDING / 2,
+                                          ),
+                                          Opacity(
+                                            opacity: animationVal,
+                                            child: Text(
+                                              "${match.away?.team?.name}",
+                                              style: AppTextStyle.bodygras,
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ),
+                                        ],
                                       )
                                     : Container(),
                               ],

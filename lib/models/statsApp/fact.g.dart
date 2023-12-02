@@ -20,10 +20,10 @@ _$FactImpl _$$FactImplFromJson(Map<String, dynamic> json) => _$FactImpl(
       team: json['team'] == null
           ? null
           : EditionTeam.fromJson(json['team'] as Map<String, dynamic>),
-      fullTime: json['fullTime'] as String? ?? "",
-      allMatches: json['allMatches'] as String? ?? "",
-      total: json['total'] as String? ?? "",
-      success: json['success'] as bool? ?? false,
+      fullTime: json['fullTime'] as bool? ?? false,
+      allMatches: json['allMatches'] as bool? ?? false,
+      total: json['total'] as int? ?? 0,
+      success: json['success'] as int? ?? 0,
       pct: (json['pct'] as num?)?.toDouble() ?? 0.0,
     );
 

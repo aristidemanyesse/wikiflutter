@@ -43,6 +43,7 @@ class _HistoriquesMatchsState extends State<HistoriquesMatchs> {
   Widget build(BuildContext context) {
     EditionTeam home = controller.matchSelected.value.home!;
     EditionTeam away = controller.matchSelected.value.away!;
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -58,7 +59,7 @@ class _HistoriquesMatchsState extends State<HistoriquesMatchs> {
                       backgroundColor:
                           Theme.of(context).scaffoldBackgroundColor),
               child: MyLogo(
-                path: "${ApiService.BASE_URL + home.team!.logo}",
+                path: home.team!.logo,
                 height: 45,
                 width: 45,
               ),
@@ -90,30 +91,11 @@ class _HistoriquesMatchsState extends State<HistoriquesMatchs> {
                           backgroundColor: Theme.of(context)
                               .scaffoldBackgroundColor
                               .withOpacity(0.9)),
-                  child: Row(
+                  child: const Row(
                     children: [
-                      MyLogo(
-                        path: "${ApiService.BASE_URL + home.team!.logo}",
-                        height: 40,
-                        width: 40,
-                      ),
                       Text(
-                        'Vs',
+                        'H2H',
                         style: AppTextStyle.titleMedium,
-                      ),
-                      Checkbox(
-                          value: true,
-                          activeColor: Colors.green,
-                          onChanged: (bool? newValue) {
-                            // setState(() {
-                            //   var checkBoxValue = newValue;
-                            // });
-                            const Text('Remember me');
-                          }),
-                      MyLogo(
-                        path: "${ApiService.BASE_URL + away.team!.logo}",
-                        height: 40,
-                        width: 40,
                       ),
                     ],
                   ),
@@ -130,7 +112,7 @@ class _HistoriquesMatchsState extends State<HistoriquesMatchs> {
                       backgroundColor:
                           Theme.of(context).scaffoldBackgroundColor),
               child: MyLogo(
-                path: "${ApiService.BASE_URL + away.team!.logo}",
+                path: away.team!.logo,
                 height: 45,
                 width: 45,
               ),
@@ -170,17 +152,40 @@ class _HistoriquesMatchsState extends State<HistoriquesMatchs> {
                       child: Column(
                           children: controller.homeLastMatchs.value
                               .map((match) => LigneMatch(
+                                    team: controller.matchSelected.value.home!,
                                     match: match,
                                   ))
                               .toList()),
                     ),
+                    GridView(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        mainAxisSpacing: 2,
+                      ),
+                      scrollDirection: Axis.vertical,
+                      children: [
+                        Container(height: 10, width: 10, color: Colors.red), //1
+                        Container(
+                            height: 10, width: 10, color: Colors.blue), //2
+                        Container(height: 10, width: 10, color: Colors.red), //3
+                        Container(
+                            height: 10, width: 10, color: Colors.blue), //4
+                        Container(height: 10, width: 10, color: Colors.red), //5
+                        Container(
+                            height: 10, width: 10, color: Colors.blue), //6
+                        Container(height: 10, width: 10, color: Colors.red), //7
+                        Container(
+                            height: 10, width: 10, color: Colors.blue), //8
+                        Container(height: 10, width: 10, color: Colors.red), //9
+                      ],
+                    )
                   ],
                 ),
               ),
               // Content for Tab 2
               Container(
                 child: MyLogo(
-                  path: "${ApiService.BASE_URL + home.team!.logo}",
+                  path: home.team!.logo,
                   height: 40,
                   width: 40,
                 ),
@@ -207,6 +212,7 @@ class _HistoriquesMatchsState extends State<HistoriquesMatchs> {
                       child: Column(
                           children: controller.awayLastMatchs.value
                               .map((match) => LigneMatch(
+                                    team: controller.matchSelected.value.away!,
                                     match: match,
                                   ))
                               .toList()),

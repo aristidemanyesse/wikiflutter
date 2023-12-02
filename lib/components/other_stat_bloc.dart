@@ -1,11 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
 import 'package:wikibet/components/line_chart_popup.dart';
+import 'package:wikibet/controllers/MatchController.dart';
 import 'package:wikibet/tools/tools.dart';
 
 class OtherStatBloc extends StatelessWidget {
-  const OtherStatBloc({
+  final String title;
+  final double home_f;
+  final double home_a;
+  final double away_f;
+  final double away_a;
+  final int max;
+
+  MatchController controller = Get.find();
+
+  OtherStatBloc({
     super.key,
+    required this.title,
+    required this.home_f,
+    required this.away_f,
+    required this.home_a,
+    required this.away_a,
+    required this.max,
   });
 
   @override
@@ -23,10 +39,10 @@ class OtherStatBloc extends StatelessWidget {
                   Icons.supervisor_account,
                   size: AppConstante.PADDING,
                 ),
-                const Expanded(
+                Expanded(
                   child: Center(
                     child: Text(
-                      "Statistiques des corners",
+                      "Statistiques des $title",
                       style: AppTextStyle.titleMedium,
                     ),
                   ),
@@ -43,8 +59,8 @@ class OtherStatBloc extends StatelessWidget {
               children: [
                 Container(
                   padding: EdgeInsets.all(AppConstante.PADDING / 4),
-                  child: const Text(
-                    "43,2",
+                  child: Text(
+                    (home_a + home_f).toStringAsFixed(1),
                     style: AppTextStyle.titleSmall,
                   ),
                 ),
@@ -67,7 +83,8 @@ class OtherStatBloc extends StatelessWidget {
                               SizedBox(
                                 width: AppConstante.PADDING / 4,
                               ),
-                              const Text("3,3", style: AppTextStyle.bodysmall),
+                              Text(home_f.toStringAsFixed(1),
+                                  style: AppTextStyle.bodysmall),
                             ],
                           ),
                           Transform.rotate(
@@ -75,8 +92,8 @@ class OtherStatBloc extends StatelessWidget {
                             child: LinearProgressIndicator(
                               borderRadius: BorderRadius.circular(40),
                               color: Colors.red,
-                              value: 12 / 20,
-                              minHeight: 5,
+                              value: home_f / max,
+                              minHeight: 3,
                             ),
                           ),
                         ],
@@ -97,7 +114,8 @@ class OtherStatBloc extends StatelessWidget {
                               SizedBox(
                                 width: AppConstante.PADDING / 4,
                               ),
-                              const Text("3,3", style: AppTextStyle.bodysmall),
+                              Text(home_a.toStringAsFixed(1),
+                                  style: AppTextStyle.bodysmall),
                             ],
                           ),
                           Transform.rotate(
@@ -105,8 +123,8 @@ class OtherStatBloc extends StatelessWidget {
                             child: LinearProgressIndicator(
                               borderRadius: BorderRadius.circular(40),
                               color: Colors.red,
-                              value: 12 / 20,
-                              minHeight: 5,
+                              value: home_a / max,
+                              minHeight: 3,
                             ),
                           ),
                         ],
@@ -136,7 +154,8 @@ class OtherStatBloc extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              const Text("3,3", style: AppTextStyle.bodysmall),
+                              Text(away_f.toStringAsFixed(1),
+                                  style: AppTextStyle.bodysmall),
                               SizedBox(
                                 width: AppConstante.PADDING / 4,
                               ),
@@ -150,8 +169,8 @@ class OtherStatBloc extends StatelessWidget {
                           LinearProgressIndicator(
                             borderRadius: BorderRadius.circular(40),
                             color: Colors.red,
-                            value: 12 / 20,
-                            minHeight: 5,
+                            value: away_f / max,
+                            minHeight: 3,
                           ),
                         ],
                       ),
@@ -164,7 +183,8 @@ class OtherStatBloc extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              const Text("3,3", style: AppTextStyle.bodysmall),
+                              Text(away_a.toStringAsFixed(1),
+                                  style: AppTextStyle.bodysmall),
                               SizedBox(
                                 width: AppConstante.PADDING / 4,
                               ),
@@ -178,8 +198,8 @@ class OtherStatBloc extends StatelessWidget {
                           LinearProgressIndicator(
                             borderRadius: BorderRadius.circular(40),
                             color: Colors.red,
-                            value: 12 / 20,
-                            minHeight: 5,
+                            value: away_a / max,
+                            minHeight: 3,
                           ),
                         ],
                       ),
@@ -192,8 +212,8 @@ class OtherStatBloc extends StatelessWidget {
                 Center(
                   child: Container(
                     padding: EdgeInsets.all(AppConstante.PADDING / 4),
-                    child: const Text(
-                      "43,1",
+                    child: Text(
+                      (away_a + away_f).toStringAsFixed(1),
                       style: AppTextStyle.titleSmall,
                     ),
                   ),

@@ -1,7 +1,11 @@
 // This file is "main.dart"
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
+import 'package:wikibet/core/apiservice.dart';
 import 'package:wikibet/models/competitionApp/edition.dart';
+import 'package:wikibet/models/competitionApp/editionCompetition.dart';
+import 'package:wikibet/models/competitionApp/ligneRanking.dart';
+import 'package:wikibet/models/competitionApp/ranking_schema.dart';
 part 'ranking.freezed.dart';
 part 'ranking.g.dart';
 
@@ -13,7 +17,8 @@ class Ranking with _$Ranking {
     @Default("") String updateAt,
     @Default(false) bool deleted,
     @Default("") String date,
-    Edition? edition,
+    EditionCompetition? edition,
+    List<LigneRanking>? rankingLignes,
   }) = _Ranking;
 
   factory Ranking.fromJson(Map<String, Object?> json) =>
@@ -29,6 +34,18 @@ class Ranking with _$Ranking {
     edition{
       ...EditionCompetitionFragment
     }
+    rankingLignes{
+      ...LigneRankingFragment
+    }
   }
   """;
+
+  static Future<List<Ranking>> all(Map<String, dynamic> variables) async {
+    dynamic datas = await ApiService.request(RankingSchema.ALL, variables);
+    List<Ranking> items = [];
+    for (var jsonTask in datas["searchRanking"]["results"]) {
+      items.add(Ranking.fromJson(jsonTask));
+    }
+    return items;
+  }
 }

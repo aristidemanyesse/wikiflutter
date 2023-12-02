@@ -254,7 +254,7 @@ class __$$TeamImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$TeamImpl with DiagnosticableTreeMixin implements _Team {
+class _$TeamImpl extends _Team {
   const _$TeamImpl(
       {this.id = "",
       this.createdAt = "",
@@ -267,7 +267,8 @@ class _$TeamImpl with DiagnosticableTreeMixin implements _Team {
       this.pays,
       this.color1 = "",
       this.color2 = "",
-      this.logo = ""});
+      this.logo = ""})
+      : super._();
 
   factory _$TeamImpl.fromJson(Map<String, dynamic> json) =>
       _$$TeamImplFromJson(json);
@@ -309,27 +310,8 @@ class _$TeamImpl with DiagnosticableTreeMixin implements _Team {
   final String logo;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'Team(id: $id, createdAt: $createdAt, updateAt: $updateAt, deleted: $deleted, name: $name, code: $code, name2: $name2, abr: $abr, pays: $pays, color1: $color1, color2: $color2, logo: $logo)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Team'))
-      ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('updateAt', updateAt))
-      ..add(DiagnosticsProperty('deleted', deleted))
-      ..add(DiagnosticsProperty('name', name))
-      ..add(DiagnosticsProperty('code', code))
-      ..add(DiagnosticsProperty('name2', name2))
-      ..add(DiagnosticsProperty('abr', abr))
-      ..add(DiagnosticsProperty('pays', pays))
-      ..add(DiagnosticsProperty('color1', color1))
-      ..add(DiagnosticsProperty('color2', color2))
-      ..add(DiagnosticsProperty('logo', logo));
   }
 
   @override
@@ -372,7 +354,7 @@ class _$TeamImpl with DiagnosticableTreeMixin implements _Team {
   }
 }
 
-abstract class _Team implements Team {
+abstract class _Team extends Team {
   const factory _Team(
       {final String id,
       final String createdAt,
@@ -386,6 +368,7 @@ abstract class _Team implements Team {
       final String color1,
       final String color2,
       final String logo}) = _$TeamImpl;
+  const _Team._() : super._();
 
   factory _Team.fromJson(Map<String, dynamic> json) = _$TeamImpl.fromJson;
 

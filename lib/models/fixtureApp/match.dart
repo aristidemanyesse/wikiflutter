@@ -4,10 +4,12 @@ import 'package:flutter/foundation.dart';
 import 'package:wikibet/core/apiservice.dart';
 import 'package:wikibet/models/competitionApp/editionCompetition.dart';
 import 'package:wikibet/models/fixtureApp/match_schema.dart';
+import 'package:wikibet/models/predictionApp/prediction.dart';
 import 'package:wikibet/models/statsApp/beforeMatchStat.dart';
+import 'package:wikibet/models/statsApp/extraInfosMatch.dart';
 import 'package:wikibet/models/statsApp/resultMatch.dart';
+import 'package:wikibet/models/statsApp/teamProfileMatch.dart';
 import 'package:wikibet/models/teamApp/editionTeam.dart';
-import "package:intl/intl.dart";
 part 'match.freezed.dart';
 part 'match.g.dart';
 
@@ -24,7 +26,11 @@ class Match with _$Match {
     EditionTeam? home,
     EditionTeam? away,
     EditionCompetition? edition,
-    List<ResultMatch>? results,
+    List<ResultMatch>? resultMatch,
+    List<BeforeMatchStat>? beforeStatMatch,
+    List<ExtraInfosMatch>? extraInfoMatch,
+    List<Prediction>? predictionMatch,
+    List<TeamProfileMatch>? matchProfile,
     @Default(false) bool isFinished,
     @Default(false) bool isPosted,
     @Default(false) bool isFirstMatch,
@@ -58,6 +64,18 @@ class Match with _$Match {
     }
     resultMatch{
 			...ResultMatchFragment
+		}
+    beforeStatMatch{
+			...BeforeMatchStatFragment
+		}
+    extraInfoMatch{
+			...ExtraInfosMatchFragment
+		}
+    predictionMatch{
+			...PredictionFragment
+		}
+    matchProfile{
+			...TeamProfileMatchFragment
 		}
     isFinished
     isPosted

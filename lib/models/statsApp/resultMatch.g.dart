@@ -15,11 +15,11 @@ _$ResultMatchImpl _$$ResultMatchImplFromJson(Map<String, dynamic> json) =>
       match: json['match'] == null
           ? null
           : Match.fromJson(json['match'] as Map<String, dynamic>),
-      homeScore: (json['homeScore'] as num?)?.toDouble() ?? 0.0,
-      awayScore: (json['awayScore'] as num?)?.toDouble() ?? 0.0,
+      homeScore: json['homeScore'] as int? ?? 0,
+      awayScore: json['awayScore'] as int? ?? 0,
       result: json['result'] as String? ?? "",
-      homeHalfScore: (json['homeHalfScore'] as num?)?.toDouble() ?? 0.0,
-      awayHalfScore: (json['awayHalfScore'] as num?)?.toDouble() ?? 0.0,
+      homeHalfScore: json['homeHalfScore'] as int? ?? 0,
+      awayHalfScore: json['awayHalfScore'] as int? ?? 0,
       resultHalf: json['resultHalf'] as String? ?? "",
     );
 

@@ -1,8 +1,5 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/route_manager.dart';
 import 'package:wikibet/components/logo_markers.dart';
 import 'package:wikibet/components/prediction_tip.dart';
 import 'package:wikibet/controllers/MatchController.dart';
@@ -26,11 +23,17 @@ class MatchCard extends StatelessWidget {
     required this.match,
   });
 
+  ResultMatch result = const ResultMatch();
+
   @override
   Widget build(BuildContext context) {
     initializeDateFormatting();
     DateFormat dateFormat = DateFormat.yMMMMd('fr');
     DateFormat timeFormat = DateFormat.Hm('fr');
+
+    if (match.resultMatch!.isNotEmpty) {
+      result = match.resultMatch!.first;
+    }
 
     return Container(
       margin: EdgeInsets.symmetric(vertical: AppConstante.PADDING / 5),
@@ -49,8 +52,7 @@ class MatchCard extends StatelessWidget {
                 Row(
                   children: [
                     MyLogo(
-                      path:
-                          "${ApiService.BASE_URL + match.edition!.competition!.logo}",
+                      path: match.edition!.competition!.logo,
                       height: 30,
                       width: 30,
                     ),
@@ -86,18 +88,23 @@ class MatchCard extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           match.isFinished
-                              ? Text("0 : 0", style: AppTextStyle.titleMedium)
+                              ? Text(
+                                  "${result.homeScore} : ${result.awayScore}",
+                                  style: AppTextStyle.titleLarge)
                               : Text("Vs", style: AppTextStyle.titleLarge),
                           SizedBox(
                             height: AppConstante.PADDING / 4,
                           ),
+                          if (!match.isFinished)
+                            Text(
+                                dateFormat
+                                    .format(DateTime.parse(match.date ?? "")),
+                                style: AppTextStyle.bodygras),
                           Text(
-                              "${dateFormat.format(DateTime.parse(match.date ?? ""))}",
-                              style: AppTextStyle.bodygras),
-                          Text(
-                            "${timeFormat.format(DateTime.parse(match.date + " " + match.hour ?? ""))}",
-                            style: TextStyle(
-                                fontSize: 12, fontWeight: FontWeight.w500),
+                            timeFormat.format(DateTime.parse(
+                                match.date + " " + match.hour ?? "")),
+                            style: const TextStyle(
+                                fontSize: 10, fontWeight: FontWeight.w400),
                           ),
                         ],
                       ),
@@ -114,10 +121,11 @@ class MatchCard extends StatelessWidget {
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: List.generate(12, (index) {
-                      return const PredictionTip();
-                    }),
-                  ),
+                      children: match.predictionMatch!
+                          .map((prediction) => PredictionTip(
+                                prediction: prediction,
+                              ))
+                          .toList()),
                 ),
               ],
             ),
@@ -142,12 +150,12 @@ class BlocTeam extends StatelessWidget {
         child: Column(
       children: [
         MyLogo(
-          path: ApiService.BASE_URL + team.team!.logo,
+          path: team.team!.logo,
           height: 40,
           width: 40,
         ),
         Text(
-          "${team.team!.name}",
+          team.team!.name,
           overflow: TextOverflow.ellipsis,
           style: AppTextStyle.bodysmall,
           textAlign: TextAlign.center,

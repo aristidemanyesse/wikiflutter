@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/route_manager.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:wikibet/components/logo_markers.dart';
 import 'package:wikibet/controllers/CalendarController.dart';
@@ -20,7 +19,7 @@ class _CalendarState extends State<Calendar> {
   CalendarController calendar = Get.find();
 
   DateFormat dateFormat = DateFormat.yMMMMd();
-  DateTime _focusedDay = DateTime.now();
+  final DateTime _focusedDay = DateTime.now();
   DateTime? _selectedDay;
 
   @override
@@ -127,9 +126,6 @@ class _CalendarState extends State<Calendar> {
                               onDisabledDayTapped: (selectedDay) {
                                 calendar.selectedDate.value = selectedDay;
                                 Get.back();
-                              },
-                              onPageChanged: (focusedDay) {
-                                calendar.selectedDate.value = focusedDay;
                               },
                               firstDay: DateTime.utc(1993, 07, 23),
                               lastDay:

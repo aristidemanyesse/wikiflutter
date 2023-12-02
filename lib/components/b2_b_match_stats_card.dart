@@ -36,10 +36,9 @@ class B2BMatchStatsCard extends StatelessWidget {
                   DataColumn(
                     label: Center(
                       child: MyLogo(
-                        path:
-                            "${ApiService.BASE_URL + homeStat.team!.team!.logo}",
-                        height: 45,
-                        width: 45,
+                        path: homeStat.team!.team!.logo,
+                        height: 25,
+                        width: 25,
                       ),
                     ),
                   ),
@@ -55,45 +54,40 @@ class B2BMatchStatsCard extends StatelessWidget {
                   )),
                   const DataColumn(label: Flexible(child: Text(""))),
                   DataColumn(
-                    label: Center(
-                      child: MyLogo(
-                        path:
-                            "${ApiService.BASE_URL + awayStat.team!.team!.logo}",
-                        height: 45,
-                        width: 45,
-                      ),
+                    label: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        MyLogo(
+                          path: awayStat.team!.team!.logo,
+                          height: 25,
+                          width: 25,
+                        ),
+                      ],
                     ),
                   ),
                 ],
                 rows: [
-                  LigneB2B("PPG", 3, homeStat.ppg, awayStat.ppg).build(context),
-                  LigneB2B(
-                          "Elo",
-                          1700,
-                          (double.parse(homeStat.scoreElo.toStringAsFixed(1))),
-                          (double.parse(awayStat.scoreElo.toStringAsFixed(1))))
+                  LigneB2B("Dynamique", 20, homeStat.ppg, awayStat.ppg)
+                      .build(context),
+                  LigneB2B("Attaque", 20, homeStat.ppg, awayStat.ppg)
+                      .build(context),
+                  LigneB2B("Defense", 20, homeStat.ppg, awayStat.ppg)
                       .build(context),
                   LigneB2B(
-                          "Elo %",
-                          100,
-                          (double.parse(
-                                  homeStat.probabiliteElo.toStringAsFixed(1)) *
-                              100),
-                          (double.parse(
-                                  awayStat.probabiliteElo.toStringAsFixed(1)) *
-                              100))
-                      .build(context),
-                  LigneB2B(
-                          "xG+",
+                          "moyB+",
                           5,
-                          double.parse(homeStat.gsExpected.toStringAsFixed(2)),
-                          double.parse(awayStat.gsExpected.toStringAsFixed(2)))
+                          double.parse(
+                              homeStat.avgGoalsScored.toStringAsFixed(2)),
+                          double.parse(
+                              awayStat.avgGoalsScored.toStringAsFixed(2)))
                       .build(context),
                   LigneB2B(
-                          "xG-",
+                          "moyB-",
                           5,
-                          double.parse(homeStat.gaExpected.toStringAsFixed(2)),
-                          double.parse(awayStat.gaExpected.toStringAsFixed(2)))
+                          double.parse(
+                              homeStat.avgGoalsConceded.toStringAsFixed(2)),
+                          double.parse(
+                              awayStat.avgGoalsConceded.toStringAsFixed(2)))
                       .build(context)
                 ],
               );
@@ -115,14 +109,15 @@ class LigneB2B {
     return DataRow(cells: [
       DataCell(Text(
         "$valueA",
-        style: const TextStyle(fontSize: 11),
+        style: AppTextStyle.bodygras,
       )),
       DataCell(
         SizedBox(
-          width: MediaQuery.sizeOf(context).width / 4,
+          width: Get.size.width / 5,
           child: Transform.rotate(
             angle: 3.14159265359,
             child: LinearProgressIndicator(
+              backgroundColor: Colors.transparent,
               borderRadius: BorderRadius.circular(40),
               color: Colors.red,
               value: valueA / max,
@@ -133,17 +128,17 @@ class LigneB2B {
       ),
       DataCell(Center(
           child: SizedBox(
-        width: MediaQuery.sizeOf(context).width / 8,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(title, style: AppTextStyle.bodygras),
+            Text(title, style: AppTextStyle.body),
           ],
         ),
       ))),
       DataCell(SizedBox(
-        width: MediaQuery.sizeOf(context).width / 4,
+        width: Get.size.width / 5,
         child: LinearProgressIndicator(
+          backgroundColor: Colors.transparent,
           borderRadius: BorderRadius.circular(40),
           color: Colors.green,
           value: valueB / max,
@@ -155,7 +150,69 @@ class LigneB2B {
         children: [
           Text(
             "$valueB",
-            style: const TextStyle(fontSize: 11),
+            style: AppTextStyle.bodygras,
+          ),
+        ],
+      )),
+    ]);
+  }
+}
+
+class LigneResult {
+  final String title;
+  final int valueA;
+  final int valueB;
+
+  const LigneResult(this.title, this.valueA, this.valueB);
+
+  DataRow build(BuildContext context) {
+    int max = valueA + valueB;
+
+    return DataRow(cells: [
+      DataCell(Text(
+        "$valueA",
+        style: AppTextStyle.bodygras,
+      )),
+      DataCell(
+        SizedBox(
+          width: Get.size.width / 5,
+          child: Transform.rotate(
+            angle: 3.14159265359,
+            child: LinearProgressIndicator(
+              backgroundColor: Colors.transparent,
+              borderRadius: BorderRadius.circular(40),
+              color: Colors.red,
+              value: max > 0 ? valueA / max : 0,
+              minHeight: 5,
+            ),
+          ),
+        ),
+      ),
+      DataCell(Center(
+          child: SizedBox(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(title, style: AppTextStyle.body),
+          ],
+        ),
+      ))),
+      DataCell(SizedBox(
+        width: Get.size.width / 5,
+        child: LinearProgressIndicator(
+          backgroundColor: Colors.transparent,
+          borderRadius: BorderRadius.circular(40),
+          color: Colors.green,
+          value: max > 0 ? valueB / max : 0,
+          minHeight: 5,
+        ),
+      )),
+      DataCell(Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Text(
+            "$valueB",
+            style: AppTextStyle.bodygras,
           ),
         ],
       )),

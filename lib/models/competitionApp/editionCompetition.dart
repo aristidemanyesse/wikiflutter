@@ -1,8 +1,10 @@
 // This file is "main.dart"
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
+import 'package:wikibet/core/apiservice.dart';
 import 'package:wikibet/models/competitionApp/competition.dart';
 import 'package:wikibet/models/competitionApp/edition.dart';
+import 'package:wikibet/models/competitionApp/editionCompetition_schema.dart';
 part 'editionCompetition.freezed.dart';
 part 'editionCompetition.g.dart';
 
@@ -16,7 +18,7 @@ class EditionCompetition with _$EditionCompetition {
     @Default("") String startDate,
     @Default("") String finishDate,
     @Default(false) bool isFinished,
-    Edition? editon,
+    Edition? edition,
     Competition? competition,
   }) = _EditionCompetition;
 
@@ -40,4 +42,15 @@ class EditionCompetition with _$EditionCompetition {
     }
   }
   """;
+
+  static Future<List<EditionCompetition>> all(
+      Map<String, dynamic> variables) async {
+    dynamic datas =
+        await ApiService.request(EditionCompetitionSchema.ALL, variables);
+    List<EditionCompetition> items = [];
+    for (var jsonTask in datas["searchEditionCompetition"]["results"]) {
+      items.add(EditionCompetition.fromJson(jsonTask));
+    }
+    return items;
+  }
 }

@@ -17,4 +17,15 @@ class TypeFact with _$TypeFact {
 
   factory TypeFact.fromJson(Map<String, Object?> json) =>
       _$TypeFactFromJson(json);
+
+  static const String typefactFragment = r"""
+  fragment TypeFactFragment on TypeFactGenericType {
+    id
+    createdAt
+    updateAt
+    deleted
+    name
+    description
+  }
+  """;
 }

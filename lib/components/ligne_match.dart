@@ -1,19 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:wikibet/components/logo_markers.dart';
 import 'package:wikibet/core/apiservice.dart';
+import 'package:wikibet/models/competitionApp/typeCompetition.dart';
 import 'package:wikibet/models/statsApp/resultMatch.dart';
+import 'package:wikibet/models/teamApp/editionTeam.dart';
 import 'package:wikibet/tools/tools.dart';
 import 'package:wikibet/models/fixtureApp/match.dart';
 
 class LigneMatch extends StatelessWidget {
   final Match match;
-  const LigneMatch({
+  final EditionTeam team;
+
+  LigneMatch({
     super.key,
     required this.match,
+    required this.team,
   });
+
+  ResultMatch result = const ResultMatch();
 
   @override
   Widget build(BuildContext context) {
+    result = match.resultMatch!.first;
+
     return ClipRRect(
       borderRadius: BorderRadius.circular(AppConstante.PADDING / 2),
       child: Card(
@@ -48,8 +57,10 @@ class LigneMatch extends StatelessWidget {
                   children: [
                     Expanded(
                         child: Text(
-                      "${match.home!.team!.name}",
-                      style: AppTextStyle.body,
+                      match.home!.team!.name,
+                      style: result.result == "H"
+                          ? AppTextStyle.bodygras
+                          : AppTextStyle.body,
                       textAlign: TextAlign.right,
                       overflow: TextOverflow.ellipsis,
                     )),
@@ -57,7 +68,7 @@ class LigneMatch extends StatelessWidget {
                       width: AppConstante.PADDING / 4,
                     ),
                     MyLogo(
-                      path: "${ApiService.BASE_URL + match.home!.team!.logo}",
+                      path: match.home!.team!.logo,
                       height: 25,
                       width: 25,
                     ),
@@ -67,12 +78,15 @@ class LigneMatch extends StatelessWidget {
                     Container(
                       child: Column(
                         children: [
+                          match.edition?.competition?.type?.etiquette ==
+                                  TypeCompetition.FULL
+                              ? Text(
+                                  "${result.homeHalfScore} : ${result.awayHalfScore}",
+                                  style: AppTextStyle.bodysmall,
+                                )
+                              : Container(),
                           Text(
-                            "0 : 0",
-                            style: AppTextStyle.bodysmall,
-                          ),
-                          Text(
-                            "0 : 0",
+                            "${result.homeScore} : ${result.awayScore}",
                             style: AppTextStyle.titleSmall,
                           )
                         ],
@@ -82,7 +96,7 @@ class LigneMatch extends StatelessWidget {
                       width: AppConstante.PADDING / 4,
                     ),
                     MyLogo(
-                      path: "${ApiService.BASE_URL + match.away!.team!.logo}",
+                      path: match.away!.team!.logo,
                       height: 25,
                       width: 25,
                     ),
@@ -91,8 +105,10 @@ class LigneMatch extends StatelessWidget {
                     ),
                     Expanded(
                         child: Text(
-                      "${match.away!.team!.name}",
-                      style: AppTextStyle.body,
+                      match.away!.team!.name,
+                      style: result.result == "A"
+                          ? AppTextStyle.bodygras
+                          : AppTextStyle.body,
                       textAlign: TextAlign.left,
                       overflow: TextOverflow.ellipsis,
                     )),
@@ -106,14 +122,28 @@ class LigneMatch extends StatelessWidget {
                 borderRadius: BorderRadius.circular(100),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: AppConstante.grenn1,
+                    color: result.result == "D"
+                        ? Colors.grey
+                        : (result.result == "H" && match.home!.id == team.id) ||
+                                (result.result == "A" &&
+                                    match.away!.id == team.id)
+                            ? Colors.green
+                            : Colors.red,
                   ),
                   height: AppConstante.PADDING,
                   width: AppConstante.PADDING,
                   child: Center(
                     child: Text(
-                      "V",
-                      style: AppTextStyle.bodysmall,
+                      result.result == "D"
+                          ? "N"
+                          : (result.result == "H" &&
+                                      match.home!.id == team.id) ||
+                                  (result.result == "A" &&
+                                      match.away!.id == team.id)
+                              ? "V"
+                              : "D",
+                      style:
+                          AppTextStyle.bodysmall.copyWith(color: Colors.white),
                     ),
                   ),
                 ),

@@ -45,7 +45,7 @@ class MatchTeamsrankingCard extends StatelessWidget {
                           child: Text("PPG", style: AppTextStyle.titleSmall))),
                   DataColumn(
                       label: Center(
-                          child: Text("B+:-", style: AppTextStyle.titleSmall))),
+                          child: Text("+/-", style: AppTextStyle.titleSmall))),
                   DataColumn(
                       label: Center(
                           child: Text("Pts", style: AppTextStyle.titleSmall))),
@@ -58,10 +58,9 @@ class MatchTeamsrankingCard extends StatelessWidget {
                           )),
                           DataCell(
                             MyLogo(
-                              path:
-                                  "${ApiService.BASE_URL + rank.team!.team!.logo}",
-                              height: 30,
-                              width: 30,
+                              path: rank.team!.team!.logo,
+                              height: 20,
+                              width: 20,
                             ),
                           ),
                           DataCell(LatestTeamForm(
@@ -69,7 +68,7 @@ class MatchTeamsrankingCard extends StatelessWidget {
                           )),
                           DataCell(PPGLabel(ppg: rank.ppg)),
                           DataCell(Text(
-                            "${rank.gs}:${rank.ga}",
+                            "${rank.gs}/${rank.ga}",
                             textAlign: TextAlign.center,
                             style: AppTextStyle.body,
                           )),
@@ -110,7 +109,7 @@ class EloLabel extends StatelessWidget {
 class PPGLabel extends StatelessWidget {
   final double ppg;
 
-  PPGLabel({
+  const PPGLabel({
     super.key,
     required this.ppg,
   });
@@ -123,17 +122,17 @@ class PPGLabel extends StatelessWidget {
     } else if (ppg > 0.5 && ppg <= 1) {
       color = Colors.red;
     } else if (ppg > 1 && ppg <= 1.5) {
-      color = Color.fromARGB(255, 243, 118, 1);
+      color = const Color.fromARGB(255, 243, 118, 1);
     } else if (ppg > 1.5 && ppg <= 2) {
       color = Colors.blueAccent;
     } else if (ppg > 2 && ppg <= 2.5) {
-      color = Color.fromARGB(255, 64, 132, 82);
+      color = const Color.fromARGB(255, 64, 132, 82);
     } else if (ppg > 2.5 && ppg <= 3) {
       color = Colors.green;
     }
     return Container(
       margin: const EdgeInsets.only(right: 10),
-      padding: EdgeInsets.symmetric(horizontal: 7, vertical: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 5),
       decoration:
           BoxDecoration(color: color, borderRadius: BorderRadius.circular(5)),
       child: Text(

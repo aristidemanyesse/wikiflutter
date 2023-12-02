@@ -1,5 +1,6 @@
 import 'package:drop_shadow_image/drop_shadow_image.dart';
 import 'package:flutter/material.dart';
+import 'package:wikibet/core/apiservice.dart';
 
 class MyLogo extends StatelessWidget {
   final String path;
@@ -16,7 +17,7 @@ class MyLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.network(
-      path,
+      ApiService.BASE_URL + path,
       width: width,
       height: height,
     );

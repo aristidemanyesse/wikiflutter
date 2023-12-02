@@ -7,7 +7,4 @@ class AppController extends GetxController {
   RxInt radius = 1.obs;
   RxBool searchByAround = false.obs;
 
-  void onInit() {
-    super.onInit();
-  }
 }

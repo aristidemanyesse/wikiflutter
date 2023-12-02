@@ -25,20 +25,20 @@ mixin _$ExtraInfosMatch {
   String get updateAt => throw _privateConstructorUsedError;
   bool get deleted => throw _privateConstructorUsedError;
   Match? get match => throw _privateConstructorUsedError;
-  double get homeShots => throw _privateConstructorUsedError;
-  double get awayShots => throw _privateConstructorUsedError;
-  double get homeShotsOnTarget => throw _privateConstructorUsedError;
-  double get awayShotsOnTarget => throw _privateConstructorUsedError;
-  double get homeCorners => throw _privateConstructorUsedError;
-  double get awayCorners => throw _privateConstructorUsedError;
-  double get homeFouls => throw _privateConstructorUsedError;
-  double get awayFouls => throw _privateConstructorUsedError;
-  double get homeOffsides => throw _privateConstructorUsedError;
-  double get awayOffsides => throw _privateConstructorUsedError;
-  double get homeYellowCards => throw _privateConstructorUsedError;
-  double get awayYellowCards => throw _privateConstructorUsedError;
-  double get homeRedCards => throw _privateConstructorUsedError;
-  double get awayRedCards => throw _privateConstructorUsedError;
+  int get homeShots => throw _privateConstructorUsedError;
+  int get awayShots => throw _privateConstructorUsedError;
+  int get homeShotsOnTarget => throw _privateConstructorUsedError;
+  int get awayShotsOnTarget => throw _privateConstructorUsedError;
+  int get homeCorners => throw _privateConstructorUsedError;
+  int get awayCorners => throw _privateConstructorUsedError;
+  int get homeFouls => throw _privateConstructorUsedError;
+  int get awayFouls => throw _privateConstructorUsedError;
+  int get homeOffsides => throw _privateConstructorUsedError;
+  int get awayOffsides => throw _privateConstructorUsedError;
+  int get homeYellowCards => throw _privateConstructorUsedError;
+  int get awayYellowCards => throw _privateConstructorUsedError;
+  int get homeRedCards => throw _privateConstructorUsedError;
+  int get awayRedCards => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -58,20 +58,20 @@ abstract class $ExtraInfosMatchCopyWith<$Res> {
       String updateAt,
       bool deleted,
       Match? match,
-      double homeShots,
-      double awayShots,
-      double homeShotsOnTarget,
-      double awayShotsOnTarget,
-      double homeCorners,
-      double awayCorners,
-      double homeFouls,
-      double awayFouls,
-      double homeOffsides,
-      double awayOffsides,
-      double homeYellowCards,
-      double awayYellowCards,
-      double homeRedCards,
-      double awayRedCards});
+      int homeShots,
+      int awayShots,
+      int homeShotsOnTarget,
+      int awayShotsOnTarget,
+      int homeCorners,
+      int awayCorners,
+      int homeFouls,
+      int awayFouls,
+      int homeOffsides,
+      int awayOffsides,
+      int homeYellowCards,
+      int awayYellowCards,
+      int homeRedCards,
+      int awayRedCards});
 
   $MatchCopyWith<$Res>? get match;
 }
@@ -133,59 +133,59 @@ class _$ExtraInfosMatchCopyWithImpl<$Res, $Val extends ExtraInfosMatch>
       homeShots: null == homeShots
           ? _value.homeShots
           : homeShots // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       awayShots: null == awayShots
           ? _value.awayShots
           : awayShots // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       homeShotsOnTarget: null == homeShotsOnTarget
           ? _value.homeShotsOnTarget
           : homeShotsOnTarget // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       awayShotsOnTarget: null == awayShotsOnTarget
           ? _value.awayShotsOnTarget
           : awayShotsOnTarget // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       homeCorners: null == homeCorners
           ? _value.homeCorners
           : homeCorners // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       awayCorners: null == awayCorners
           ? _value.awayCorners
           : awayCorners // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       homeFouls: null == homeFouls
           ? _value.homeFouls
           : homeFouls // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       awayFouls: null == awayFouls
           ? _value.awayFouls
           : awayFouls // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       homeOffsides: null == homeOffsides
           ? _value.homeOffsides
           : homeOffsides // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       awayOffsides: null == awayOffsides
           ? _value.awayOffsides
           : awayOffsides // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       homeYellowCards: null == homeYellowCards
           ? _value.homeYellowCards
           : homeYellowCards // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       awayYellowCards: null == awayYellowCards
           ? _value.awayYellowCards
           : awayYellowCards // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       homeRedCards: null == homeRedCards
           ? _value.homeRedCards
           : homeRedCards // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       awayRedCards: null == awayRedCards
           ? _value.awayRedCards
           : awayRedCards // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
     ) as $Val);
   }
 
@@ -216,20 +216,20 @@ abstract class _$$ExtraInfosMatchImplCopyWith<$Res>
       String updateAt,
       bool deleted,
       Match? match,
-      double homeShots,
-      double awayShots,
-      double homeShotsOnTarget,
-      double awayShotsOnTarget,
-      double homeCorners,
-      double awayCorners,
-      double homeFouls,
-      double awayFouls,
-      double homeOffsides,
-      double awayOffsides,
-      double homeYellowCards,
-      double awayYellowCards,
-      double homeRedCards,
-      double awayRedCards});
+      int homeShots,
+      int awayShots,
+      int homeShotsOnTarget,
+      int awayShotsOnTarget,
+      int homeCorners,
+      int awayCorners,
+      int homeFouls,
+      int awayFouls,
+      int homeOffsides,
+      int awayOffsides,
+      int homeYellowCards,
+      int awayYellowCards,
+      int homeRedCards,
+      int awayRedCards});
 
   @override
   $MatchCopyWith<$Res>? get match;
@@ -290,59 +290,59 @@ class __$$ExtraInfosMatchImplCopyWithImpl<$Res>
       homeShots: null == homeShots
           ? _value.homeShots
           : homeShots // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       awayShots: null == awayShots
           ? _value.awayShots
           : awayShots // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       homeShotsOnTarget: null == homeShotsOnTarget
           ? _value.homeShotsOnTarget
           : homeShotsOnTarget // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       awayShotsOnTarget: null == awayShotsOnTarget
           ? _value.awayShotsOnTarget
           : awayShotsOnTarget // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       homeCorners: null == homeCorners
           ? _value.homeCorners
           : homeCorners // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       awayCorners: null == awayCorners
           ? _value.awayCorners
           : awayCorners // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       homeFouls: null == homeFouls
           ? _value.homeFouls
           : homeFouls // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       awayFouls: null == awayFouls
           ? _value.awayFouls
           : awayFouls // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       homeOffsides: null == homeOffsides
           ? _value.homeOffsides
           : homeOffsides // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       awayOffsides: null == awayOffsides
           ? _value.awayOffsides
           : awayOffsides // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       homeYellowCards: null == homeYellowCards
           ? _value.homeYellowCards
           : homeYellowCards // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       awayYellowCards: null == awayYellowCards
           ? _value.awayYellowCards
           : awayYellowCards // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       homeRedCards: null == homeRedCards
           ? _value.homeRedCards
           : homeRedCards // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       awayRedCards: null == awayRedCards
           ? _value.awayRedCards
           : awayRedCards // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
     ));
   }
 }
@@ -358,20 +358,20 @@ class _$ExtraInfosMatchImpl
       this.updateAt = "",
       this.deleted = false,
       this.match,
-      this.homeShots = 0.0,
-      this.awayShots = 0.0,
-      this.homeShotsOnTarget = 0.0,
-      this.awayShotsOnTarget = 0.0,
-      this.homeCorners = 0.0,
-      this.awayCorners = 0.0,
-      this.homeFouls = 0.0,
-      this.awayFouls = 0.0,
-      this.homeOffsides = 0.0,
-      this.awayOffsides = 0.0,
-      this.homeYellowCards = 0.0,
-      this.awayYellowCards = 0.0,
-      this.homeRedCards = 0.0,
-      this.awayRedCards = 0.0});
+      this.homeShots = 0,
+      this.awayShots = 0,
+      this.homeShotsOnTarget = 0,
+      this.awayShotsOnTarget = 0,
+      this.homeCorners = 0,
+      this.awayCorners = 0,
+      this.homeFouls = 0,
+      this.awayFouls = 0,
+      this.homeOffsides = 0,
+      this.awayOffsides = 0,
+      this.homeYellowCards = 0,
+      this.awayYellowCards = 0,
+      this.homeRedCards = 0,
+      this.awayRedCards = 0});
 
   factory _$ExtraInfosMatchImpl.fromJson(Map<String, dynamic> json) =>
       _$$ExtraInfosMatchImplFromJson(json);
@@ -392,46 +392,46 @@ class _$ExtraInfosMatchImpl
   final Match? match;
   @override
   @JsonKey()
-  final double homeShots;
+  final int homeShots;
   @override
   @JsonKey()
-  final double awayShots;
+  final int awayShots;
   @override
   @JsonKey()
-  final double homeShotsOnTarget;
+  final int homeShotsOnTarget;
   @override
   @JsonKey()
-  final double awayShotsOnTarget;
+  final int awayShotsOnTarget;
   @override
   @JsonKey()
-  final double homeCorners;
+  final int homeCorners;
   @override
   @JsonKey()
-  final double awayCorners;
+  final int awayCorners;
   @override
   @JsonKey()
-  final double homeFouls;
+  final int homeFouls;
   @override
   @JsonKey()
-  final double awayFouls;
+  final int awayFouls;
   @override
   @JsonKey()
-  final double homeOffsides;
+  final int homeOffsides;
   @override
   @JsonKey()
-  final double awayOffsides;
+  final int awayOffsides;
   @override
   @JsonKey()
-  final double homeYellowCards;
+  final int homeYellowCards;
   @override
   @JsonKey()
-  final double awayYellowCards;
+  final int awayYellowCards;
   @override
   @JsonKey()
-  final double homeRedCards;
+  final int homeRedCards;
   @override
   @JsonKey()
-  final double awayRedCards;
+  final int awayRedCards;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -553,20 +553,20 @@ abstract class _ExtraInfosMatch implements ExtraInfosMatch {
       final String updateAt,
       final bool deleted,
       final Match? match,
-      final double homeShots,
-      final double awayShots,
-      final double homeShotsOnTarget,
-      final double awayShotsOnTarget,
-      final double homeCorners,
-      final double awayCorners,
-      final double homeFouls,
-      final double awayFouls,
-      final double homeOffsides,
-      final double awayOffsides,
-      final double homeYellowCards,
-      final double awayYellowCards,
-      final double homeRedCards,
-      final double awayRedCards}) = _$ExtraInfosMatchImpl;
+      final int homeShots,
+      final int awayShots,
+      final int homeShotsOnTarget,
+      final int awayShotsOnTarget,
+      final int homeCorners,
+      final int awayCorners,
+      final int homeFouls,
+      final int awayFouls,
+      final int homeOffsides,
+      final int awayOffsides,
+      final int homeYellowCards,
+      final int awayYellowCards,
+      final int homeRedCards,
+      final int awayRedCards}) = _$ExtraInfosMatchImpl;
 
   factory _ExtraInfosMatch.fromJson(Map<String, dynamic> json) =
       _$ExtraInfosMatchImpl.fromJson;
@@ -582,33 +582,33 @@ abstract class _ExtraInfosMatch implements ExtraInfosMatch {
   @override
   Match? get match;
   @override
-  double get homeShots;
+  int get homeShots;
   @override
-  double get awayShots;
+  int get awayShots;
   @override
-  double get homeShotsOnTarget;
+  int get homeShotsOnTarget;
   @override
-  double get awayShotsOnTarget;
+  int get awayShotsOnTarget;
   @override
-  double get homeCorners;
+  int get homeCorners;
   @override
-  double get awayCorners;
+  int get awayCorners;
   @override
-  double get homeFouls;
+  int get homeFouls;
   @override
-  double get awayFouls;
+  int get awayFouls;
   @override
-  double get homeOffsides;
+  int get homeOffsides;
   @override
-  double get awayOffsides;
+  int get awayOffsides;
   @override
-  double get homeYellowCards;
+  int get homeYellowCards;
   @override
-  double get awayYellowCards;
+  int get awayYellowCards;
   @override
-  double get homeRedCards;
+  int get homeRedCards;
   @override
-  double get awayRedCards;
+  int get awayRedCards;
   @override
   @JsonKey(ignore: true)
   _$$ExtraInfosMatchImplCopyWith<_$ExtraInfosMatchImpl> get copyWith =>

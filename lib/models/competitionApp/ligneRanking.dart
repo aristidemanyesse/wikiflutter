@@ -67,9 +67,6 @@ class LigneRanking with _$LigneRanking {
     team{
       ...EditionTeamFragment
     }
-    ranking{
-      ...RankingFragment
-    }
   }
   """;
 

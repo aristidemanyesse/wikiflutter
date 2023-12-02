@@ -1,7 +1,6 @@
 // This file is "main.dart"
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
-import 'package:wikibet/models/competitionApp/edition.dart';
 import 'package:wikibet/models/competitionApp/editionCompetition.dart';
 import 'package:wikibet/models/teamApp/team.dart';
 part 'editionTeam.freezed.dart';

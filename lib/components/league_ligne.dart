@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
 import 'package:wikibet/components/logo_markers.dart';
+import 'package:wikibet/controllers/LeagueController.dart';
+import 'package:wikibet/models/competitionApp/competition.dart';
+import 'package:wikibet/models/competitionApp/typeCompetition.dart';
 import 'package:wikibet/pages/league_page.dart';
 import 'package:wikibet/tools/tools.dart';
 
 class LeagueLigne extends StatelessWidget {
-  const LeagueLigne({
+  final Competition league;
+
+  LeagueController controller = Get.find();
+
+  LeagueLigne({
     super.key,
+    required this.league,
   });
 
   @override
@@ -14,14 +23,15 @@ class LeagueLigne extends StatelessWidget {
     return Container(
       child: GestureDetector(
         onTap: () {
+          controller.competitionSelected.value = league;
           Get.to(const LeaguePage());
         },
         child: Card(
           child: Container(
             padding: EdgeInsets.all(AppConstante.PADDING / 2),
-            child: const Row(children: [
+            child: Row(children: [
               MyLogo(
-                path: "assets/images/logo.png",
+                path: league.logo,
                 height: 30,
                 width: 30,
               ),
@@ -30,13 +40,22 @@ class LeagueLigne extends StatelessWidget {
               ),
               Expanded(
                   child: Text(
-                "Championnat de France",
+                league.name,
                 style: AppTextStyle.titleMedium,
               )),
+              league.type!.etiquette == TypeCompetition.FULL
+                  ? Icon(
+                      Icons.bar_chart,
+                      size: AppConstante.PADDING,
+                    )
+                  : Container(),
+              SizedBox(
+                width: 10,
+              ),
               Opacity(
-                opacity: 0.15,
+                opacity: 0.65,
                 child: MyLogo(
-                  path: "assets/images/logo.png",
+                  path: league.pays!.flag,
                   height: 20,
                   width: 20,
                 ),
