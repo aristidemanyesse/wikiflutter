@@ -3,8 +3,6 @@ import 'package:get/get.dart';
 import 'package:wikibet/components/latest_team_form.dart';
 import 'package:wikibet/components/logo_markers.dart';
 import 'package:wikibet/controllers/LeagueController.dart';
-import 'package:wikibet/controllers/MatchController.dart';
-import 'package:wikibet/core/apiservice.dart';
 import 'package:wikibet/models/competitionApp/ligneRanking.dart';
 import 'package:wikibet/tools/tools.dart';
 

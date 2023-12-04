@@ -39,6 +39,9 @@ _$MatchImpl _$$MatchImplFromJson(Map<String, dynamic> json) => _$MatchImpl(
       matchProfile: (json['matchProfile'] as List<dynamic>?)
           ?.map((e) => TeamProfileMatch.fromJson(e as Map<String, dynamic>))
           .toList(),
+      matchOdds: (json['matchOdds'] as List<dynamic>?)
+          ?.map((e) => OddsMatch.fromJson(e as Map<String, dynamic>))
+          .toList(),
       isFinished: json['isFinished'] as bool? ?? false,
       isPosted: json['isPosted'] as bool? ?? false,
       isFirstMatch: json['isFirstMatch'] as bool? ?? false,
@@ -66,6 +69,7 @@ Map<String, dynamic> _$$MatchImplToJson(_$MatchImpl instance) =>
       'extraInfoMatch': instance.extraInfoMatch,
       'predictionMatch': instance.predictionMatch,
       'matchProfile': instance.matchProfile,
+      'matchOdds': instance.matchOdds,
       'isFinished': instance.isFinished,
       'isPosted': instance.isPosted,
       'isFirstMatch': instance.isFirstMatch,

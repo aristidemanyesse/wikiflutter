@@ -27,7 +27,7 @@ class LeaguesPage extends StatelessWidget {
           width: double.infinity,
           child: Column(
             children: [
-              Text(
+              const Text(
                 "Compétitions ",
                 style: AppTextStyle.titleMedium,
               ),

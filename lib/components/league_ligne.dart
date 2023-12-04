@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/route_manager.dart';
 import 'package:wikibet/components/logo_markers.dart';
 import 'package:wikibet/controllers/LeagueController.dart';
 import 'package:wikibet/models/competitionApp/competition.dart';
@@ -35,7 +34,7 @@ class LeagueLigne extends StatelessWidget {
                 height: 30,
                 width: 30,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Expanded(
@@ -49,7 +48,7 @@ class LeagueLigne extends StatelessWidget {
                       size: AppConstante.PADDING,
                     )
                   : Container(),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Opacity(

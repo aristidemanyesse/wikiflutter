@@ -3,11 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wikibet/components/logo_markers.dart';
 import 'package:wikibet/controllers/MatchController.dart';
-import 'package:wikibet/models/statsApp/beforeMatchStat.dart';
+import 'package:wikibet/models/statsApp/teamProfileMatch.dart';
 import 'package:wikibet/tools/tools.dart';
+import 'package:wikibet/models/fixtureApp/match.dart';
 
 class RadarStatsCard extends StatelessWidget {
-  RadarStatsCard({super.key});
+  final Match match;
+
+  RadarStatsCard({super.key, required this.match});
 
   final gridColor = Colors.grey;
   final titleColor = Colors.black;
@@ -17,15 +20,12 @@ class RadarStatsCard extends StatelessWidget {
 
   MatchController controller = Get.find();
 
-  late BeforeMatchStat homeStat;
-  late BeforeMatchStat awayStat;
-
   @override
   Widget build(BuildContext context) {
-    homeStat = controller.befores.value.firstWhere(
-        (stat) => stat.team!.id == controller.matchSelected.value.home!.id);
-    awayStat = controller.befores.value.firstWhere(
-        (stat) => stat.team!.id == controller.matchSelected.value.away!.id);
+    TeamProfileMatch? homeProfile = match.matchProfile
+        ?.firstWhere((element) => element.team?.id == match.home?.id);
+    TeamProfileMatch? awayProfile = match.matchProfile
+        ?.firstWhere((element) => element.team?.id == match.away?.id);
 
     return Card(
       child: Container(
@@ -42,10 +42,10 @@ class RadarStatsCard extends StatelessWidget {
                   Expanded(
                     child: Row(
                       children: [
-                        const MyLogo(
-                          path: "assets/images/logo.png",
-                          height: 40,
-                          width: 40,
+                        MyLogo(
+                          path: homeProfile!.team!.team!.logo,
+                          height: 25,
+                          width: 25,
                         ),
                         SizedBox(
                           width: AppConstante.PADDING / 2,
@@ -73,10 +73,10 @@ class RadarStatsCard extends StatelessWidget {
                         SizedBox(
                           width: AppConstante.PADDING / 2,
                         ),
-                        const MyLogo(
-                          path: "assets/images/logo.png",
-                          height: 40,
-                          width: 40,
+                        MyLogo(
+                          path: awayProfile!.team!.team!.logo,
+                          height: 25,
+                          width: 25,
                         ),
                       ],
                     ),
@@ -89,7 +89,7 @@ class RadarStatsCard extends StatelessWidget {
               aspectRatio: 2,
               child: RadarChart(
                 RadarChartData(
-                  dataSets: showingDataSets(),
+                  dataSets: showingDataSets(homeProfile, awayProfile),
                   radarBackgroundColor: Colors.transparent,
                   borderData: FlBorderData(show: false),
                   radarBorderData: const BorderSide(color: Colors.transparent),
@@ -114,7 +114,7 @@ class RadarStatsCard extends StatelessWidget {
                         );
                       case 3:
                         return const RadarChartTitle(
-                          text: 'PRE',
+                          text: 'MAI',
                           angle: 0,
                         );
                       case 4:
@@ -143,8 +143,11 @@ class RadarStatsCard extends StatelessWidget {
     );
   }
 
-  List<RadarDataSet> showingDataSets() {
-    return rawDataSets().asMap().entries.map((entry) {
+  List<RadarDataSet> showingDataSets(
+    TeamProfileMatch homeProfile,
+    TeamProfileMatch awayProfile,
+  ) {
+    return rawDataSets(homeProfile, awayProfile).asMap().entries.map((entry) {
       final rawDataSet = entry.value;
       return RadarDataSet(
         fillColor: rawDataSet.color.withOpacity(0.15),
@@ -157,28 +160,45 @@ class RadarStatsCard extends StatelessWidget {
     }).toList();
   }
 
-  List<RawDataSet> rawDataSets() {
+  List<RawDataSet> rawDataSets(
+    TeamProfileMatch homeProfile,
+    TeamProfileMatch awayProfile,
+  ) {
+    print([
+      homeProfile.dynamique,
+      homeProfile.attack,
+      homeProfile.defense,
+      homeProfile.maitrise,
+      homeProfile.ranking
+    ]);
+    print([
+      awayProfile.dynamique,
+      awayProfile.attack,
+      awayProfile.defense,
+      awayProfile.maitrise,
+      awayProfile.ranking
+    ]);
     return [
       RawDataSet(
-        title: 'Real de Madrid',
+        title: homeProfile.team!.team!.name,
         color: fashionColor,
         values: [
-          300,
-          50,
-          250,
-          250,
-          250,
+          homeProfile.dynamique,
+          homeProfile.attack,
+          homeProfile.defense,
+          homeProfile.maitrise,
+          homeProfile.ranking,
         ],
       ),
       RawDataSet(
-        title: 'Chelsea',
+        title: awayProfile.team!.team!.name,
         color: artColor,
         values: [
-          250,
-          100,
-          200,
-          200,
-          200,
+          awayProfile.dynamique,
+          awayProfile.attack,
+          awayProfile.defense,
+          awayProfile.maitrise,
+          awayProfile.ranking
         ],
       ),
     ];

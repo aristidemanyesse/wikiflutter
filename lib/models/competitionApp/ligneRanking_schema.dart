@@ -3,7 +3,6 @@ import 'package:wikibet/models/competitionApp/edition.dart';
 import 'package:wikibet/models/competitionApp/editionCompetition.dart';
 import 'package:wikibet/models/competitionApp/ligneRanking.dart';
 import 'package:wikibet/models/competitionApp/pays.dart';
-import 'package:wikibet/models/competitionApp/ranking.dart';
 import 'package:wikibet/models/competitionApp/typeCompetition.dart';
 import 'package:wikibet/models/teamApp/editionTeam.dart';
 import 'package:wikibet/models/teamApp/team.dart';

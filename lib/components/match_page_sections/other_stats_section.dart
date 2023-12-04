@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:wikibet/components/b2_b_match_stats_card.dart';
+import 'package:wikibet/components/match_teamsranking_card.dart';
 import 'package:wikibet/components/other_stat_bloc.dart';
+import 'package:wikibet/components/others_goals_stats_table_card.dart';
+import 'package:wikibet/components/radar_chart.dart';
 import 'package:wikibet/controllers/MatchController.dart';
 import 'package:wikibet/models/competitionApp/typeCompetition.dart';
 import 'package:wikibet/models/statsApp/beforeMatchStat.dart';
 import 'package:wikibet/tools/tools.dart';
+import 'package:wikibet/models/fixtureApp/match.dart';
 
 class OtherStatsSection extends StatelessWidget {
+  final Match match;
   OtherStatsSection({
     super.key,
+    required this.match,
   });
 
   MatchController controller = Get.find();
@@ -17,10 +24,10 @@ class OtherStatsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    homeStat = controller.befores.value.firstWhere(
-        (stat) => stat.team!.id == controller.matchSelected.value.home!.id);
-    awayStat = controller.befores.value.firstWhere(
-        (stat) => stat.team!.id == controller.matchSelected.value.away!.id);
+    BeforeMatchStat? homeStat = match.beforeStatMatch
+        ?.firstWhere((stat) => stat.team!.id == match.home!.id);
+    BeforeMatchStat? awayStat = match.beforeStatMatch
+        ?.firstWhere((stat) => stat.team!.id == match.away!.id);
 
     return controller
                 .matchSelected.value.edition?.competition?.type?.etiquette ==
@@ -34,11 +41,10 @@ class OtherStatsSection extends StatelessWidget {
               children: [
                 OtherStatBloc(
                   title: "Tirs",
-                  home_f: homeStat.avgShotsFor,
+                  home_f: homeStat!.avgShotsFor,
                   home_a: homeStat.avgShotsAgainst,
-                  away_f: awayStat.avgShotsFor,
+                  away_f: awayStat!.avgShotsFor,
                   away_a: awayStat.avgShotsAgainst,
-                  max: 30,
                 ),
                 OtherStatBloc(
                   title: "Tirs cadrés",
@@ -46,7 +52,6 @@ class OtherStatsSection extends StatelessWidget {
                   home_a: homeStat.avgShotsTargetAgainst,
                   away_f: awayStat.avgShotsTargetFor,
                   away_a: awayStat.avgShotsTargetAgainst,
-                  max: 10,
                 ),
                 OtherStatBloc(
                   title: "Corners",
@@ -54,7 +59,6 @@ class OtherStatsSection extends StatelessWidget {
                   home_a: homeStat.avgCornersAgainst,
                   away_f: awayStat.avgCornersFor,
                   away_a: awayStat.avgCornersAgainst,
-                  max: 10,
                 ),
                 OtherStatBloc(
                   title: "Fautes",
@@ -62,7 +66,6 @@ class OtherStatsSection extends StatelessWidget {
                   home_a: homeStat.avgFoulsAgainst,
                   away_f: awayStat.avgFoulsFor,
                   away_a: awayStat.avgFoulsAgainst,
-                  max: 20,
                 ),
                 // OtherStatBloc(
                 //   title: "Hors-jeu",
@@ -70,7 +73,6 @@ class OtherStatsSection extends StatelessWidget {
                 //   home_a: homeStat.avgOffsideAgainst,
                 //   away_f: awayStat.avgOffsideFor,
                 //   away_a: awayStat.avgOffsideAgainst,
-                //   max: 7,
                 // ),
                 OtherStatBloc(
                   title: "Cartons",
@@ -78,7 +80,6 @@ class OtherStatsSection extends StatelessWidget {
                   home_a: homeStat.avgCardsAgainst,
                   away_f: awayStat.avgCardsFor,
                   away_a: awayStat.avgCardsAgainst,
-                  max: 5,
                 ),
               ],
             ),

@@ -1,3 +1,4 @@
+import 'package:wikibet/models/bettingApp/oddMatch.dart';
 import 'package:wikibet/models/competitionApp/competition.dart';
 import 'package:wikibet/models/competitionApp/edition.dart';
 import 'package:wikibet/models/competitionApp/editionCompetition.dart';
@@ -16,7 +17,7 @@ import 'package:wikibet/models/teamApp/team.dart';
 
 class MatchSchema {
   static const String ALL = r"""
-    query ($id: UUID, $date:CustomDate, $dateLte:CustomDate, $finished:Boolean, $edition:UUID, $home:UUID, $away:UUID) {
+    query ($id: UUID, $date:CustomDate, $dateLte:CustomDate, $finished:Boolean, $edition:UUID, $home:UUID, $away:UUID, $homeTeamId:UUID, $awayTeamId:UUID) {
       searchMatch(
         deleted: false
         date: $date
@@ -25,6 +26,8 @@ class MatchSchema {
         edition_Id: $edition
         home_Id: $home
         away_Id: $away
+        home_Team_Id: $homeTeamId
+        away_Team_Id: $awayTeamId
         id: $id
       ) {
         results {
@@ -47,5 +50,6 @@ class MatchSchema {
       ModePrediction.modePredictionFragment +
       TypePrediction.typePredictionFragment +
       TeamProfileMatch.teamProfileMatchFragment +
+      OddsMatch.oddMatchFragment +
       ResultMatch.resultMatchFragment;
 }

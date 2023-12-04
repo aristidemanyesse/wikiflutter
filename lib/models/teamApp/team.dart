@@ -1,11 +1,6 @@
 // This file is "main.dart"
-import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:flutter/foundation.dart';
-import 'package:palette_generator/palette_generator.dart';
-import 'package:wikibet/core/apiservice.dart';
 import 'package:wikibet/models/competitionApp/pays.dart';
-import 'package:http/http.dart' as http;
 
 part 'team.freezed.dart';
 part 'team.g.dart';

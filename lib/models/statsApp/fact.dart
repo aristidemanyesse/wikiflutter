@@ -17,7 +17,6 @@ class Fact with _$Fact {
     @Default("") String updateAt,
     @Default(false) bool deleted,
     TypeFact? type,
-    Match? match,
     EditionTeam? team,
     @Default(false) bool fullTime,
     @Default(false) bool allMatches,
@@ -28,15 +27,13 @@ class Fact with _$Fact {
 
   factory Fact.fromJson(Map<String, Object?> json) => _$FactFromJson(json);
 
-  static String sentence(Fact fact) {
+  static String sentence(Fact fact, bool domicile) {
     String prefixe = "";
     String suffixe = "";
     String sentence = "";
     if (!fact.allMatches) {
-      suffixe =
-          fact.match?.home == fact.team ? "à domicile !" : "à l'extérieur !";
+      suffixe = domicile ? "à domicile !" : "à l'extérieur !";
     }
-
     if ((fact.pct == 0 || fact.pct == 1) &&
         (!["TGS", "TGC"].contains(fact.type?.name))) {
       if (fact.type?.name == "Win") {

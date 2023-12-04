@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wikibet/models/bettingApp/oddMatch.dart';
 import 'package:wikibet/models/predictionApp/prediction.dart';
 import 'package:wikibet/tools/tools.dart';
 
@@ -16,7 +17,7 @@ class PredictionTip extends StatelessWidget {
       margin: EdgeInsets.only(right: AppConstante.PADDING / 5),
       child: Card(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 5),
+          padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 7),
           decoration: BoxDecoration(
               color: prediction.isChecked == null
                   ? Colors.white
@@ -27,10 +28,10 @@ class PredictionTip extends StatelessWidget {
               border: Border.all(color: Colors.grey)),
           child: Text("${prediction.type?.name}:${prediction.mode?.name}",
               style: TextStyle(
-                  fontSize: 12,
+                  fontSize: 11,
                   fontWeight: FontWeight.w500,
                   color: prediction.isChecked == null
-                      ? Colors.black
+                      ? Colors.black54
                       : Colors.white)),
         ),
       ),

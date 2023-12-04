@@ -4,7 +4,7 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:wikibet/controllers/ConnexionController.dart';
 
 class ApiService {
-  static const BASE_URL = "http://192.168.254.55:8011/";
+  static const BASE_URL = "http://192.168.250.55:8011/";
   // static const BASE_URL = "http://192.168.100.55:8011/";
   // static const BASE_URL = "http://192.168.1.45:8011/";
   // static const BASE_URL = "https://officines.ipi-app.com/";

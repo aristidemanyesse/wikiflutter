@@ -4,14 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:wikibet/components/logo_markers.dart';
-import 'package:wikibet/components/main_button.dart';
 import 'package:wikibet/components/match_page_sections/facts_section.dart';
 import 'package:wikibet/components/match_page_sections/general_section.dart';
 import 'package:wikibet/components/match_page_sections/historiques_section.dart';
 import 'package:wikibet/components/match_page_sections/other_stats_section.dart';
 import 'package:wikibet/components/match_page_sections/prediction_section.dart';
 import 'package:wikibet/components/match_page_sections/resume_section.dart';
-import 'package:wikibet/core/apiservice.dart';
 import 'package:wikibet/models/competitionApp/typeCompetition.dart';
 import 'package:wikibet/models/statsApp/resultMatch.dart';
 import 'package:wikibet/tools/tools.dart';
@@ -25,7 +23,7 @@ import 'package:intl/date_symbol_data_local.dart';
 class MatchPage extends StatelessWidget {
   final Match match;
 
-  MatchPage({super.key, required this.match});
+  const MatchPage({super.key, required this.match});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +31,7 @@ class MatchPage extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       children: [
         DefaultTabController(
-          length: match.isFinished ? 6 : 5, // This is the number of tabs.
+          length: match.isFinished ? 5 : 4, // This is the number of tabs.
           child: Scaffold(
             body: NestedScrollView(
               headerSliverBuilder:
@@ -65,12 +63,11 @@ class MatchPage extends StatelessWidget {
                           indicatorWeight: 4,
                           isScrollable: true,
                           tabs: [
-                            if (match.isFinished) Tab(text: 'RESUME'),
-                            Tab(text: 'GENERAL'),
-                            Tab(text: 'HISTORIQUES'),
-                            Tab(text: 'FACTS'),
-                            Tab(text: 'AUTRES'),
-                            Tab(text: 'PREDICTIONS'),
+                            if (match.isFinished) const Tab(text: 'RESUME'),
+                            const Tab(text: 'GENERAL'),
+                            const Tab(text: 'HISTORIQUES'),
+                            const Tab(text: 'AUTRES'),
+                            const Tab(text: 'PREDICTIONS'),
                           ],
                         ),
                       ),
@@ -85,10 +82,11 @@ class MatchPage extends StatelessWidget {
                     ResumeSection(
                       match: match,
                     ),
-                  const GeneralSection(),
+                  GeneralSection(match: match),
                   const HistoriquesSection(),
-                  FactsSection(),
-                  OtherStatsSection(),
+                  OtherStatsSection(
+                    match: match,
+                  ),
                   const PredictionSection()
                 ].map((Widget widget) {
                   return SafeArea(

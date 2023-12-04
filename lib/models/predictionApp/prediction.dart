@@ -1,12 +1,9 @@
 // This file is "main.dart"
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
-import 'package:wikibet/core/apiservice.dart';
 import 'package:wikibet/models/fixtureApp/match.dart';
-import 'package:wikibet/models/competitionApp/editionCompetition.dart';
 import 'package:wikibet/models/predictionApp/modePrediction.dart';
 import 'package:wikibet/models/predictionApp/typePrediction.dart';
-import 'package:wikibet/models/teamApp/editionTeam.dart';
 part 'prediction.freezed.dart';
 part 'prediction.g.dart';
 

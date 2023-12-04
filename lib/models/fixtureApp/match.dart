@@ -2,6 +2,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 import 'package:wikibet/core/apiservice.dart';
+import 'package:wikibet/models/bettingApp/oddMatch.dart';
 import 'package:wikibet/models/competitionApp/editionCompetition.dart';
 import 'package:wikibet/models/fixtureApp/match_schema.dart';
 import 'package:wikibet/models/predictionApp/prediction.dart';
@@ -31,6 +32,7 @@ class Match with _$Match {
     List<ExtraInfosMatch>? extraInfoMatch,
     List<Prediction>? predictionMatch,
     List<TeamProfileMatch>? matchProfile,
+    List<OddsMatch>? matchOdds,
     @Default(false) bool isFinished,
     @Default(false) bool isPosted,
     @Default(false) bool isFirstMatch,
@@ -77,6 +79,9 @@ class Match with _$Match {
     matchProfile{
 			...TeamProfileMatchFragment
 		}
+    matchOdds{
+			...OddsMatchFragment
+		}
     isFinished
     isPosted
     isFirstMatch
@@ -92,7 +97,9 @@ class Match with _$Match {
     dynamic datas = await ApiService.request(MatchSchema.ALL, variables);
     List<Match> items = [];
     for (var jsonTask in datas["searchMatch"]["results"]) {
-      items.add(Match.fromJson(jsonTask));
+      Match match = Match.fromJson(jsonTask);
+      match = match.copyWith(hour: match.hour == "" ? "00:00:00" : match.hour);
+      items.add(match);
     }
     return items;
   }

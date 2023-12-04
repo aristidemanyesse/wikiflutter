@@ -2,7 +2,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 import 'package:wikibet/core/apiservice.dart';
-import 'package:wikibet/models/competitionApp/edition.dart';
 import 'package:wikibet/models/competitionApp/editionCompetition.dart';
 import 'package:wikibet/models/competitionApp/ligneRanking.dart';
 import 'package:wikibet/models/competitionApp/ranking_schema.dart';

@@ -14,9 +14,6 @@ _$FactImpl _$$FactImplFromJson(Map<String, dynamic> json) => _$FactImpl(
       type: json['type'] == null
           ? null
           : TypeFact.fromJson(json['type'] as Map<String, dynamic>),
-      match: json['match'] == null
-          ? null
-          : Match.fromJson(json['match'] as Map<String, dynamic>),
       team: json['team'] == null
           ? null
           : EditionTeam.fromJson(json['team'] as Map<String, dynamic>),
@@ -34,7 +31,6 @@ Map<String, dynamic> _$$FactImplToJson(_$FactImpl instance) =>
       'updateAt': instance.updateAt,
       'deleted': instance.deleted,
       'type': instance.type,
-      'match': instance.match,
       'team': instance.team,
       'fullTime': instance.fullTime,
       'allMatches': instance.allMatches,

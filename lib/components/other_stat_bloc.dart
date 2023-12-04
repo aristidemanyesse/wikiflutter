@@ -10,7 +10,6 @@ class OtherStatBloc extends StatelessWidget {
   final double home_a;
   final double away_f;
   final double away_a;
-  final int max;
 
   MatchController controller = Get.find();
 
@@ -21,208 +20,182 @@ class OtherStatBloc extends StatelessWidget {
     required this.away_f,
     required this.home_a,
     required this.away_a,
-    required this.max,
   });
 
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 0,
+      color: Colors.white.withOpacity(0.5),
       child: Container(
-        width: double.infinity,
-        margin: EdgeInsets.symmetric(vertical: AppConstante.PADDING),
-        padding: EdgeInsets.symmetric(horizontal: AppConstante.PADDING / 2),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Icon(
-                  Icons.supervisor_account,
-                  size: AppConstante.PADDING,
+          padding: EdgeInsets.symmetric(horizontal: AppConstante.PADDING / 2),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                padding: EdgeInsets.all(AppConstante.PADDING / 4),
+                child: Text(
+                  (home_a + home_f).toStringAsFixed(1),
+                  style: AppTextStyle.titleSmall,
                 ),
-                Expanded(
-                  child: Center(
-                    child: Text(
-                      "Statistiques des $title",
-                      style: AppTextStyle.titleMedium,
+              ),
+              SizedBox(
+                width: AppConstante.PADDING / 2,
+              ),
+              Expanded(
+                child: Column(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  Icons.circle,
+                                  color: AppConstante.grenn2,
+                                  size: AppConstante.PADDING / 4,
+                                ),
+                                SizedBox(
+                                  width: AppConstante.PADDING / 5,
+                                ),
+                                Text(home_f.toStringAsFixed(1),
+                                    style: AppTextStyle.bodysmall),
+                              ],
+                            ),
+                            const Spacer(),
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(home_a.toStringAsFixed(1),
+                                    style: AppTextStyle.bodysmall),
+                                SizedBox(
+                                  width: AppConstante.PADDING / 5,
+                                ),
+                                Icon(
+                                  Icons.circle,
+                                  color: AppConstante.orange,
+                                  size: AppConstante.PADDING / 4,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: AppConstante.PADDING / 3,
+                        ),
+                        Transform.rotate(
+                          angle: 3.14159265359,
+                          child: LinearProgressIndicator(
+                            borderRadius: BorderRadius.circular(40),
+                            color: Colors.red,
+                            value: home_f / (home_f + home_a),
+                            minHeight: 3,
+                          ),
+                        ),
+                      ],
                     ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                width: AppConstante.PADDING / 2,
+              ),
+              Center(
+                child: Container(
+                  padding: EdgeInsets.all(AppConstante.PADDING / 2),
+                  child: Column(
+                    children: [
+                      GestureDetector(
+                          onTap: () {
+                            Get.dialog(const LineChartPopup());
+                          },
+                          child: Icon(
+                            Icons.bar_chart,
+                            size: AppConstante.PADDING,
+                          )),
+                      Text(
+                        title,
+                        style: AppTextStyle.bodygras,
+                      )
+                    ],
                   ),
                 ),
-                Icon(
-                  Icons.supervisor_account,
-                  size: AppConstante.PADDING,
+              ),
+              SizedBox(
+                width: AppConstante.PADDING / 2,
+              ),
+              Expanded(
+                child: Column(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Row(
+                          children: [
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  Icons.circle,
+                                  color: AppConstante.grenn2,
+                                  size: AppConstante.PADDING / 4,
+                                ),
+                                SizedBox(
+                                  width: AppConstante.PADDING / 5,
+                                ),
+                                Text(away_f.toStringAsFixed(1),
+                                    style: AppTextStyle.bodysmall),
+                              ],
+                            ),
+                            const Spacer(),
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(away_a.toStringAsFixed(1),
+                                    style: AppTextStyle.bodysmall),
+                                SizedBox(
+                                  width: AppConstante.PADDING / 5,
+                                ),
+                                Icon(
+                                  Icons.circle,
+                                  color: AppConstante.orange,
+                                  size: AppConstante.PADDING / 4,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: AppConstante.PADDING / 3,
+                        ),
+                        LinearProgressIndicator(
+                          borderRadius: BorderRadius.circular(40),
+                          color: Colors.red,
+                          value: away_f / (away_f + away_a),
+                          minHeight: 3,
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-              ],
-            ),
-            const Divider(),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
+              ),
+              SizedBox(
+                width: AppConstante.PADDING / 2,
+              ),
+              Center(
+                child: Container(
                   padding: EdgeInsets.all(AppConstante.PADDING / 4),
                   child: Text(
-                    (home_a + home_f).toStringAsFixed(1),
+                    (away_a + away_f).toStringAsFixed(1),
                     style: AppTextStyle.titleSmall,
                   ),
                 ),
-                SizedBox(
-                  width: AppConstante.PADDING / 4,
-                ),
-                Expanded(
-                  child: Column(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.circle,
-                                color: AppConstante.grenn2,
-                                size: AppConstante.PADDING / 3,
-                              ),
-                              SizedBox(
-                                width: AppConstante.PADDING / 4,
-                              ),
-                              Text(home_f.toStringAsFixed(1),
-                                  style: AppTextStyle.bodysmall),
-                            ],
-                          ),
-                          Transform.rotate(
-                            angle: 3.14159265359,
-                            child: LinearProgressIndicator(
-                              borderRadius: BorderRadius.circular(40),
-                              color: Colors.red,
-                              value: home_f / max,
-                              minHeight: 3,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: AppConstante.PADDING / 3,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.circle,
-                                color: AppConstante.orange,
-                                size: AppConstante.PADDING / 3,
-                              ),
-                              SizedBox(
-                                width: AppConstante.PADDING / 4,
-                              ),
-                              Text(home_a.toStringAsFixed(1),
-                                  style: AppTextStyle.bodysmall),
-                            ],
-                          ),
-                          Transform.rotate(
-                            angle: 3.14159265359,
-                            child: LinearProgressIndicator(
-                              borderRadius: BorderRadius.circular(40),
-                              color: Colors.red,
-                              value: home_a / max,
-                              minHeight: 3,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                Center(
-                  child: Container(
-                    padding: EdgeInsets.all(AppConstante.PADDING / 2),
-                    child: GestureDetector(
-                        onTap: () {
-                          Get.dialog(const LineChartPopup());
-                        },
-                        child: Icon(
-                          Icons.bar_chart,
-                          size: AppConstante.PADDING,
-                        )),
-                  ),
-                ),
-                Expanded(
-                  child: Column(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(away_f.toStringAsFixed(1),
-                                  style: AppTextStyle.bodysmall),
-                              SizedBox(
-                                width: AppConstante.PADDING / 4,
-                              ),
-                              Icon(
-                                Icons.circle,
-                                color: AppConstante.grenn2,
-                                size: AppConstante.PADDING / 3,
-                              ),
-                            ],
-                          ),
-                          LinearProgressIndicator(
-                            borderRadius: BorderRadius.circular(40),
-                            color: Colors.red,
-                            value: away_f / max,
-                            minHeight: 3,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: AppConstante.PADDING / 3,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(away_a.toStringAsFixed(1),
-                                  style: AppTextStyle.bodysmall),
-                              SizedBox(
-                                width: AppConstante.PADDING / 4,
-                              ),
-                              Icon(
-                                Icons.circle,
-                                color: AppConstante.orange,
-                                size: AppConstante.PADDING / 3,
-                              ),
-                            ],
-                          ),
-                          LinearProgressIndicator(
-                            borderRadius: BorderRadius.circular(40),
-                            color: Colors.red,
-                            value: away_a / max,
-                            minHeight: 3,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  width: AppConstante.PADDING / 4,
-                ),
-                Center(
-                  child: Container(
-                    padding: EdgeInsets.all(AppConstante.PADDING / 4),
-                    child: Text(
-                      (away_a + away_f).toStringAsFixed(1),
-                      style: AppTextStyle.titleSmall,
-                    ),
-                  ),
-                ),
-              ],
-            )
-          ],
-        ),
-      ),
+              ),
+            ],
+          )),
     );
   }
 }

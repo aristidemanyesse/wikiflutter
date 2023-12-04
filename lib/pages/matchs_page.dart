@@ -76,9 +76,9 @@ class _MatchsPageState extends State<MatchsPage> {
                             ))
                         .toList(),
                   )
-                : Column(
+                : const Column(
                     children: [
-                      const Center(
+                      Center(
                         child: Text(
                           "Aucun match pour ce jour !",
                           style: AppTextStyle.titleMedium,

@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:wikibet/components/logo_markers.dart';
 import 'package:wikibet/components/prediction_tip.dart';
 import 'package:wikibet/controllers/MatchController.dart';
-import 'package:wikibet/core/apiservice.dart';
 import 'package:wikibet/models/competitionApp/typeCompetition.dart';
 import 'package:wikibet/models/statsApp/resultMatch.dart';
 import 'package:wikibet/models/teamApp/editionTeam.dart';
@@ -43,7 +42,7 @@ class MatchCard extends StatelessWidget {
           Get.to(MatchPage(match: match));
         },
         child: Card(
-          elevation: 5,
+          elevation: 1,
           child: Container(
             width: double.infinity,
             padding: EdgeInsets.all(AppConstante.PADDING / 2),
@@ -91,7 +90,7 @@ class MatchCard extends StatelessWidget {
                               ? Text(
                                   "${result.homeScore} : ${result.awayScore}",
                                   style: AppTextStyle.titleLarge)
-                              : Text("Vs", style: AppTextStyle.titleLarge),
+                              : const Text("Vs", style: AppTextStyle.titleLarge),
                           SizedBox(
                             height: AppConstante.PADDING / 4,
                           ),
@@ -153,6 +152,9 @@ class BlocTeam extends StatelessWidget {
           path: team.team!.logo,
           height: 40,
           width: 40,
+        ),
+        SizedBox(
+          height: AppConstante.PADDING / 3,
         ),
         Text(
           team.team!.name,

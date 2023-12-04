@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:wikibet/components/league_teamsranking_card.dart';
-import 'package:wikibet/components/match_teamsranking_card.dart';
 import 'package:wikibet/tools/tools.dart';
 
 class GeneralSection extends StatelessWidget {

@@ -17,6 +17,7 @@ class MatchController extends GetxController {
   Rx<List<BeforeMatchStat>> befores = Rx<List<BeforeMatchStat>>([]);
   Rx<List<Match>> homeLastMatchs = Rx<List<Match>>([]);
   Rx<List<Match>> awayLastMatchs = Rx<List<Match>>([]);
+  Rx<List<Match>> B2BLastMatchs = Rx<List<Match>>([]);
   Rx<List<Fact>> homeFacts = Rx<List<Fact>>([]);
   Rx<List<Fact>> awayFacts = Rx<List<Fact>>([]);
   RxBool wait = false.obs;
@@ -40,7 +41,8 @@ class MatchController extends GetxController {
 
     ever(wait, (value) {
       if (value) {
-        Get.dialog(const Center(child: PleaseWait()), barrierDismissible: false);
+        Get.dialog(const Center(child: PleaseWait()),
+            barrierDismissible: false);
       } else {
         Get.back();
       }
@@ -66,39 +68,47 @@ class MatchController extends GetxController {
         });
         awayRanking.value = datas.first;
 
-        befores.value =
-            await BeforeMatchStat.all({"match": matchSelected.value.id});
-
         homeLastMatchs.value = await Match.all({
               "dateLte": conv_date(DateTime.parse(matchSelected.value.date)),
               "finished": true,
-              "edition": matchSelected.value.home!.edition!.id,
               "home": matchSelected.value.home!.id
             }) +
             await Match.all({
               "dateLte": conv_date(DateTime.parse(matchSelected.value.date)),
               "finished": true,
-              "edition": matchSelected.value.home!.edition!.id,
               "away": matchSelected.value.home!.id
             });
         homeLastMatchs.value.sort((a, b) => b.date.compareTo(a.date));
-        homeLastMatchs.value = homeLastMatchs.value.take(10).toList();
+        homeLastMatchs.value = homeLastMatchs.value.take(7).toList();
         // wait.value = false;
 
         awayLastMatchs.value = await Match.all({
               "dateLte": conv_date(DateTime.parse(matchSelected.value.date)),
               "finished": true,
-              "edition": matchSelected.value.away!.edition!.id,
               "home": matchSelected.value.away!.id
             }) +
             await Match.all({
               "dateLte": conv_date(DateTime.parse(matchSelected.value.date)),
               "finished": true,
-              "edition": matchSelected.value.away!.edition!.id,
               "away": matchSelected.value.away!.id
             });
         awayLastMatchs.value.sort((a, b) => b.date.compareTo(a.date));
-        awayLastMatchs.value = awayLastMatchs.value.take(10).toList();
+        awayLastMatchs.value = awayLastMatchs.value.take(7).toList();
+
+        B2BLastMatchs.value = await Match.all({
+              "dateLte": conv_date(DateTime.parse(matchSelected.value.date)),
+              "finished": true,
+              "homeTeamId": matchSelected.value.home!.team!.id,
+              "awayTeamId": matchSelected.value.away!.team!.id
+            }) +
+            await Match.all({
+              "dateLte": conv_date(DateTime.parse(matchSelected.value.date)),
+              "finished": true,
+              "homeTeamId": matchSelected.value.away!.team!.id,
+              "awayTeamId": matchSelected.value.home!.team!.id
+            });
+        B2BLastMatchs.value.sort((a, b) => b.date.compareTo(a.date));
+        B2BLastMatchs.value = B2BLastMatchs.value.take(7).toList();
 
         homeFacts.value = await Fact.all({
           "match": matchSelected.value.id,

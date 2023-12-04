@@ -25,7 +25,6 @@ mixin _$Fact {
   String get updateAt => throw _privateConstructorUsedError;
   bool get deleted => throw _privateConstructorUsedError;
   TypeFact? get type => throw _privateConstructorUsedError;
-  Match? get match => throw _privateConstructorUsedError;
   EditionTeam? get team => throw _privateConstructorUsedError;
   bool get fullTime => throw _privateConstructorUsedError;
   bool get allMatches => throw _privateConstructorUsedError;
@@ -49,7 +48,6 @@ abstract class $FactCopyWith<$Res> {
       String updateAt,
       bool deleted,
       TypeFact? type,
-      Match? match,
       EditionTeam? team,
       bool fullTime,
       bool allMatches,
@@ -58,7 +56,6 @@ abstract class $FactCopyWith<$Res> {
       double pct});
 
   $TypeFactCopyWith<$Res>? get type;
-  $MatchCopyWith<$Res>? get match;
   $EditionTeamCopyWith<$Res>? get team;
 }
 
@@ -80,7 +77,6 @@ class _$FactCopyWithImpl<$Res, $Val extends Fact>
     Object? updateAt = null,
     Object? deleted = null,
     Object? type = freezed,
-    Object? match = freezed,
     Object? team = freezed,
     Object? fullTime = null,
     Object? allMatches = null,
@@ -109,10 +105,6 @@ class _$FactCopyWithImpl<$Res, $Val extends Fact>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as TypeFact?,
-      match: freezed == match
-          ? _value.match
-          : match // ignore: cast_nullable_to_non_nullable
-              as Match?,
       team: freezed == team
           ? _value.team
           : team // ignore: cast_nullable_to_non_nullable
@@ -154,18 +146,6 @@ class _$FactCopyWithImpl<$Res, $Val extends Fact>
 
   @override
   @pragma('vm:prefer-inline')
-  $MatchCopyWith<$Res>? get match {
-    if (_value.match == null) {
-      return null;
-    }
-
-    return $MatchCopyWith<$Res>(_value.match!, (value) {
-      return _then(_value.copyWith(match: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
   $EditionTeamCopyWith<$Res>? get team {
     if (_value.team == null) {
       return null;
@@ -190,7 +170,6 @@ abstract class _$$FactImplCopyWith<$Res> implements $FactCopyWith<$Res> {
       String updateAt,
       bool deleted,
       TypeFact? type,
-      Match? match,
       EditionTeam? team,
       bool fullTime,
       bool allMatches,
@@ -200,8 +179,6 @@ abstract class _$$FactImplCopyWith<$Res> implements $FactCopyWith<$Res> {
 
   @override
   $TypeFactCopyWith<$Res>? get type;
-  @override
-  $MatchCopyWith<$Res>? get match;
   @override
   $EditionTeamCopyWith<$Res>? get team;
 }
@@ -221,7 +198,6 @@ class __$$FactImplCopyWithImpl<$Res>
     Object? updateAt = null,
     Object? deleted = null,
     Object? type = freezed,
-    Object? match = freezed,
     Object? team = freezed,
     Object? fullTime = null,
     Object? allMatches = null,
@@ -250,10 +226,6 @@ class __$$FactImplCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as TypeFact?,
-      match: freezed == match
-          ? _value.match
-          : match // ignore: cast_nullable_to_non_nullable
-              as Match?,
       team: freezed == team
           ? _value.team
           : team // ignore: cast_nullable_to_non_nullable
@@ -291,7 +263,6 @@ class _$FactImpl with DiagnosticableTreeMixin implements _Fact {
       this.updateAt = "",
       this.deleted = false,
       this.type,
-      this.match,
       this.team,
       this.fullTime = false,
       this.allMatches = false,
@@ -317,8 +288,6 @@ class _$FactImpl with DiagnosticableTreeMixin implements _Fact {
   @override
   final TypeFact? type;
   @override
-  final Match? match;
-  @override
   final EditionTeam? team;
   @override
   @JsonKey()
@@ -338,7 +307,7 @@ class _$FactImpl with DiagnosticableTreeMixin implements _Fact {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Fact(id: $id, createdAt: $createdAt, updateAt: $updateAt, deleted: $deleted, type: $type, match: $match, team: $team, fullTime: $fullTime, allMatches: $allMatches, total: $total, success: $success, pct: $pct)';
+    return 'Fact(id: $id, createdAt: $createdAt, updateAt: $updateAt, deleted: $deleted, type: $type, team: $team, fullTime: $fullTime, allMatches: $allMatches, total: $total, success: $success, pct: $pct)';
   }
 
   @override
@@ -351,7 +320,6 @@ class _$FactImpl with DiagnosticableTreeMixin implements _Fact {
       ..add(DiagnosticsProperty('updateAt', updateAt))
       ..add(DiagnosticsProperty('deleted', deleted))
       ..add(DiagnosticsProperty('type', type))
-      ..add(DiagnosticsProperty('match', match))
       ..add(DiagnosticsProperty('team', team))
       ..add(DiagnosticsProperty('fullTime', fullTime))
       ..add(DiagnosticsProperty('allMatches', allMatches))
@@ -372,7 +340,6 @@ class _$FactImpl with DiagnosticableTreeMixin implements _Fact {
                 other.updateAt == updateAt) &&
             (identical(other.deleted, deleted) || other.deleted == deleted) &&
             (identical(other.type, type) || other.type == type) &&
-            (identical(other.match, match) || other.match == match) &&
             (identical(other.team, team) || other.team == team) &&
             (identical(other.fullTime, fullTime) ||
                 other.fullTime == fullTime) &&
@@ -386,7 +353,7 @@ class _$FactImpl with DiagnosticableTreeMixin implements _Fact {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, createdAt, updateAt, deleted,
-      type, match, team, fullTime, allMatches, total, success, pct);
+      type, team, fullTime, allMatches, total, success, pct);
 
   @JsonKey(ignore: true)
   @override
@@ -409,7 +376,6 @@ abstract class _Fact implements Fact {
       final String updateAt,
       final bool deleted,
       final TypeFact? type,
-      final Match? match,
       final EditionTeam? team,
       final bool fullTime,
       final bool allMatches,
@@ -429,8 +395,6 @@ abstract class _Fact implements Fact {
   bool get deleted;
   @override
   TypeFact? get type;
-  @override
-  Match? get match;
   @override
   EditionTeam? get team;
   @override

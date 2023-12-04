@@ -38,6 +38,7 @@ mixin _$Match {
   List<Prediction>? get predictionMatch => throw _privateConstructorUsedError;
   List<TeamProfileMatch>? get matchProfile =>
       throw _privateConstructorUsedError;
+  List<OddsMatch>? get matchOdds => throw _privateConstructorUsedError;
   bool get isFinished => throw _privateConstructorUsedError;
   bool get isPosted => throw _privateConstructorUsedError;
   bool get isFirstMatch => throw _privateConstructorUsedError;
@@ -73,6 +74,7 @@ abstract class $MatchCopyWith<$Res> {
       List<ExtraInfosMatch>? extraInfoMatch,
       List<Prediction>? predictionMatch,
       List<TeamProfileMatch>? matchProfile,
+      List<OddsMatch>? matchOdds,
       bool isFinished,
       bool isPosted,
       bool isFirstMatch,
@@ -115,6 +117,7 @@ class _$MatchCopyWithImpl<$Res, $Val extends Match>
     Object? extraInfoMatch = freezed,
     Object? predictionMatch = freezed,
     Object? matchProfile = freezed,
+    Object? matchOdds = freezed,
     Object? isFinished = null,
     Object? isPosted = null,
     Object? isFirstMatch = null,
@@ -185,6 +188,10 @@ class _$MatchCopyWithImpl<$Res, $Val extends Match>
           ? _value.matchProfile
           : matchProfile // ignore: cast_nullable_to_non_nullable
               as List<TeamProfileMatch>?,
+      matchOdds: freezed == matchOdds
+          ? _value.matchOdds
+          : matchOdds // ignore: cast_nullable_to_non_nullable
+              as List<OddsMatch>?,
       isFinished: null == isFinished
           ? _value.isFinished
           : isFinished // ignore: cast_nullable_to_non_nullable
@@ -280,6 +287,7 @@ abstract class _$$MatchImplCopyWith<$Res> implements $MatchCopyWith<$Res> {
       List<ExtraInfosMatch>? extraInfoMatch,
       List<Prediction>? predictionMatch,
       List<TeamProfileMatch>? matchProfile,
+      List<OddsMatch>? matchOdds,
       bool isFinished,
       bool isPosted,
       bool isFirstMatch,
@@ -323,6 +331,7 @@ class __$$MatchImplCopyWithImpl<$Res>
     Object? extraInfoMatch = freezed,
     Object? predictionMatch = freezed,
     Object? matchProfile = freezed,
+    Object? matchOdds = freezed,
     Object? isFinished = null,
     Object? isPosted = null,
     Object? isFirstMatch = null,
@@ -387,6 +396,10 @@ class __$$MatchImplCopyWithImpl<$Res>
           ? _value._matchProfile
           : matchProfile // ignore: cast_nullable_to_non_nullable
               as List<TeamProfileMatch>?,
+      matchOdds: freezed == matchOdds
+          ? _value._matchOdds
+          : matchOdds // ignore: cast_nullable_to_non_nullable
+              as List<OddsMatch>?,
       isFinished: null == isFinished
           ? _value.isFinished
           : isFinished // ignore: cast_nullable_to_non_nullable
@@ -442,6 +455,7 @@ class _$MatchImpl with DiagnosticableTreeMixin implements _Match {
       final List<ExtraInfosMatch>? extraInfoMatch,
       final List<Prediction>? predictionMatch,
       final List<TeamProfileMatch>? matchProfile,
+      final List<OddsMatch>? matchOdds,
       this.isFinished = false,
       this.isPosted = false,
       this.isFirstMatch = false,
@@ -454,7 +468,8 @@ class _$MatchImpl with DiagnosticableTreeMixin implements _Match {
         _beforeStatMatch = beforeStatMatch,
         _extraInfoMatch = extraInfoMatch,
         _predictionMatch = predictionMatch,
-        _matchProfile = matchProfile;
+        _matchProfile = matchProfile,
+        _matchOdds = matchOdds;
 
   factory _$MatchImpl.fromJson(Map<String, dynamic> json) =>
       _$$MatchImplFromJson(json);
@@ -536,6 +551,16 @@ class _$MatchImpl with DiagnosticableTreeMixin implements _Match {
     return EqualUnmodifiableListView(value);
   }
 
+  final List<OddsMatch>? _matchOdds;
+  @override
+  List<OddsMatch>? get matchOdds {
+    final value = _matchOdds;
+    if (value == null) return null;
+    if (_matchOdds is EqualUnmodifiableListView) return _matchOdds;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   @JsonKey()
   final bool isFinished;
@@ -563,7 +588,7 @@ class _$MatchImpl with DiagnosticableTreeMixin implements _Match {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Match(id: $id, createdAt: $createdAt, updateAt: $updateAt, deleted: $deleted, name: $name, date: $date, hour: $hour, home: $home, away: $away, edition: $edition, resultMatch: $resultMatch, beforeStatMatch: $beforeStatMatch, extraInfoMatch: $extraInfoMatch, predictionMatch: $predictionMatch, matchProfile: $matchProfile, isFinished: $isFinished, isPosted: $isPosted, isFirstMatch: $isFirstMatch, isPredict: $isPredict, isCompared: $isCompared, isComparedElo: $isComparedElo, isFacted: $isFacted, isStated: $isStated)';
+    return 'Match(id: $id, createdAt: $createdAt, updateAt: $updateAt, deleted: $deleted, name: $name, date: $date, hour: $hour, home: $home, away: $away, edition: $edition, resultMatch: $resultMatch, beforeStatMatch: $beforeStatMatch, extraInfoMatch: $extraInfoMatch, predictionMatch: $predictionMatch, matchProfile: $matchProfile, matchOdds: $matchOdds, isFinished: $isFinished, isPosted: $isPosted, isFirstMatch: $isFirstMatch, isPredict: $isPredict, isCompared: $isCompared, isComparedElo: $isComparedElo, isFacted: $isFacted, isStated: $isStated)';
   }
 
   @override
@@ -586,6 +611,7 @@ class _$MatchImpl with DiagnosticableTreeMixin implements _Match {
       ..add(DiagnosticsProperty('extraInfoMatch', extraInfoMatch))
       ..add(DiagnosticsProperty('predictionMatch', predictionMatch))
       ..add(DiagnosticsProperty('matchProfile', matchProfile))
+      ..add(DiagnosticsProperty('matchOdds', matchOdds))
       ..add(DiagnosticsProperty('isFinished', isFinished))
       ..add(DiagnosticsProperty('isPosted', isPosted))
       ..add(DiagnosticsProperty('isFirstMatch', isFirstMatch))
@@ -623,6 +649,8 @@ class _$MatchImpl with DiagnosticableTreeMixin implements _Match {
                 .equals(other._predictionMatch, _predictionMatch) &&
             const DeepCollectionEquality()
                 .equals(other._matchProfile, _matchProfile) &&
+            const DeepCollectionEquality()
+                .equals(other._matchOdds, _matchOdds) &&
             (identical(other.isFinished, isFinished) ||
                 other.isFinished == isFinished) &&
             (identical(other.isPosted, isPosted) ||
@@ -660,6 +688,7 @@ class _$MatchImpl with DiagnosticableTreeMixin implements _Match {
         const DeepCollectionEquality().hash(_extraInfoMatch),
         const DeepCollectionEquality().hash(_predictionMatch),
         const DeepCollectionEquality().hash(_matchProfile),
+        const DeepCollectionEquality().hash(_matchOdds),
         isFinished,
         isPosted,
         isFirstMatch,
@@ -701,6 +730,7 @@ abstract class _Match implements Match {
       final List<ExtraInfosMatch>? extraInfoMatch,
       final List<Prediction>? predictionMatch,
       final List<TeamProfileMatch>? matchProfile,
+      final List<OddsMatch>? matchOdds,
       final bool isFinished,
       final bool isPosted,
       final bool isFirstMatch,
@@ -742,6 +772,8 @@ abstract class _Match implements Match {
   List<Prediction>? get predictionMatch;
   @override
   List<TeamProfileMatch>? get matchProfile;
+  @override
+  List<OddsMatch>? get matchOdds;
   @override
   bool get isFinished;
   @override
